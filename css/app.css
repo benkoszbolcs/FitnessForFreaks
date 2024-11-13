@@ -1,0 +1,12 @@
+*:not(input):not(textarea) {
+  -webkit-user-select: none !important;
+   -khtml-user-select: none !important;
+          user-select: none !important;
+        outline-style: none !important;
+}
+.fs-sm {
+  font-size:0.75rem  !important;
+}
+nav a.active {
+  text-decoration: underline;
+}
