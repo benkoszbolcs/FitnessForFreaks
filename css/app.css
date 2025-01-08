@@ -7,3 +7,42 @@
 .dropdown-item a.active {
 	background-color: transparent !important;
 }
+
+/* Gomb stílus */
+.carousel-caption a.btn {
+	font-size: 1.1rem; /* Kisebb szöveg mobilon */
+	padding: 12px 30px;
+	border-radius: 50px;
+	text-transform: uppercase;
+	background-color: #007bff; /* Kék háttérszín */
+	border: 2px solid #007bff; /* Kék szegély */
+	transition: all 0.3s ease-in-out; /* Finom animáció */
+  }
+  
+  .carousel-caption a.btn:hover {
+	background-color: #0056b3; /* Sötétebb kék hover állapotban */
+	border-color: #0056b3;
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Árnyék a hover állapotban */
+  }
+  
+  /* Reszponzív gomb, mobilon nagyobb */
+  @media (max-width: 768px) {
+	.carousel-caption a.btn {
+	  font-size: 1.2rem;
+	  padding: 14px 35px;
+	}
+  }
+  
+  /* A képek és szöveg elrendezése a carousel itemekben */
+  .carousel-caption {
+	position: absolute;
+	bottom: 20px;
+	left: 50%;
+	transform: translateX(-50%);
+	text-align: center;
+	color: #fff;
+	background: rgba(0, 0, 0, 0.5); /* Átlátszó fekete háttér a szöveghez */
+	padding: 20px;
+	border-radius: 10px;
+  }
+  
