@@ -38,15 +38,25 @@
 				templateUrl: './html/home.html',
 				controller: 'homeController'
 			})
-      .state('page1', {
-				url: '/page1',
+      .state('sports', {
+				url: '/sports',
         parent: 'root',
-				templateUrl: './html/page1.html'
+				templateUrl: './html/sports.html'
 			})
-      .state('page2', {
-				url: '/page2',
+      .state('workoutplan', {
+				url: '/workoutplan',
         parent: 'root',
-				templateUrl: './html/page2.html'
+				templateUrl: './html/workoutplan.html'
+			})
+      .state('aboutus', {
+				url: '/aboutus',
+        parent: 'root',
+				templateUrl: './html/aboutus.html'
+			})
+      .state('forum', {
+				url: '/forum',
+        parent: 'root',
+				templateUrl: './html/forum.html'
 			})
       .state('login', {
 				url: '/login',
