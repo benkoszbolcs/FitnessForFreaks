@@ -46,27 +46,6 @@
 					</div>
 				</div>
 
-				<!-- Middle name -->
-				<div class="row mb-3">
-					<label for="register-middle_name" 
-								class="col-form-label col-12 col-md-5 text-md-end">
-						<span class="text-capitalize">middle</span>
-						<span>name:</span>
-					</label>
-					<div class="col-11 col-md-6 position-relative">
-						<input id="register-middle_name"
-									class="form-control"
-									name="middle_name" 
-									type="text"
-									placeholder="middle name"
-									spellcheck="false" 
-									autocomplete="off" 
-									maxlength="100"
-									ng-init="model.register.middle_name=null"
-									ng-model="model.register.middle_name"
-									ng-clear-icon>
-					</div>
-				</div>
 
 				<!-- Last name -->
 				<div class="row mb-3">
@@ -97,6 +76,38 @@
 						</span>
 					</div>
 				</div>
+
+				<!-- User name -->
+				<div class="row mb-3">
+					<label for="register-user_name" 
+								class="col-form-label col-12 col-md-5 text-md-end">
+						<i class="fa-solid fa-star fa-2xs text-danger"></i>
+						<span class="text-capitalize">user</span>
+						<span>name:</span>
+					</label>
+					<div class="col-11 col-md-6 position-relative">
+						<input id="register-user_name"
+									class="form-control"
+									name="user_name" 
+									type="text"
+									placeholder="username"
+									spellcheck="false" 
+									autocomplete="off" 
+									required
+									maxlength="100"
+									ng-init="model.register.user=null"
+									ng-model="model.register.user_name"
+									ng-clear-icon
+									min="5">
+					</div>
+					<div class="col-1 d-flex align-items-center justify-content-start ps-1">
+						<span class="fw-bolder text-success"
+									ng-class="{'invisible': registerForm.user_name.$invalid}">
+							&check;
+						</span>
+					</div>
+				</div>
+
 
 				<!-- Born -->
 				<div class="row mb-3">
@@ -209,45 +220,7 @@
 					</div>
 				</div>
 
-				<!-- Email confirmation -->
-				<div class="row mb-3">
-					<label for="register-emailConfirm" 
-								class="col-form-label col-12 col-md-5 text-md-end">
-						<i class="fa-solid fa-star fa-2xs text-danger"></i>
-						<i class="fa-regular fa-envelope me-1"></i>
-						<span class="text-capitalize">confirm:</span>
-					</label>
-					<div class="col-11 col-md-6 position-relative">
-						<input id="register-emailConfirm"
-									class="form-control"
-									name="emailConfirm" 
-									type="text"
-									placeholder="email confirmation"
-									spellcheck="false" 
-									autocomplete="off" 
-									required
-									maxlength="50"
-									ng-init="model.register.emailConfirm=null"
-									ng-model="model.register.emailConfirm"
-									ng-compare-model="model.register.email"
-									ng-pattern="/^([a-z0-9_.+-])+\@(([a-z0-9-])+\.)+([a-z0-9]{2,4})+$/"
-									ng-disable-space
-									ng-clear-icon>
-					</div>
-					<div class="col-1 d-flex align-items-center justify-content-start ps-1">
-						<span class="fw-bolder text-success"
-									ng-class="{'invisible': registerForm.emailConfirm.$invalid}">
-							&check;
-						</span>
-						<span data-bs-toggle="tooltip"
-									data-bs-custom-class="custom-tooltip"
-									data-bs-html="true"
-									data-bs-title="&lt;p class='my-1'>Please re-enter your email address for security!&lt;/p>">
-							<i class="fa-solid fa-circle-info text-primary ms-2"></i>
-						</span>
-					</div>
-				</div>
-
+				
 				<!-- Password -->
 				<div class="row mb-3">
 					<label for="register-password" 
@@ -294,14 +267,14 @@
 								class="col-form-label col-12 col-md-5 text-md-end">
 						<i class="fa-solid fa-star fa-2xs text-danger"></i>
 						<i class="fa-solid fa-unlock-keyhole me-1"></i>
-						<span class="text-capitalize">confirm:</span>
+						<span class="text-capitalize"> jelszó megerősítés:</span>
 					</label>
 					<div class="col-11 col-md-6 position-relative">
 						<input id="register-passwordConfirm"
 									class="form-control"
 									name="passwordConfirm" 
 									type="{{model.register.showPassword ? 'text' : 'password'}}"
-									placeholder="password confirmation"
+									placeholder="jelszó megerősítés"
 									spellcheck="false" 
 									autocomplete="off" 
 									required
@@ -339,7 +312,7 @@
 									ng-model="model.register.showPassword">
 						<label for="register-showPassword"
 									class="form-check-label ms-1">
-							Show password
+							Jelszó megjelentítése
 						</label>
 					</div>
 				</div>
@@ -352,7 +325,7 @@
 									class="btn btn-primary w-auto px-5 me-3 text-capitalize"
 									ng-disabled="registerForm.$invalid"
 									ng-click="methods.httpRequest()">
-						registration
+						Regiszráció
 					</button>
 				</div>
 			</form>
