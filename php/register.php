@@ -19,7 +19,7 @@ if ($result) {
     Util::setError("Ez az email cím már regisztrálva van!");
 }
 
-$query = "INSERT";
+$query = "INSERT INTO `felhasznalo` (`felhNev`, `email`, `jelszo`, `nem`, `szulEv`) VALUES (?,?,?,?,?) ";
 
 $result = $db->execute($query, $args['email']);
 
