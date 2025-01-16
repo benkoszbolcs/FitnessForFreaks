@@ -8,16 +8,12 @@ require_once("./environment.php");
 $args = Util::getArgs();
 
 // Set SQL command
-$query = "SELECT 	`id`,
-									`type`,
-									`first_name`,
-									`middle_name`,
-									`last_name`,
-									`gender`,
-									`password` 
-						 FROM `users` 
-						WHERE `email` = ? AND
-									`valid` = 1
+$query =  "SELECT `felhid`, 
+									`felhNev`, 
+									`jelszo`, 
+									`nem` 
+						 FROM `felhasznalo` 
+						WHERE `email` = ?
 						LIMIT 1";
 
 // Connect to MySQL server
@@ -37,11 +33,11 @@ if (is_null($result))
 $result = $result[0];
 
 // Check password
-if ($result['password'] !== $args['password'])
+if ($result['jelszo'] !== $args['jelszo'])
 	Util::setError("Helytelen jelszó!");
 
 // Remove password property
-unset($result['password']);
+unset($result['jelszo']);
 
 // Ser response
 Util::setResponse($result);
