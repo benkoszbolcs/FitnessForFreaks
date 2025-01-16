@@ -33,14 +33,14 @@
 									autocomplete="off" 
 									required
 									maxlength="100"
-									ng-init="model.register.user=null"
-									ng-model="model.register.user_name"
+									ng-init="model.register.felhNev=null"
+									ng-model="model.register.felhNev"
 									ng-clear-icon
 									min="5">
 					</div>
 					<div class="col-1 d-flex align-items-center justify-content-start ps-1">
 						<span class="fw-bolder text-success"
-									ng-class="{'invisible': registerForm.user_name.$invalid}">
+									ng-class="{'invisible': registerForm.felhNev.$invalid}">
 							&check;
 						</span>
 					</div>
@@ -67,14 +67,14 @@
 									min="{{helper.minBorn}}" 
 									required
 									maxlength="300"
-									ng-init="model.register.born=null"
-									ng-model="model.register.born"
+									ng-init="model.register.szulev=null"
+									ng-model="model.register.szulev"
 									ng-disable-space
 									ng-clear-icon>
 					</div>
 					<div class="col-1 d-flex align-items-center justify-content-start ps-1">
 						<span class="fw-bolder text-success"
-									ng-class="{'invisible': registerForm.born.$invalid}">
+									ng-class="{'invisible': registerForm.szulev.$invalid}">
 							&check;
 						</span>
 						<span data-bs-toggle="tooltip"
@@ -104,7 +104,7 @@
 										type="radio"
 										ng-value="x === 'female' ? 'F' : 'M'"
 										class="form-check-input"
-										ng-model="model.register.gender" 
+										ng-model="model.register.nem" 
 										required>
 								<label for="register-{{x}}" 
 											class="form-check-label opacity-100">
@@ -114,7 +114,7 @@
 					</div>
 					<div class="col-1 d-flex align-items-center justify-content-start ps-1">
 						<span class="fw-bolder text-success"
-									ng-class="{'invisible': registerForm.gender.$invalid}">
+									ng-class="{'invisible': registerForm.nem.$invalid}">
 							&check;
 						</span>
 					</div>
@@ -178,15 +178,15 @@
 									required
 									minlength="6"
 									maxlength="20"
-									ng-init="model.register.password=null"
-									ng-model="model.register.password"
+									ng-init="model.register.jelszo=null"
+									ng-model="model.register.jelszo"
 									ng-pattern="/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/"
 									ng-disable-space
 									ng-clear-icon>
 					</div>
 					<div class="col-1 d-flex align-items-center justify-content-start ps-1">
 						<span class="fw-bolder text-success"
-									ng-class="{'invisible': registerForm.password.$invalid}">
+									ng-class="{'invisible': registerForm.jelszo.$invalid}">
 							&check;
 						</span>
 						<span data-bs-toggle="tooltip"
@@ -220,7 +220,7 @@
 									maxlength="20"
 									ng-init="model.register.passwordConfirm=null"
 									ng-model="model.register.passwordConfirm"
-									ng-compare-model="model.register.password"
+									ng-compare-model="model.register.jelszo"
 									ng-pattern="/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/"
 									ng-disable-space
 									ng-clear-icon>
