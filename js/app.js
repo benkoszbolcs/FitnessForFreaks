@@ -458,7 +458,7 @@
         init: () => {
 
           // Set email address from local storige if exist
-          //$scope.model = {email: util.localStorage('get', 'email')};
+          $scope.model = {email: util.localStorage('get', 'email')};
 
           // Set focus
 					user.focus();
@@ -474,14 +474,10 @@
         // Login
         register: () => {
 
-          let data = util.objFilterByKeys($scope.model, 
-                      'showPassword;passwordConfirm', false);
-          data.szulev = data.szulev.toISOFormat();
-
           // Set request
           http.request({
             url: "./php/register.php",
-            data: data
+            data: util.objFilterByKeys($scope.model, 'showPassword', false)
           })
           .then(response => {
             response.email = $scope.model.email;

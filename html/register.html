@@ -26,15 +26,15 @@
 					<div class="col-11 col-md-6 position-relative">
 						<input id="register-user_name"
 									class="form-control"
-									name="felhNev" 
+									name="user_name" 
 									type="text"
 									placeholder="Felhasználónév"
 									spellcheck="false" 
 									autocomplete="off" 
 									required
 									maxlength="100"
-									ng-init="model.felhNev=null"
-									ng-model="model.felhNev"
+									ng-init="model.register.felhNev=null"
+									ng-model="model.register.felhNev"
 									ng-clear-icon
 									min="5">
 					</div>
@@ -58,7 +58,7 @@
 					<div class="col-11 col-md-6 position-relative">
 						<input id="register-born"
 									class="form-control"
-									name="szulev" 
+									name="born" 
 									type="date"
 									placeholder="Születési év"
 									spellcheck="false" 
@@ -67,8 +67,8 @@
 									min="{{helper.minBorn}}" 
 									required
 									maxlength="300"
-									ng-init="model.szulev=null"
-									ng-model="model.szulev"
+									ng-init="model.register.szulev=null"
+									ng-model="model.register.szulev"
 									ng-disable-space
 									ng-clear-icon>
 					</div>
@@ -96,15 +96,15 @@
 						</span>
 					</legend>
 					<div class="col-11 col-md-6 position-relative d-flex align-items-center"
-							ng-init="model.nem=null">
+							ng-init="model.register.gender=null">
 						<div class="form-check form-check-inline me-4"
 								ng-repeat="x in ['female','male'] track by $index">
 							<input id="register-{{x}}"
-										name="nem" 
+										name="gender" 
 										type="radio"
 										ng-value="x === 'female' ? 'F' : 'M'"
 										class="form-check-input"
-										ng-model="model.nem" 
+										ng-model="model.register.nem" 
 										required>
 								<label for="register-{{x}}" 
 											class="form-check-label opacity-100">
@@ -138,8 +138,8 @@
 									autocomplete="off" 
 									required
 									maxlength="50"
-									ng-init="model.email=null"
-									ng-model="model.email"
+									ng-init="model.register.email=null"
+									ng-model="model.register.email"
 									ng-pattern="/^([a-z0-9_.+-])+\@(([a-z0-9-])+\.)+([a-z0-9]{2,4})+$/"
 									ng-disable-space
 									ng-clear-icon>
@@ -170,16 +170,16 @@
 					<div class="col-11 col-md-6 position-relative">
 						<input id="register-password"
 									class="form-control"
-									name="jelszo" 
-									type="{{model.showPassword ? 'text' : 'password'}}"
+									name="password" 
+									type="{{model.register.showPassword ? 'text' : 'password'}}"
 									placeholder="Jelszó"
 									spellcheck="false" 
 									autocomplete="off" 
 									required
 									minlength="6"
 									maxlength="20"
-									ng-init="model.jelszo=null"
-									ng-model="model.jelszo"
+									ng-init="model.register.jelszo=null"
+									ng-model="model.register.jelszo"
 									ng-pattern="/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/"
 									ng-disable-space
 									ng-clear-icon>
@@ -211,16 +211,16 @@
 						<input id="register-passwordConfirm"
 									class="form-control"
 									name="passwordConfirm" 
-									type="{{model.showPassword ? 'text' : 'password'}}"
+									type="{{model.register.showPassword ? 'text' : 'password'}}"
 									placeholder="jelszó megerősítés"
 									spellcheck="false" 
 									autocomplete="off" 
 									required
 									minlength="6"
 									maxlength="20"
-									ng-init="model.passwordConfirm=null"
-									ng-model="model.passwordConfirm"
-									ng-compare-model="model.jelszo"
+									ng-init="model.register.passwordConfirm=null"
+									ng-model="model.register.passwordConfirm"
+									ng-compare-model="model.register.jelszo"
 									ng-pattern="/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/"
 									ng-disable-space
 									ng-clear-icon>
@@ -246,8 +246,8 @@
 						<input id="register-showPassword"
 									class="form-check-input"
 									type="checkbox"
-									ng-init="model.showPassword=false"
-									ng-model="model.showPassword">
+									ng-init="model.register.showPassword=false"
+									ng-model="model.register.showPassword">
 						<label for="register-showPassword"
 									class="form-check-label ms-1">
 							Jelszó megjelentítése
@@ -262,7 +262,7 @@
 									data-bs-target="#modalRequest"
 									class="btn btn-primary w-auto px-5 me-3 text-capitalize"
 									ng-disabled="registerForm.$invalid"
-									ng-click="methods.register()">
+									ng-click="methods.httpRequest()">
 						Regiszráció
 					</button>
 				</div>
