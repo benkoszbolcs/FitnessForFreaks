@@ -21,7 +21,7 @@ if ($result) {
 
 $query = "INSERT INTO `felhasznalo` (`felhNev`, `email`, `jelszo`, `nem`, `szulEv`) VALUES (?,?,?,?,?) ";
 
-$result = $db->execute($query, $args['email']);
+$result = $db->execute($query, array_values($args));
 
 // Kapcsolat bezárása
 $db = null;
