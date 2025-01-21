@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2025. Jan 07. 12:29
+-- Létrehozás ideje: 2025. Jan 17. 08:52
 -- Kiszolgáló verziója: 10.4.28-MariaDB
 -- PHP verzió: 8.1.17
 
@@ -43,13 +43,19 @@ CREATE TABLE `etel` (
 
 CREATE TABLE `felhasznalo` (
   `felhid` int(11) NOT NULL,
-  `kartyaid` int(11) NOT NULL,
   `felhNev` varchar(100) NOT NULL,
   `email` varchar(100) NOT NULL,
   `jelszo` varchar(100) NOT NULL,
   `nem` char(1) NOT NULL,
   `szulEv` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- A tábla adatainak kiíratása `felhasznalo`
+--
+
+INSERT INTO `felhasznalo` (`felhid`, `felhNev`, `email`, `jelszo`, `nem`, `szulEv`) VALUES
+(1, 'Benkő Sztabolcs', 'benko.szabolcs-2020@keri.mako.hu', '1234Aa', 'M', '2006-02-16');
 
 -- --------------------------------------------------------
 
@@ -86,6 +92,7 @@ CREATE TABLE `gyakorlat` (
 
 CREATE TABLE `kartyasfizetes` (
   `kartyaid` int(11) NOT NULL,
+  `userid` int(11) NOT NULL,
   `kartyaSzam` bigint(16) NOT NULL,
   `lejaratiDatum` varchar(5) NOT NULL,
   `biztKod` int(3) NOT NULL
@@ -121,7 +128,7 @@ ALTER TABLE `etel`
 --
 ALTER TABLE `felhasznalo`
   ADD PRIMARY KEY (`felhid`),
-  ADD KEY `felhid` (`felhid`,`kartyaid`);
+  ADD KEY `felhid` (`felhid`);
 
 --
 -- A tábla indexei `forum`
@@ -162,7 +169,7 @@ ALTER TABLE `etel`
 -- AUTO_INCREMENT a táblához `felhasznalo`
 --
 ALTER TABLE `felhasznalo`
-  MODIFY `felhid` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `felhid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT a táblához `forum`

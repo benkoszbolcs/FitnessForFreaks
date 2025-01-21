@@ -1,4 +1,12 @@
 <?php
 
-$_POST['data'] = '{"email":"odry.attila@keri.mako.hu","password":"1234Aa"}';
-require_once('./login.php');
+$_POST['data'] = '{
+    "felhNev": "a",
+    "szulev": "2001-12-31",
+    "nem": "F",
+    "email": "a@a.aa",
+    "jelszo": "1234Aa",
+    "password": null
+}';
+
+require_once('./register.php');

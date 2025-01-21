@@ -58,7 +58,7 @@
 					<div class="col-11 col-md-6 position-relative">
 						<input id="login-password"
 									class="form-control"
-									name="password" 
+									name="jelszo" 
 									type="{{model.showPassword ? 'text' : 'password'}}"
 									placeholder="password"
 									spellcheck="false" 
@@ -66,15 +66,15 @@
 									required
 									minlength="6"
 									maxlength="20"
-									ng-init="model.password=null"
-									ng-model="model.password"
+									ng-init="model.jelszo=null"
+									ng-model="model.jelszo"
 									ng-pattern="/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/"
 									ng-disable-space
 									ng-clear-icon>
 					</div>
 					<div class="col-1 d-flex align-items-center justify-content-start ps-1">
 						<span class="fw-bolder text-success"
-									ng-class="{'invisible': loginForm.password.$invalid}">
+									ng-class="{'invisible': loginForm.jelszo.$invalid}">
 							&check;
 						</span>
 						<span data-bs-toggle="tooltip"

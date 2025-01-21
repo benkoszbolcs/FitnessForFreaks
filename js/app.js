@@ -67,7 +67,9 @@
       .state('register', {
 				url: '/register',
         parent: 'root',
-				templateUrl: './html/register.html'
+				templateUrl: './html/register.html',
+        controller: 'registerController'
+
 			})
       .state('profile', {
 				url: '/profile',
@@ -421,6 +423,65 @@
           http.request({
             url: "./php/login.php",
             data: util.objFilterByKeys($scope.model, 'showPassword', false)
+          })
+          .then(response => {
+            response.email = $scope.model.email;
+            user.set(response);
+            util.localStorage('set', 'email', response.email);
+            $state.go('home');
+          })
+          .catch(e => {
+            $scope.model.password = null;
+            user.error(e);
+          });
+        }
+      };
+
+      // Initialize
+      methods.init();
+    }
+  ])
+
+  .controller('registerController', [
+    '$rootScope',
+    '$scope',
+    '$state',
+    'user',
+    'util',
+    'http',
+    function($rootScope, $scope, $state, user, util, http) {
+
+      // Set local methods
+      let methods = {
+
+        // Initialize
+        init: () => {
+
+          // Set email address from local storige if exist
+          //$scope.model = {email: util.localStorage('get', 'email')};
+
+          // Set focus
+					user.focus();
+
+          // Initialize tooltips
+          $rootScope.tooltipsInit();
+        }
+      };
+
+      // Set scope methods
+      $scope.methods = {
+
+        // Login
+        register: () => {
+
+          let data = util.objFilterByKeys($scope.model, 
+                      'showPassword;passwordConfirm', false);
+          data.szulev = data.szulev.toISOFormat();
+
+          // Set request
+          http.request({
+            url: "./php/register.php",
+            data: data
           })
           .then(response => {
             response.email = $scope.model.email;
