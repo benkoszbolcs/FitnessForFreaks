@@ -1,0 +1,15 @@
+főoldal carousel teljes szélesség fluid
+edzőteremről képek
+
+hozt ki... 3 bekezdés chatgpt-vel
+edzések, receptek, konzultáció(jelentkezéssel)
+
+sportok oldalhoz 1 tábla db-ba (kártyák alá szoveg, fölé kép)
+
+sportajánló űrlap 
+bejelentkezésnél megjelennek az edzésterveinkből kis ízelítő (videó) - rákattnál fizetés
+edzésterv odlal: 5 féle edzésterv minta(1. teljes, maradék 4 csak  ízelítő - videós betekintés)
+receptek: kalóriaszámláló, 2,3,4,5 recept képpel és életmódváltáshoz 1 heti recept pénzért
+napszakhoz kötött recep(reggeli,ebéd...)
+
+rólunk: a sok kép(rólunk, rólunk oldal galéria)
