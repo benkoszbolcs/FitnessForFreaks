@@ -1,4 +1,4 @@
-főoldal carousel teljes szélesség fluid
+főoldal carousel teljes szélesség fluid (pipa)
 edzőteremről képek
 
 hozt ki... 3 bekezdés chatgpt-vel
