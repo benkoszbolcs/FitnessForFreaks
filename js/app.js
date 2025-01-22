@@ -569,8 +569,6 @@
       }
     }
   ])
-
-  
 	
 
 })(window, angular);
