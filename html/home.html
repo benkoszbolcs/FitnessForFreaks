@@ -1,47 +1,14 @@
 <div class="container-fluid">
 	<div class="row my-5">
-		<h4 class="text-center display-1" >FitnessForFreaks</h4>
+		<h4 class="text-center display-1 fff" >FitnessForFreaks</h4>	
+		<video autoplay muted loop id="myVideo">
+			<source ng-src="./media/video/200657-913478674.mp4" type="video/mp4">
+		</video>
+
 	</div>
 	<div class="row justify-content-center">
 
-		<div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
-			<div class="carousel-indicators">
-			  <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-			  <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-			  <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
-			</div>
-			<div class="carousel-inner">
-			  <div class="carousel-item active">
-				<img ng-src="./screanshots/Trello.png" class="d-block w-100" alt="...">
-				<div class="carousel-caption d-none d-md-block">
-				  <h5>First slide label</h5>
-				  <p>Some representative placeholder content for the first slide.</p>
-				</div>
-			  </div>
-			  <div class="carousel-item">
-				<img ng-src="./screanshots/Uml diagram.png" class="d-block w-100" alt="...">
-				<div class="carousel-caption d-none d-md-block">
-				  <h5>Second slide label</h5>
-				  <p>Some representative placeholder content for the second slide.</p>
-				</div>
-			  </div>
-			  <div class="carousel-item">
-				<img ng-src="./screanshots/Figma.png" class="d-block w-100" alt="...">
-				<div class="carousel-caption d-none d-md-block">
-				  <h5>Third slide label</h5>
-				  <p>Some representative placeholder content for the third slide.</p>
-				</div>
-			  </div>
-			</div>
-			<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-			  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-			  <span class="visually-hidden">Previous</span>
-			</button>
-			<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-			  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-			  <span class="visually-hidden">Next</span>
-			</button>
-		  </div>
+		
 
 		  <div class="justify-content-center">
 			<div class="row mt-5 text-center ">
@@ -75,47 +42,141 @@
 				</div>
 		
 		</div> -->
-		<div class="container-fluid">
-			<div class="row justify-content-center">
-				<div class="card-group text-center rounded mx-5 shadow">
-					<div class="card">
-					  <img ng-src="./screanshots/Logo.PNG" class="card-img-top" alt="...">
-					  <div class="card-body">
-						<h5 class="card-title">Edzések</h5>
-						<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-						<button class="btn outline">Megnézem</button>
-					  </div>
+		<section class="wrapper">
+			<div class="container">
+			  <div class="row">
+				<div class="col text-center mb-5">
+				   <h1 class="display-4 font-weight-bolder">Bootstrap 4 Cards With Background Image</h1>
+			<p class="lead">Lorem ipsum dolor sit amet at enim hac integer volutpat maecenas pulvinar. </p>
+				</div>
+			  </div>
+			<div class="row">
+		   <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
+			 
+			 <div class="card text-light card-has-bg click-col">
+				   <img class="card-img d-none" src="https://source.unsplash.com/600x900/?tech,street" alt="Creative Manner Design Lorem Ipsum Sit Amet Consectetur dipisi?">
+				  <div class="card-img-overlay d-flex flex-column">
+				   <div class="card-body">
+					  <small class="card-meta mb-2">Thought Leadership</small>
+					  <h4 class="card-title mt-0 "><a class="text-light">Web Developmet Lorem Ipsum Sit Amet Consectetur dipisi?</a></h4>
+					 <small><i class="far fa-clock"></i> October 15, 2020</small>
 					</div>
-					<div class="card">
-					  <img ng-src="./screanshots/Logo.PNG" class="card-img-top" alt="...">
-					  <div class="card-body">
-						<h5 class="card-title">Receptek</h5>
-						<p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-						<button class="btn outline">Megnézem</button>
-					  </div>
-					</div>
-					<div class="card">
-					  <img ng-src="./screanshots/Logo.PNG" class="card-img-top" alt="...">
-					  <div class="card-body">
-						<h5 class="card-title">Konzultáció</h5>
-						<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-						<button class="btn outline">Megnézem</button>
-					  </div>
+					<div class="card-footer">
+					 <div class="media">
+			<img class="mr-3 rounded-circle" src="https://assets.codepen.io/460692/internal/avatars/users/default.png?format=auto&version=1688931977&width=80&height=80" alt="Generic placeholder image" style="max-width:50px">
+			<div class="media-body">
+			  <h6 class="my-0 text-dark d-block">Oz Coruhlu</h6>
+			   <small>Director of UI/UX</small>
+			</div>
+		  </div>
 					</div>
 				  </div>
-
-				  <!-- <figure>
-					<img src="https://picsum.photos/id/287/250/300" alt="Mountains">
-					<figcaption>The Day</figcaption>
-				</figure>
-				<figure style="--c:#fff5">
-					<img src="https://picsum.photos/id/475/250/300" alt="Mountains">
-					<figcaption>The Night</figcaption>
-				</figure> -->
-
+				</div>
+				  
+			 
+			 
+				</div>
+			   <div class="col-sm-12 col-md-6 col-lg-4 mb-4"><div class="card text-dark card-has-bg click-col" style="background-image:url('https://source.unsplash.com/600x900/?tree,nature');">
+				   <img class="card-img d-none" src="https://source.unsplash.com/600x900/?tree,nature" alt="Creative Manner Design Lorem Ipsum Sit Amet Consectetur dipisi?">
+				  <div class="card-img-overlay d-flex flex-column">
+				   <div class="card-body">
+					  <small class="card-meta mb-2">Thought Leadership</small>
+					  <h4 class="card-title mt-0 "><a class="text-dark" herf="https://creativemanner.com">Creative Manner Lorem Ipsum Sit Amet Consectetur dipisi?</a></h4>
+					 <small><i class="far fa-clock"></i> October 15, 2020</small>
+					</div>
+					<div class="card-footer">
+					 <div class="media">
+			<img class="mr-3 rounded-circle" src="https://assets.codepen.io/460692/internal/avatars/users/default.png?format=auto&version=1688931977&width=80&height=80" alt="Generic placeholder image" style="max-width:50px">
+			<div class="media-body">
+			  <h6 class="my-0 text-dark d-block">Oz Coruhlu</h6>
+			   <small>Director of UI/UX</small>
 			</div>
+		  </div>
+					</div>
+				  </div>
+				</div></div>
+			<div class="col-sm-12 col-md-6 col-lg-4 mb-4"><div class="card text-dark card-has-bg click-col" style="background-image:url('https://source.unsplash.com/600x900/?computer,design');">
+				   <img class="card-img d-none" src="https://source.unsplash.com/600x900/?computer,design" alt="Creative Manner Design Lorem Ipsum Sit Amet Consectetur dipisi?">
+				  <div class="card-img-overlay d-flex flex-column">
+				   <div class="card-body">
+					  <small class="card-meta mb-2">Thought Leadership</small>
+					  <h4 class="card-title mt-0 "><a class="text-dark" herf="https://creativemanner.com">Design Studio Lorem Ipsum Sit Amet Consectetur dipisi?</a></h4>
+					 <small><i class="far fa-clock"></i> October 15, 2020</small>
+					</div>
+					<div class="card-footer">
+					 <div class="media">
+			<img class="mr-3 rounded-circle" src="https://assets.codepen.io/460692/internal/avatars/users/default.png?format=auto&version=1688931977&width=80&height=80" alt="Generic placeholder image" style="max-width:50px">
+			<div class="media-body">
+			  <h6 class="my-0 text-dark d-block">Oz Coruhlu</h6>
+			   <small>Director of UI/UX</small>
+			</div>
+		  </div>
+					</div>
+				  </div>
+				</div></div>
+			 
+			  <div class="col-sm-12 col-md-6 col-lg-4 mb-4"><div class="card text-dark card-has-bg click-col" style="background-image:url('https://source.unsplash.com/600x900/?tech,street');">
+				   <img class="card-img d-none" src="https://source.unsplash.com/600x900/?tech,street" alt=" Lorem Ipsum Sit Amet Consectetur dipisi?">
+				  <div class="card-img-overlay d-flex flex-column">
+				   <div class="card-body">
+					  <small class="card-meta mb-2">Thought Leadership</small>
+					  <h4 class="card-title mt-0 "><a class="text-dark" herf="https://creativemanner.com">UI/UX Design Lorem Ipsum Sit Amet Consectetur dipisi?</a></h4>
+					 <small><i class="far fa-clock"></i> October 15, 2020</small>
+					</div>
+					<div class="card-footer">
+					 <div class="media">
+			<img class="mr-3 rounded-circle" src="https://assets.codepen.io/460692/internal/avatars/users/default.png?format=auto&version=1688931977&width=80&height=80" alt="Generic placeholder image" style="max-width:50px">
+			<div class="media-body">
+			  <h6 class="my-0 text-dark d-block">Oz Coruhlu</h6>
+			   <small>Director of UI/UX</small>
+			</div>
+		  </div>
+					</div>
+				  </div>
+				</div></div>
+			   <div class="col-sm-12 col-md-6 col-lg-4 mb-4"><div class="card text-dark card-has-bg click-col" style="background-image:url('https://source.unsplash.com/600x900/?tree,nature');">
+				   <img class="card-img d-none" src="https://source.unsplash.com/600x900/?tree,nature" alt="Creative Manner Design Lorem Ipsum Sit Amet Consectetur dipisi?">
+				  <div class="card-img-overlay d-flex flex-column">
+				   <div class="card-body">
+					  <small class="card-meta mb-2">Thought Leadership</small>
+					  <h4 class="card-title mt-0 "><a class="text-dark" herf="https://creativemanner.com">Creative Manner Design Lorem Ipsum Sit Amet Consectetur dipisi?</a></h4>
+					 <small><i class="far fa-clock"></i> October 15, 2020</small>
+					</div>
+					<div class="card-footer">
+					 <div class="media">
+			<img class="mr-3 rounded-circle" src="https://assets.codepen.io/460692/internal/avatars/users/default.png?format=auto&version=1688931977&width=80&height=80" alt="Generic placeholder image" style="max-width:50px">
+			<div class="media-body">
+			  <h6 class="my-0 text-dark d-block">Oz Coruhlu</h6>
+			   <small>Director of UI/UX</small>
+			</div>
+		  </div>
+					</div>
+				  </div>
+				</div></div>
+			<div class="col-sm-12 col-md-6 col-lg-4 mb-4"><div class="card text-dark card-has-bg click-col" style="background-image:url('https://source.unsplash.com/600x900/?computer,design');">
+				   <img class="card-img d-none" src="https://source.unsplash.com/600x900/?computer,design" alt="Creative Manner Design Lorem Ipsum Sit Amet Consectetur dipisi?">
+				  <div class="card-img-overlay d-flex flex-column">
+				   <div class="card-body">
+					  <small class="card-meta mb-2">Thought Leadership</small>
+					  <h4 class="card-title mt-0 "><a class="text-dark" herf="https://creativemanner.com">Creative Manner Design Lorem Ipsum Sit Amet Consectetur dipisi?</a></h4>
+					 <small><i class="far fa-clock"></i> October 15, 2020</small>
+					</div>
+					<div class="card-footer">
+					 <div class="media">
+			<img class="mr-3 rounded-circle" src="https://assets.codepen.io/460692/internal/avatars/users/default.png?format=auto&version=1688931977&width=80&height=80" alt="Generic placeholder image" style="max-width:50px">
+			<div class="media-body">
+			  <h6 class="my-0 text-dark d-block">Oz Coruhlu</h6>
+			   <small>Director of UI/UX</small>
+			</div>
+		  </div>
+					</div>
+				  </div>
+				</div></div>
 			
-		</div>
+		  </div>
+			
+		  </div>
+		  </section>
 		
 	</div>
 		
