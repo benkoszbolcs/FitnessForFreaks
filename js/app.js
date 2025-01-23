@@ -419,7 +419,8 @@
         })
         .then(response => {
           if (response.affectedRows) {
-           methods.getMessages();
+            methods.getMessages();
+            $scope.message = null;
           }
         }).catch(e=>console.log(e));
       }

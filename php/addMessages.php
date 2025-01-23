@@ -7,7 +7,7 @@ require_once("./environment.php");
 // Get arguments
 $args = Util::getArgs();
 
-//$args['forumido'] = date('Y-m-d H:i:s', strtotime(new date()));
+$args['forumido'] = date('Y-m-d H:i:s');
 
 // Connect to MySQL server
 $db = new Database();
