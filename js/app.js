@@ -52,7 +52,7 @@
 				url: '/meals',
         parent: 'root',
 				templateUrl: './html/meals.html',
-				controller: 'mealController'
+				//controller: 'mealController'
 			})
       .state('aboutus', {
 				url: '/aboutus',
@@ -62,7 +62,8 @@
       .state('forum', {
 				url: '/forum',
         parent: 'root',
-				templateUrl: './html/forum.html'
+				templateUrl: './html/forum.html',
+        controller: 'forumController'
 			})
       .state('login', {
 				url: '/login',
@@ -389,6 +390,42 @@
   .controller('homeController', [
     function() {
       console.log('Home controller...');
+    }
+  ])
+
+  // Forum controller
+  .controller('forumController', [
+    '$scope',
+    'http',
+    function($scope, http) {
+      let methods = {
+        getMessages: () => {
+          http.request('./php/getMessages.php')
+          .then(response => {
+            $scope.messages = response;
+            $scope.$applyAsync();
+          }).catch(e=>console.log(e));
+        }
+      }
+      
+
+      $scope.bekuld = () => {
+        http.request({
+          url: './php/addMessages.php',
+          data: {
+            felhid:1, 
+            tapasztalat: $scope.message
+          }
+        })
+        .then(response => {
+          if (response.affectedRows) {
+           methods.getMessages();
+          }
+        }).catch(e=>console.log(e));
+      }
+
+
+      methods.getMessages();
     }
   ])
 
