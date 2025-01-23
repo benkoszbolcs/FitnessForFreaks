@@ -48,6 +48,12 @@
         parent: 'root',
 				templateUrl: './html/workoutplan.html'
 			})
+      .state('meals', {
+				url: '/meals',
+        parent: 'root',
+				templateUrl: './html/meals.html',
+				controller: 'mealController'
+			})
       .state('aboutus', {
 				url: '/aboutus',
         parent: 'root',
