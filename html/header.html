@@ -2,7 +2,7 @@
 		 data-bs-theme="dark">
 
 	<!-- Container -->
-	<div class="container-fluid foot">
+	<div class="container-fluid foot ">
 
 		<!-- Hamburger icon -->
 		<button class="navbar-toggler ms-auto" 
@@ -17,10 +17,10 @@
 
 		<!-- Navbar content -->
 		<div id="navbar_content" 
-				 class="collapse navbar-collapse mt-3 mt-md-0">
+				 class="collapse navbar-collapse mt-md-0">
 
 			<!-- Navbar content LEFT -->
-			<ul class="navbar-nav me-auto">
+			<ul class="navbar-nav me-auto mt-2">
 				<img ng-src="./icons/Logo.svg" height="50px" alt="">
 				<!-- Home -->
 				<li class="nav-item mx-1">
@@ -60,6 +60,20 @@
 						 <i class="fa-solid fa-people-carry-box me-1"></i>
 						<span class="text-capitalize text-small-caps">
 							Edzésterv
+						</span>
+					</a>
+				</li>
+
+				<!-- Meals -->
+				<li class="nav-item mx-1">
+					<a class="nav-link" 
+						 ui-sref="meals" 
+						 ui-sref-active="active"
+						 data-bs-toggle="collapse" 
+						 data-bs-target=".navbar-collapse.show">
+						 <i class="fa-solid fa-utensils"></i>
+						<span class="text-capitalize text-small-caps">
+							Étrend
 						</span>
 					</a>
 				</li>
