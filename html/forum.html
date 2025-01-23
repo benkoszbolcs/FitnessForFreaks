@@ -1,5 +1,41 @@
-<div class="container"></div>
-	<div class="row my-5" style="color: #b9c2d6;">
+<div class="container" style="color: #b9c2d6;">
+	<div class="row my-5">
 		<h4 class="text-center display-1">Osztd meg tapasztalataidat, kérdéseidet</h4>
-	
+	</div>
+	<div class="row my-5">
+		<form name="addMessage">
+			<div class="form-floating mb-3">
+				<textarea class="form-control" 
+									placeholder="Leave a comment here"
+									ng-init="message=null"
+									ng-model="message"
+									required
+									id="floatingTextarea">
+				</textarea>
+				<label for="floatingTextarea">Comments</label>
+			</div>
+
+			<div class="mb-3 text-end">
+				<button type="button" class="btn btn-primary"
+								ng-click="bekuld()"
+								ng-disabled="addMessage.$invalid">
+					Submit
+				</button>
+			</div>
+		</form>
+	</div>
+	<div class="row my-5">
+		<table>
+			<thead>
+				<tr>
+					<th ng-repeat="(k, v) in messages[0]">{{k}}</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="x in messages">
+					<td ng-repeat="(k, v) in x">{{v}}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
 </div>
