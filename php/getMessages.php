@@ -5,9 +5,9 @@ declare(strict_types=1);
 require_once("./environment.php");
 
 // Set SQL command
-$query =  "SELECT `forumido`, 
-                  `felhasznalo`.`felhNev`,
-                  `tapasztalat` 
+$query =  "SELECT `forumido` AS 'Fórumidő', 
+                  `felhasznalo`.`felhNev` AS 'Felhasználónév',
+                  `tapasztalat` AS 'Tapasztalat' 
              FROM `forum`
              JOIN `felhasznalo` ON
                   `felhasznalo`.`felhid` = `forum`.`felhid`
