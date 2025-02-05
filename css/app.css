@@ -571,6 +571,10 @@ h1,h2,h3,h4,h5{
 	}
   }
 
+b{
+	color:  rgb(2, 128, 255);
+}
+
 /* section */
 details {
 	user-select: none;
