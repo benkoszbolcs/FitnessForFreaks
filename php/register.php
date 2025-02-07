@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 // Beleértve a környezeti beállításokat
-require_once("./environment.php");
+require_once("../../common/php/environment.php");
 
 // Bemeneti adatok lekérése
 $args = Util::getArgs();

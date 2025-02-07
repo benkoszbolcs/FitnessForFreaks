@@ -1,8 +1,10 @@
-<nav class="navbar navbar-expand-md bg-dark fs-5" 
+<nav class="navbar navbar-expand-xl bg-dark fs-5" 
 		 data-bs-theme="dark">
 
 	<!-- Container -->
 	<div class="container-fluid foot ">
+
+		<img ng-src="./icons/Logo.svg" height="50px" alt="">
 
 		<!-- Hamburger icon -->
 		<button class="navbar-toggler ms-auto" 
@@ -17,11 +19,11 @@
 
 		<!-- Navbar content -->
 		<div id="navbar_content" 
-				 class="collapse navbar-collapse mt-md-0">
+				 class="collapse navbar-collapse mt-0 mt-xl-2">
 
 			<!-- Navbar content LEFT -->
-			<ul class="navbar-nav me-auto mt-2">
-				<img ng-src="./icons/Logo.svg" height="50px" alt="">
+			<ul class="navbar-nav me-auto">
+				
 				<!-- Home -->
 				<li class="nav-item mx-1">
 					<a class="nav-link" 
@@ -110,7 +112,7 @@
 
 				<!-- Shopping cart -->
 				<li class="nav-item mx-1"
-						ng-if="$root.user.id">
+						ng-if="$root.user.felhid">
 					<a class="nav-link" 
 						 ui-sref="cart" 
 						 ui-sref-active="active"
@@ -138,15 +140,14 @@
 						<!-- User name -->
             <li class="nav-item">
 							<span class="dropdown-item-text text-capitalize text-small-caps text-nowrap"
-								 		ng-if="$root.user.id">
-								<span>{{$root.user.last_name}}</span>
-								<span>{{$root.user.first_name}}</span>
-								<span>{{$root.user.middle_name}}</span>
+								 		ng-if="$root.user.felhid">
+								<span>{{$root.user.felhNev}}</span>
 							</span>
 						</li>
 
 						<!-- Login -->
-            <li class="nav-item">
+            <li class="nav-item"
+								ng-if="!$root.user.felhid">
 							<a class="dropdown-item" 
 								 ui-sref="login"
 								 ui-sref-active="active">
@@ -158,7 +159,8 @@
 						</li>
 
 						<!-- Register -->
-            <li class="nav-item">
+            <li class="nav-item"
+								ng-if="!$root.user.felhid">
 							<a class="dropdown-item" 
 								 ui-sref="register"
 								 ui-sref-active="active">
@@ -171,7 +173,7 @@
 
 						<!-- Profile -->
 						<li class="nav-item"
-							  ng-if="$root.user.id">
+							  ng-if="$root.user.felhid">
 							<a class="dropdown-item" 
 								 ui-sref="profile"
 								 ui-sref-active="active">
@@ -196,13 +198,13 @@
 						</li>
 
 						<!-- Devider -->
-						<li ng-if="$root.user.id">
+						<li ng-if="$root.user.felhid">
 							<hr class="dropdown-divider">
 						</li>
 
 						<!-- Logout -->
 						<li class="nav-item"
-								ng-if="$root.user.id">
+								ng-if="$root.user.felhid">
 							<a class="dropdown-item cursor-pointer"
 								 ng-click="$root.logout()">
 								<i class="fa-solid fa-right-from-bracket me-1"></i>
