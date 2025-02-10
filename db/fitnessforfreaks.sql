@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2025. Jan 23. 12:26
+-- Létrehozás ideje: 2025. Feb 10. 13:17
 -- Kiszolgáló verziója: 10.4.28-MariaDB
 -- PHP verzió: 8.1.17
 
@@ -55,7 +55,7 @@ CREATE TABLE `felhasznalo` (
 --
 
 INSERT INTO `felhasznalo` (`felhid`, `felhNev`, `email`, `jelszo`, `nem`, `szulEv`) VALUES
-(1, 'Benkő Sztabolcs', 'benko.szabolcs-2020@keri.mako.hu', '1234Aa', 'M', '2006-02-16');
+(1, 'Benkő Szabolcs', 'benko.szabolcs-2020@keri.mako.hu', '1234Aa', 'M', '2006-02-16');
 
 -- --------------------------------------------------------
 
@@ -65,10 +65,18 @@ INSERT INTO `felhasznalo` (`felhid`, `felhNev`, `email`, `jelszo`, `nem`, `szulE
 
 CREATE TABLE `forum` (
   `forumid` int(11) NOT NULL,
-  `forumido` datetime NOT NULL,
+  `forumido` date NOT NULL,
   `felhid` int(11) NOT NULL,
   `tapasztalat` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- A tábla adatainak kiíratása `forum`
+--
+
+INSERT INTO `forum` (`forumid`, `forumido`, `felhid`, `tapasztalat`) VALUES
+(2, '2025-02-04', 1, 'herhe'),
+(3, '2025-02-04', 1, 'dahwufhaiwf');
 
 -- --------------------------------------------------------
 
@@ -175,7 +183,7 @@ ALTER TABLE `felhasznalo`
 -- AUTO_INCREMENT a táblához `forum`
 --
 ALTER TABLE `forum`
-  MODIFY `forumid` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `forumid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT a táblához `gyakorlat`
