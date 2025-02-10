@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2025. Feb 10. 13:17
+-- Létrehozás ideje: 2025. Feb 10. 14:21
 -- Kiszolgáló verziója: 10.4.28-MariaDB
 -- PHP verzió: 8.1.17
 
@@ -20,6 +20,20 @@ SET time_zone = "+00:00";
 --
 -- Adatbázis: `fitnessforfreaks`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Tábla szerkezet ehhez a táblához `ebed&vacsora`
+--
+
+CREATE TABLE `ebed&vacsora` (
+  `etelId` int(11) NOT NULL,
+  `etelNev` int(100) NOT NULL,
+  `etelLeiras` int(11) NOT NULL,
+  `etelKep` int(250) NOT NULL,
+  `etelHozzavalok` int(250) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- --------------------------------------------------------
 
@@ -121,9 +135,29 @@ CREATE TABLE `kerdoiv` (
   `kerdes5` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
+-- --------------------------------------------------------
+
+--
+-- Tábla szerkezet ehhez a táblához `reggelik`
+--
+
+CREATE TABLE `reggelik` (
+  `etelId` int(11) NOT NULL,
+  `etelNev` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `etelLeiras` text CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `etelKep` varchar(250) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `etelHozzavalok` varchar(250) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
 --
 -- Indexek a kiírt táblákhoz
 --
+
+--
+-- A tábla indexei `ebed&vacsora`
+--
+ALTER TABLE `ebed&vacsora`
+  ADD PRIMARY KEY (`etelId`);
 
 --
 -- A tábla indexei `etel`
@@ -164,8 +198,20 @@ ALTER TABLE `kerdoiv`
   ADD PRIMARY KEY (`kerdoivid`);
 
 --
+-- A tábla indexei `reggelik`
+--
+ALTER TABLE `reggelik`
+  ADD PRIMARY KEY (`etelId`);
+
+--
 -- A kiírt táblák AUTO_INCREMENT értéke
 --
+
+--
+-- AUTO_INCREMENT a táblához `ebed&vacsora`
+--
+ALTER TABLE `ebed&vacsora`
+  MODIFY `etelId` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT a táblához `etel`
@@ -202,6 +248,12 @@ ALTER TABLE `kartyasfizetes`
 --
 ALTER TABLE `kerdoiv`
   MODIFY `kerdoivid` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT a táblához `reggelik`
+--
+ALTER TABLE `reggelik`
+  MODIFY `etelId` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
