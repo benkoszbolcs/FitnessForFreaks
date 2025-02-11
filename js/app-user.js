@@ -46,9 +46,7 @@
           $rootScope.user = {
             felhid      : null, 
 						felhNev     : null,
-						jelszo      : null,
-						nem         : null,
-            email       : null
+						nem         : null
           };
         },
 

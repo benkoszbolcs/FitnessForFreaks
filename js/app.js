@@ -213,7 +213,7 @@
             $state.go('home');
           })
           .catch(e => {
-            $scope.model.password = null;
+            $scope.model.jelszo = null;
             user.error(e);
           });
         }
@@ -239,9 +239,6 @@
         // Initialize
         init: () => {
 
-          // Set email address from local storige if exist
-          //$scope.model = {email: util.localStorage('get', 'email')};
-
           // Set focus
 					user.focus();
 
@@ -258,21 +255,26 @@
 
           let data = util.objFilterByKeys($scope.model, 
                       'showPassword;passwordConfirm', false);
-          data.szulev = data.szulev.toISOFormat();
+          data.szulEv = moment(data.szulEv).format('YYYY-MM-DD');
 
           // Set request
           http.request({
             url: "./php/register.php",
             data: data
           })
-          .then(response => {
-            response.email = $scope.model.email;
-            user.set(response);
-            util.localStorage('set', 'email', response.email);
+          .then(userID => {
+            user.set({
+              felhid  : userID, 
+						  felhNev : data.felhNev,
+						  nem     : data.nem
+            });
+            
+            util.localStorage('set', 'email', $scope.model.email);
             $state.go('home');
           })
           .catch(e => {
-            $scope.model.password = null;
+            $scope.model.jelszo = null;
+            $scope.model.passwordConfirm = null;
             user.error(e);
           });
         }
