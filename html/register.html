@@ -1,5 +1,5 @@
 <div class="container">
-	<div class="row justify-content-center">
+	<div class="row mt-5 justify-content-center">
 		<div class="col-11 col-md-10 col-lg-9 col-xl-8 col-xxl-7">
 
 			<!-- Title -->
@@ -58,7 +58,7 @@
 					<div class="col-11 col-md-6 position-relative">
 						<input id="register-born"
 									class="form-control"
-									name="szulev" 
+									name="szulEv" 
 									type="date"
 									placeholder="Születési év"
 									spellcheck="false" 
@@ -67,14 +67,14 @@
 									min="{{helper.minBorn}}" 
 									required
 									maxlength="300"
-									ng-init="model.szulev=null"
-									ng-model="model.szulev"
+									ng-init="model.szulEv=null"
+									ng-model="model.szulEv"
 									ng-disable-space
 									ng-clear-icon>
 					</div>
 					<div class="col-1 d-flex align-items-center justify-content-start ps-1">
 						<span class="fw-bolder text-success"
-									ng-class="{'invisible': registerForm.szulev.$invalid}">
+									ng-class="{'invisible': registerForm.szulEv.$invalid}">
 							&check;
 						</span>
 						<span data-bs-toggle="tooltip"
@@ -258,8 +258,6 @@
 				<!-- Register button -->
 				<div class="row justify-content-end">
 					<button type="button"
-									data-bs-toggle="modal" 
-									data-bs-target="#modalRequest"
 									class="btn btn-primary w-auto px-5 me-3 text-capitalize"
 									ng-disabled="registerForm.$invalid"
 									ng-click="methods.register()">

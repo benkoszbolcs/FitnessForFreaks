@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2025. Feb 10. 14:21
+-- Létrehozás ideje: 2025. Feb 11. 13:36
 -- Kiszolgáló verziója: 10.4.28-MariaDB
 -- PHP verzió: 8.1.17
 
@@ -69,7 +69,11 @@ CREATE TABLE `felhasznalo` (
 --
 
 INSERT INTO `felhasznalo` (`felhid`, `felhNev`, `email`, `jelszo`, `nem`, `szulEv`) VALUES
-(1, 'Benkő Szabolcs', 'benko.szabolcs-2020@keri.mako.hu', '1234Aa', 'M', '2006-02-16');
+(1, 'Benkő Szabolcs', 'benko.szabolcs-2020@keri.mako.hu', '1234Aa', 'M', '2006-02-16'),
+(2, 'Ódry Attila', 'odry.attila@keri.mako.hu', '1234Aa', 'M', '1964-03-08'),
+(3, 'Bakai Balázs', 'bakai.balazs-2020@keri.mako.hu', '1234Aa', 'M', '2005-10-26'),
+(4, 'Hegedűs Máté', 'hegedus.mate-2020@keri.mako.hu', '1234Aa', 'M', '2005-07-28'),
+(5, 'Selmeczi Csaba', 'selmeczi.csaba@keri.mako.hu', '1234Aa', 'M', '2005-02-11');
 
 -- --------------------------------------------------------
 
@@ -223,7 +227,7 @@ ALTER TABLE `etel`
 -- AUTO_INCREMENT a táblához `felhasznalo`
 --
 ALTER TABLE `felhasznalo`
-  MODIFY `felhid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `felhid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT a táblához `forum`
