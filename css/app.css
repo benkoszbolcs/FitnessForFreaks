@@ -217,7 +217,14 @@ h1,h2,h3,h4,h5{
 	border-color: rgba(255, 255, 255, 0.9);
 	transition: all .3s ease;  
   }
-  
+  /* modals */
+  @media (min-width: 768px) {
+	.modal-xl {
+	  width: 90%;
+	 max-width:1200px;
+	}
+  }
+
   .fill {
 	background: rgba(0, 212, 255, 0.9);
 	color: rgba(255,255,255,0.95);
