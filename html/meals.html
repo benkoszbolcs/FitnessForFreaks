@@ -54,7 +54,7 @@
                     <a class="nav-link rounded-pill text-white" data-bs-toggle="pill" href="#tab-5">Saláták</a>
                 </li>
             </ul>
-            <div class="tab-content">
+            <!-- <div class="tab-content">
                 <div ng-id="tab-{{$index+1}}" class="tab-pane fade show p-0 active" data-bs-toggle="modal" data-bs-target="#etel">
                     <div class="row g-5 ">
                         <div class="col-lg-3 col-md-4 col-sm-6" ng-repeat="x in [].constructor(12) track by $index">
@@ -64,6 +64,20 @@
                             </div>
                         </div>
                     </div>
+                </div>
+            </div> -->
+            <div class="card mb-3"  ng-repeat="x in [].constructor(12) track by $index">
+                <div class="row tab-pane fade show p-0 active" data-bs-toggle="modal" data-bs-target="#etel">
+                  <div class="col-md-4">
+                    <img ng-src="./media/image/FitnessForFreaks/dips.jpg" class="img-fluid rounded-start" alt="...">
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <h5 class="card-title">Card title</h5>
+                      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                    </div>
+                  </div>
                 </div>
             </div>
                        
