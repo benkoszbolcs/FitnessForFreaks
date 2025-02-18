@@ -12,7 +12,7 @@
             <details class="my-5">
                 <summary>
                   <h5><u>Érdekességek</u></h5>
-                  <span class="icon">👇<img ng-src="./icons/select.svg" alt=""></span>
+                  <span class="icon">👇</span>
                 </summary>
                 <div class="my-5 text-start">
                     <h4>Milyen egészséges recepteket találhatsz a kategóriában?</h4>
@@ -66,7 +66,7 @@
                     </div>
                 </div>
             </div> -->
-            <div class="card mb-3"  ng-repeat="x in [].constructor(12) track by $index">
+            <div style="background-color: #3c4c60;" class="card mb-3"  ng-repeat="x in [].constructor(12) track by $index">
                 <div ng-id="tab-{{$index+1}}" class="row tab-pane fade show p-0 active" data-bs-toggle="modal" data-bs-target="#etel">
                   <div class="col-md-4">
                     <img ng-src="./media/image/FitnessForFreaks/dips.jpg" class="img-fluid rounded-start" alt="...">
@@ -82,9 +82,9 @@
             </div>
                        
             <!-- Modals -->
-            <div class="modal fade" id="etel" tabindex="-1" role="dialog" aria-labelledby="etel" aria-hidden="true">
-                <div class="modal-dialog modal-xl" role="document">
-                  <div class="modal-content">
+            <div class="modal fade" style="background-color: #3c4c60;" id="etel" tabindex="-1" role="dialog" aria-labelledby="etel" aria-hidden="true">
+                <div class="modal-dialog modal-xl" role="document"  >
+                  <div class="modal-content" >
                     <div class="modal-header">
                       <h4 class="modal-title" id="etel">{{dadada}}</h4>
                       
