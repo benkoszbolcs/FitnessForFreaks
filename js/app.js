@@ -348,7 +348,7 @@
     '$state',
     function($rootScope, $state) {
       if (!$rootScope.user.id) {
-        $state.go('home');
+        $state.go('cart');
         return;
       }
     }
