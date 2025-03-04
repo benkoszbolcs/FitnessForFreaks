@@ -126,7 +126,46 @@
 
   // Home controller
   .controller('homeController', [
-    function() {
+    '$scope',
+    function($scope) {
+      $scope.states = [
+        {
+          headerImg: 'https://source.unsplash.com/600x900/?tech,street',
+          titleSmall: 'Thought Leadership',
+          title: 'Web Developmet Lorem Ipsum Sit Amet Consectetur dipisi?',
+          srcUrl: 'workoutplan',
+          srcText: 'Edzésterv',
+          footerImg: './media/image/edddddiiiiii.jpg',
+          footerText: 'Director of UI/UX'
+        },
+        {
+          headerImg: 'https://source.unsplash.com/600x900/?tech,street',
+          titleSmall: 'AAAAAAAAAAAAAA',
+          title: 'CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC?',
+          srcUrl: 'meals',
+          srcText: 'Étrend',
+          footerImg: './media/image/edddddiiiiii.jpg',
+          footerText: 'XXXX'
+        },
+        {
+          headerImg: 'https://source.unsplash.com/600x900/?tech,street',
+          titleSmall: 'AAAAAAAAAAAAAA',
+          title: 'CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC?',
+          srcUrl: 'aboutus',
+          srcText: 'Rólunk',
+          footerImg: './media/image/edddddiiiiii.jpg',
+          footerText: 'XXXX'
+        },
+        {
+          headerImg: 'https://source.unsplash.com/600x900/?tech,street',
+          titleSmall: 'AAAAAAAAAAAAAA',
+          title: 'CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC?',
+          srcUrl: 'forum',
+          srcText: 'Fórum',
+          footerImg: './media/image/edddddiiiiii.jpg',
+          footerText: 'XXXX'
+        }
+      ]
       console.log('Home controller...');
     }
   ])
