@@ -1,43 +1,53 @@
-<div class="container" style="color: #b9c2d6;">
+<div class="container text-light py-4">
+	<!-- Cím -->
 	<div class="row my-5">
-		<h4 class="text-center display-1">Oszd meg tapasztalataidat, kérdéseidet!</h4>
+	  <h4 class="text-center display-1 fw-bold text-light">
+		Oszd meg tapasztalataidat, kérdéseidet!
+	  </h4>
 	</div>
+  
+	<!-- Üzenet írása (kiemelt háttérrel) -->
 	<div class="row my-5">
-		<form name="addMessage">
-			<div class="form-floating mb-3">
-				<textarea class="form-control" 
-									placeholder="Leave a comment here"
-									ng-init="message=null"
-									ng-model="message"
-									required
-									id="floatingTextarea">
-				</textarea>
-				<label for="floatingTextarea">Komment írása</label>
-			</div>
-
-			<div class="mb-3 text-end">
-				<button type="button" class="btn btn-primary"
-								ng-click="bekuld()"
-								ng-disabled="addMessage.$invalid">
-					Küldés
-				</button>
-			</div>
-		</form>
+	  <form name="addMessage">
+		<div class="form-floating mb-3">
+		  <textarea class="form-control bg-dark text-light shadow-lg p-3 rounded"
+					placeholder="Leave a comment here"
+					ng-init="message=null"
+					ng-model="message"
+					required
+					id="floatingTextarea"
+					rows="4"></textarea>
+		  <label for="floatingTextarea" class="text-light">Komment írása</label>
+		</div>
+  
+		<div class="mb-3 text-end">
+		  <button type="button" class="btn btn-primary" 
+				  ng-click="bekuld()"
+				  ng-disabled="addMessage.$invalid">
+			Küldés
+		  </button>
+		</div>
+	  </form>
 	</div>
+  
+	<!-- Üzenetek megjelenítése -->
 	<div class="row my-5">
-		<table>
-			<thead>
-				<tr>
-					<th ng-repeat="(k, v) in messages[0]">{{k}}</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr ng-repeat="x in messages">
-					<td ng-repeat="(k, v) in x">{{v}}</td>
-				</tr>
-			</tbody>
-		</table>
-		
-
+	  <table class="table table-dark table-striped">
+		<thead>
+		  <tr>
+			<th ng-repeat="(k, v) in messages[0]" class="text-light">
+			  {{k}}
+			</th>
+		  </tr>
+		</thead>
+		<tbody>
+		  <tr ng-repeat="x in messages">
+			<td ng-repeat="(k, v) in x" class="text-light">
+			  {{v}}
+			</td>
+		  </tr>
+		</tbody>
+	  </table>
 	</div>
-</div>
+  </div>
+  
