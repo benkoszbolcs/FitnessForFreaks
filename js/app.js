@@ -130,17 +130,14 @@
     function($scope) {
       $scope.states = [
         {
-          headerImg: 'https://source.unsplash.com/600x900/?tech,street',
-          titleSmall: 'Thought Leadership',
-          title: 'Web Developmet Lorem Ipsum Sit Amet Consectetur dipisi?',
-          srcUrl: 'workoutplan',
-          srcText: 'Edzésterv',
-          footerImg: './media/image/edddddiiiiii.jpg',
-          footerText: 'Director of UI/UX'
+          
+          title: 'Nézd meg milyen sportokkal foglalkozhatsz nálunk!',
+          srcUrl: 'sports',
+          srcText: 'Sportok',
+          footerImg: './media/image/csapat2.jpg',
+          footerText: ''
         },
         {
-          headerImg: 'https://source.unsplash.com/600x900/?tech,street',
-          titleSmall: 'AAAAAAAAAAAAAA',
           title: 'CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC?',
           srcUrl: 'meals',
           srcText: 'Étrend',
@@ -148,8 +145,6 @@
           footerText: 'XXXX'
         },
         {
-          headerImg: 'https://source.unsplash.com/600x900/?tech,street',
-          titleSmall: 'AAAAAAAAAAAAAA',
           title: 'CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC?',
           srcUrl: 'aboutus',
           srcText: 'Rólunk',
@@ -157,8 +152,6 @@
           footerText: 'XXXX'
         },
         {
-          headerImg: 'https://source.unsplash.com/600x900/?tech,street',
-          titleSmall: 'AAAAAAAAAAAAAA',
           title: 'CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC?',
           srcUrl: 'forum',
           srcText: 'Fórum',

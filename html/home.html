@@ -77,7 +77,7 @@
 					<div class="col-12 col-sm-11 col-md-6 col-xxl-3 mb-4 "
 							 ng-repeat="x in states">
 						<div class="card text-light card-has-bg click-col">
-							<img class="card-img d-none" 
+							<img class="card-img" 
 									 ng-src="{{x.headerImg}}"
 									 alt="img">
 							<div class="card-img-overlay d-flex flex-column">
@@ -95,8 +95,8 @@
 								</div>
 								<div class="card-footer">
 									<div class="media">
-										<img class="mr-3 rounded-circle" ng-src="{{x.footerImg}}"
-											alt="img" style="max-width:50px">
+										<img class="" ng-src="{{x.footerImg}}"
+											alt="img" style="max-width:50px; border-radius: 50%;">
 										<div class="media-body">
 											<small>{{x.footerText}}</small>
 										</div>
