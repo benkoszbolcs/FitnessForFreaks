@@ -42,7 +42,8 @@
       .state('sports', {
 				url: '/sports',
         parent: 'root',
-				templateUrl: './html/sports.html'
+				templateUrl: './html/sports.html',
+        controller: 'sportsController'
 			})
       .state('workoutplan', {
 				url: '/workoutplan',
@@ -383,6 +384,29 @@
         $state.go('cart');
         return;
       }
+    }
+  ])
+
+  .controller('sportsController', [
+    '$scope',
+    'http',
+    '$state',
+    'user',
+    function($scope, http, $state, user) {
+      http.request("./php/sports.php")
+      .then(response => {
+        $scope.data = response;
+        console.log(response);
+        console.log($scope.data[1].megnevezes);
+        $scope.$applyAsync();
+        $scope.currentIndex = 0;
+        $scope.currentVideo = '';
+        $scope.setCurrentIndex = function(index) {
+          $scope.currentIndex = index;
+          $scope.currentVideo = './media/video/' + $scope.data[index].video;
+      }
+      })
+      .catch(e => user.error(e));
     }
   ])
 	
