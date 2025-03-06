@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2025. Már 05. 13:22
+-- Létrehozás ideje: 2025. Már 06. 10:01
 -- Kiszolgáló verziója: 10.4.28-MariaDB
 -- PHP verzió: 8.1.17
 
@@ -55,7 +55,8 @@ CREATE TABLE `felhasznalo` (
 --
 
 INSERT INTO `felhasznalo` (`felhid`, `felhNev`, `email`, `jelszo`, `nem`, `szulEv`) VALUES
-(1, 'Benkő Szabolcs', 'benko.szabolcs-2020@keri.mako.hu', '1234Aa', 'M', '2006-02-16');
+(1, 'Benkő Szabolcs', 'benko.szabolcs-2020@keri.mako.hu', '1234Aa', 'M', '2006-02-16'),
+(2, 'Ódry Attila', 'odry.attila@keri.mako.hu', '1234Aa', 'M', '1964-03-08');
 
 -- --------------------------------------------------------
 
@@ -76,7 +77,11 @@ CREATE TABLE `forum` (
 
 INSERT INTO `forum` (`forumid`, `forumido`, `felhid`, `tapasztalat`) VALUES
 (1, '2025-02-21 11:58:08', 1, 'bakfitty'),
-(2, '2025-02-21 11:58:26', 1, 'asdadkű');
+(2, '2025-02-21 11:58:26', 1, 'asdadkű'),
+(3, '2025-03-06 08:38:20', 1, 'dsdsvdsknlsddvssdvdsvsdvs'),
+(4, '2025-03-06 08:43:10', 1, 'sdnklsdvknlsdvknlsdvnklsdnklvdsnkldsvklnsdvsdvnklknldvsklnsdvknlsdvknlvsdknlsdvnklsdv'),
+(5, '2025-03-06 08:45:09', 1, 'Agyon csaplak benneteket !!!!'),
+(6, '2025-03-06 08:51:34', 2, 'GYAKOROLNI !!!!');
 
 -- --------------------------------------------------------
 
@@ -237,13 +242,13 @@ ALTER TABLE `etel`
 -- AUTO_INCREMENT a táblához `felhasznalo`
 --
 ALTER TABLE `felhasznalo`
-  MODIFY `felhid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `felhid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT a táblához `forum`
 --
 ALTER TABLE `forum`
-  MODIFY `forumid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `forumid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT a táblához `gyakorlat`

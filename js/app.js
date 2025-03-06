@@ -42,7 +42,8 @@
       .state('sports', {
 				url: '/sports',
         parent: 'root',
-				templateUrl: './html/sports.html'
+				templateUrl: './html/sports.html',
+        controller: 'sportsController'
 			})
       .state('workoutplan', {
 				url: '/workoutplan',
@@ -165,9 +166,10 @@
 
   // Forum controller
   .controller('forumController', [
+    '$rootScope',
     '$scope',
     'http',
-    function($scope, http) {
+    function($rootScope, $scope, http) {
       let methods = {
         getMessages: () => {
           http.request('./php/getMessages.php')
@@ -183,7 +185,7 @@
         http.request({
           url: './php/addMessages.php',
           data: {
-            felhid:1, 
+            felhid: $rootScope.user.felhid, 
             tapasztalat: $scope.message
           }
         })
@@ -382,6 +384,27 @@
       if (!$rootScope.user.id) {
         $state.go('cart');
         return;
+      }
+    }
+  ])
+
+  .controller('sportsController', [
+    '$scope',
+    'http',
+    '$state',
+    'user',
+    function($scope, http, $state, user) {
+
+      http.request("./php/sports.php")
+      .then(response => {
+        $scope.data = response;
+        $scope.$applyAsync();
+      })
+      .catch(e => user.error(e));
+
+      $scope.bovebben = (sport) => {
+        $scope.sport = sport;
+        $scope.$applyAsync();
       }
     }
   ])
