@@ -166,9 +166,10 @@
 
   // Forum controller
   .controller('forumController', [
+    '$rootScope',
     '$scope',
     'http',
-    function($scope, http) {
+    function($rootScope, $scope, http) {
       let methods = {
         getMessages: () => {
           http.request('./php/getMessages.php')
@@ -184,7 +185,7 @@
         http.request({
           url: './php/addMessages.php',
           data: {
-            felhid:1, 
+            felhid: $rootScope.user.felhid, 
             tapasztalat: $scope.message
           }
         })
@@ -393,20 +394,18 @@
     '$state',
     'user',
     function($scope, http, $state, user) {
+
       http.request("./php/sports.php")
       .then(response => {
         $scope.data = response;
-        console.log(response);
-        console.log($scope.data[1].megnevezes);
         $scope.$applyAsync();
-        $scope.currentIndex = 0;
-        $scope.currentVideo = '';
-        $scope.setCurrentIndex = function(index) {
-          $scope.currentIndex = index;
-          $scope.currentVideo = './media/video/' + $scope.data[index].video;
-      }
       })
       .catch(e => user.error(e));
+
+      $scope.bovebben = (sport) => {
+        $scope.sport = sport;
+        $scope.$applyAsync();
+      }
     }
   ])
 	
