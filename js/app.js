@@ -132,32 +132,32 @@
       $scope.states = [
         {
           
-          title: 'Nézd meg milyen sportokkal foglalkozhatsz nálunk!',
+          title: 'Tekintsd meg a sport katalógusunkat, és válassz kedvedre a kínált sportok közül!',
           srcUrl: 'sports',
           srcText: 'Sportok',
           footerImg: './media/image/csapat2.jpg',
-          footerText: ''
+          footerText: 'Itt biztos megtalálod a neked való sportot és a hozzávaló alaptudást is elsajátíthatod!'
         },
         {
-          title: 'CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC?',
+          title: 'Nem tudod mit egyél, ha fejlődni szeretnél? Szerencse, hogy itt megtalálod!',
           srcUrl: 'meals',
           srcText: 'Étrend',
-          footerImg: './media/image/edddddiiiiii.jpg',
-          footerText: 'XXXX'
+          footerImg: './media/image/mate.jpg',
+          footerText: 'Az egészséges táplálkozás legalább olyan fontos, mint maga az edzés!'
         },
         {
-          title: 'CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC?',
+          title: 'Többet szeretnél megtudni, a csapatunkról? Nézz utána edzőidnek az alábbi oldalon, tudj meg rólunk többet!',
           srcUrl: 'aboutus',
           srcText: 'Rólunk',
-          footerImg: './media/image/edddddiiiiii.jpg',
-          footerText: 'XXXX'
+          footerImg: './media/image/szabi1.jpg',
+          footerText: 'Senki se szeretné, hogy hozzá nem értő, eredménytelen edzők tanítsák!'
         },
         {
-          title: 'CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC?',
+          title: 'Oszd meg tapasztalataidat, kérdéseid más tagokkal!',
           srcUrl: 'forum',
           srcText: 'Fórum',
-          footerImg: './media/image/edddddiiiiii.jpg',
-          footerText: 'XXXX'
+          footerImg: './media/image/balazs1.jpg',
+          footerText: 'Beszélgessetek, kérdezzetek bátran, akár tagokat is el tudtok itt érni.'
         }
       ]
       console.log('Home controller...');
