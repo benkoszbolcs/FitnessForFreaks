@@ -30,13 +30,15 @@
 			  <h4 class="modal-title">{{sport.megnevezes}}</h4>
 			  
 			</div>
-			<div class="modal-body">
+			<div class="modal-body d-flex justify-content-center align-items-center">
 				<video autoplay muted loop
 							 class="w-50 h-50" 
 							 ng-src="./media/video/{{sport.video}}" 
 							 type="video/mp4">
 				</video>
+				<p class="m-5">{{sport.reszletes_leiras}}</p>
 			</div>
+
 			<div class="modal-footer">
 			  <button type="button" class="btn btn-secondary outline " data-bs-dismiss="modal">Bezár</button>
 			</div>

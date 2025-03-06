@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2025. Már 06. 10:01
+-- Létrehozás ideje: 2025. Már 06. 10:54
 -- Kiszolgáló verziója: 10.4.28-MariaDB
 -- PHP verzió: 8.1.17
 
@@ -55,8 +55,7 @@ CREATE TABLE `felhasznalo` (
 --
 
 INSERT INTO `felhasznalo` (`felhid`, `felhNev`, `email`, `jelszo`, `nem`, `szulEv`) VALUES
-(1, 'Benkő Szabolcs', 'benko.szabolcs-2020@keri.mako.hu', '1234Aa', 'M', '2006-02-16'),
-(2, 'Ódry Attila', 'odry.attila@keri.mako.hu', '1234Aa', 'M', '1964-03-08');
+(1, 'Benkő Szabolcs', 'benko.szabolcs-2020@keri.mako.hu', '1234Aa', 'M', '2006-02-16');
 
 -- --------------------------------------------------------
 
@@ -77,11 +76,7 @@ CREATE TABLE `forum` (
 
 INSERT INTO `forum` (`forumid`, `forumido`, `felhid`, `tapasztalat`) VALUES
 (1, '2025-02-21 11:58:08', 1, 'bakfitty'),
-(2, '2025-02-21 11:58:26', 1, 'asdadkű'),
-(3, '2025-03-06 08:38:20', 1, 'dsdsvdsknlsddvssdvdsvsdvs'),
-(4, '2025-03-06 08:43:10', 1, 'sdnklsdvknlsdvknlsdvnklsdnklvdsnkldsvklnsdvsdvnklknldvsklnsdvknlsdvknlvsdknlsdvnklsdv'),
-(5, '2025-03-06 08:45:09', 1, 'Agyon csaplak benneteket !!!!'),
-(6, '2025-03-06 08:51:34', 2, 'GYAKOROLNI !!!!');
+(2, '2025-02-21 11:58:26', 1, 'asdadkű');
 
 -- --------------------------------------------------------
 
@@ -164,8 +159,8 @@ CREATE TABLE `kerdoiv` (
 CREATE TABLE `sportok` (
   `id` int(11) NOT NULL,
   `megnevezes` varchar(30) NOT NULL,
-  `rovid_leiras` varchar(100) NOT NULL,
-  `reszletes_leiras` varchar(500) NOT NULL,
+  `rovid_leiras` varchar(500) NOT NULL,
+  `reszletes_leiras` varchar(3000) NOT NULL,
   `kep` varchar(50) NOT NULL,
   `video` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
@@ -175,10 +170,10 @@ CREATE TABLE `sportok` (
 --
 
 INSERT INTO `sportok` (`id`, `megnevezes`, `rovid_leiras`, `reszletes_leiras`, `kep`, `video`) VALUES
-(1, 'Kézilabda', 'A kézilabda egy labdajáték. A labdát csak kézzel szabad dobni, a kapus kivételével lábbal nem szabad', 'A kézilabdapálya 40x20 méteres, téglalap alakú, körülötte biztonsági zónákkal. A kapuelőtér 6 méterre a kaputól van, csak a kapus tartózkodhat benne. A szaggatott szabaddobási vonal 9 méterre, a hétméteres vonal 7 méterre a kaputól van. A középvonal a pályát két részre osztja, az oldalvonalak hosszabbak. A cserevonal 4,5 méterre a felezővonalról húzódik.\r\n\r\nA játékidő 16 éven felül 2x30 perc, fiatalabbaknál rövidebb, 10 perces szünettel. A játékidőt megszakítások alatt is mérik, de ha hosszabb s', 'szabiDob.jpg', 'kezilabda.mp4'),
-(2, 'Erőemelés', 'Az erőemelés (powerlifting) egy olyan erőnléti sport, amely a három alapvető gyakorlat köré épül: gu', 'Az erőemelés (powerlifting) egy erőnléti sport, amely három alapgyakorlatra épül: guggolás, fekvenyomás és felhúzás. A sportolók célja, hogy mindhárom gyakorlatban a lehető legnagyobb súlyt emeljék, és az összesített legnagyobb súly alapján dől el a verseny. Minden versenyző három próbát végezhet minden gyakorlatból, és az eredményét a legnagyobb sikeres emelés határozza meg.\r\n\r\nAz edzések a három alapgyakorlatra építenek, a helyes technika és a mentális felkészültség kulcsfontosságú. Az erőemel', 'bench_press.jpg', 'powerlifting.mp4'),
-(3, 'Testépítés', 'A testépítés olyan sportág, amely a test izomtömegének növelésére és formálására összpontosít. A spo', 'A testépítés egy olyan sport, amely a test izomtömegének növelésére és formálására összpontosít, elsősorban súlyzós edzésekkel. A sportolók célja, hogy a megfelelő edzésmódszerekkel és étrenddel növeljék az izomtömeget, miközben csökkentik a testzsírt, hogy izmaik jól láthatóvá váljanak. A testépítés nemcsak az erőn, hanem az esztétikai célnak is nagy szerepe van, az izmok formálására és részletgazdag kidolgozására helyezve a hangsúlyt. Az edzések mellett a sportolók speciális diétát követnek, a', 'lat_pulldown.jpg', 'testepites.mp4'),
-(4, 'Erősember', 'Az erősember sportág egy erőnléti verseny, amelyben a versenyzők különböző kihívások során mérik öss', 'Az erősember sportág egy extrém erőnléti verseny, amelyben a versenyzők különböző, a mindennapi életben előforduló nehéz feladatokat végeznek el, de olyan mértékben megterhelve, hogy valódi erőpróbát jelentenek. A sportágban a versenyzők súlyos tárgyakat emelnek, cipelnek, húznak, forgatnak vagy más módon mozgatnak, gyakran nemcsak a tiszta erő, hanem az állóképesség és a technikai tudás is szerepet kap. A versenyek során előfordulhatnak olyan feladatok, mint autóemelés, óriási kősziklák cipelés', 'sa_shoulder_press2.jpg', 'strongman.mp4');
+(1, 'Erőemelés', 'Az erőemelés egy súlyemelő sport, amelyben a versenyzők három különböző gyakorlatban mérik össze erejüket: fekvenyomás, guggolás és felhúzás. A cél, hogy mindhárom gyakorlatban a lehető legnagyobb súlyt emeljék. A verseny során minden sportolónak három próbálkozása van mindegyik gyakorlatra, és az összesített legnagyobb sikeres emelt súly alapján dől el a győztes.', 'Az erőemelés egy súlyemelő sport, ahol a versenyzők három gyakorlatban – fekvenyomás, guggolás és felhúzás – mérik össze erejüket. A cél, hogy minden gyakorlatban a lehető legnagyobb súlyt emeljék. Minden sportolónak három próbálkozása van mindegyik gyakorlatra, és a legnagyobb sikeresen emelt súlyok alapján dől el a győztes.\r\nAz erőemelés a maximális erő fejlesztésére összpontosít, és a sportolók szigorú technikai szabályok szerint végzik a gyakorlatokat. A versenyek során a sportolóknak nemcsak a fizikai erejük, hanem a precíz technikai tudásuk is kulcsfontosságú. A versenyek során minden próbálkozás során a sportolóknak pontosan be kell tartaniuk a szabályokat, különben a próbálkozás érvénytelen lehet. Az erőemelés a fizikális felkészültségen túl mentális erőt is igényel, mivel a versenyzőknek képesnek kell lenniük koncentrálni és kezelni a nagy súlyok emelésével járó stresszt.', 'bench_press.jpg', 'powerlifting.mp4'),
+(2, 'Testépítés', 'A testépítés egy olyan sport, amely a test izomtömegének növelésére és formálására összpontosít. A sportolók súlyzós edzésekkel dolgoznak a különböző izomcsoportokon, miközben figyelnek a táplálkozásra és a pihenésre is, hogy elősegítsék az izmok regenerálódását és növekedését. A testépítés célja nemcsak az erő növelése, hanem a test esztétikai megjelenésének javítása is.', 'A testépítés egy olyan sport és életmód, amely az izomtömeg növelésére és az izomformák kiemelésére összpontosít. A testépítők különböző súlyzós edzésekkel dolgoznak, hogy fokozzák az izomfejlődést, miközben figyelmet fordítanak a megfelelő táplálkozásra, pihenésre és regenerációra. Az edzés során a célzott izmok erősítésére használt technikák közé tartoznak a sorozatok, ismétlések, valamint a különböző súlyzós gyakorlatok, mint például a fekvenyomás, guggolás, felhúzás, bicepsz- és tricepszgyakorlatok.\r\nA testépítés nem csupán a fizikai erő növelésére irányul, hanem az esztétikai célok elérésére is, mint például a test szimmetriájának és izomtónusának javítása. A sportolók az edzések mellett speciális diétát követnek, amely gazdag fehérjékben és más tápanyagokban, amelyek elősegítik az izomépítést és a regenerációt. A pihenés és a megfelelő alvás szintén kulcsfontosságú, mivel az izmok növekedése az edzés utáni regenerációs időszakban történik.', 'lat_pulldown.jpg', 'testepites.mp4'),
+(3, 'Erősember', 'Az erősember sport egy extrém erőnléti versenysport, amelyben a versenyzők különféle kihívásokkal mérik össze fizikai erejüket. A sportban a versenyzők olyan feladatokat hajtanak végre, amelyek az egész test erejét igénylik, például óriási súlyok emelése, hatalmas sziklák, fák vagy autók mozgatása, illetve különböző nehéz tárgyak, mint például homokzsákok vagy kerekek cipelése.', 'Az erősember sport egy extrém erőnléti versenysport, amelyben a versenyzők különféle kihívásokkal mérik össze fizikai erejüket. A sportban a versenyzők olyan feladatokat hajtanak végre, amelyek az egész test erejét igénylik, például óriási súlyok emelése, hatalmas sziklák, fák vagy autók mozgatása, illetve különböző nehéz tárgyak, mint például homokzsákok vagy kerekek cipelése.\r\nA versenyek során különböző próbákat alkalmaznak, például a kocsihúzás, farönk cipelés, golyók emelése vagy teherautó húzása. Az erősember sport a maximális erő kifejlesztésére és alkalmazására összpontosít, és a versenyzőknek rendkívüli fizikai felkészültségre, erőnlétre, valamint mentális kitartásra van szükségük a sikerhez.\r\nA sportág rendkívül népszerű a világ számos országában, és nagy figyelmet kap, mivel az erősember versenyekben bemutatott teljesítmények gyakran extrém és elképesztő méretűek, ami lenyűgözi a közönséget.', 'sa_shoulder_press2.jpg', 'strongman.mp4'),
+(4, 'Kézilabda', 'A kézilabda egy csapatsport, amelyben két csapat, mindegyik 7 játékossal, próbálja meg dobni a labdát az ellenfél kapujába. A mérkőzés célja, hogy több gólt szerezzenek, mint az ellenfél. A játékot egy szabályos méretű pályán játsszák, ahol a játékosok kézzel irányítják a labdát, és különböző passzokkal és lövésekkel próbálnak gólt szerezni. Olvass róla többet és próbáld ki te is!', 'A kézilabda egy dinamikus csapatsport, ahol két csapat (7 játékos mindkét oldalon) próbálja meg dobni a labdát az ellenfél kapujába. A játék célja, hogy több gólt szerezzenek, mint az ellenfél. A mérkőzés 2 félidőből áll, mindegyik 30 perces, és egy 20x40 méteres pályán zajlik.\r\n\r\nA játékosok kézzel irányítják a labdát, passzolnak és lövik a kaput. A támadók célja, hogy minél jobb helyzetekből szerezzenek gólt, míg a védekezők a támadók megakadályozására törekednek. A kapus speciális védőfelszerelést visel, és ő védi a kaput.\r\n\r\nA mérkőzés alatt szabálytalanságok esetén szabaddobásokat vagy hétméteres dobásokat ítélhetnek. A győztes az a csapat, amely több gólt szerez a mérkőzés végére, döntetlen esetén hosszabbítás következhet.', 'szabiDob.jpg', 'kezilabda.mp4');
 
 --
 -- Indexek a kiírt táblákhoz
@@ -242,13 +237,13 @@ ALTER TABLE `etel`
 -- AUTO_INCREMENT a táblához `felhasznalo`
 --
 ALTER TABLE `felhasznalo`
-  MODIFY `felhid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `felhid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT a táblához `forum`
 --
 ALTER TABLE `forum`
-  MODIFY `forumid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `forumid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT a táblához `gyakorlat`
@@ -272,7 +267,7 @@ ALTER TABLE `kerdoiv`
 -- AUTO_INCREMENT a táblához `sportok`
 --
 ALTER TABLE `sportok`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
