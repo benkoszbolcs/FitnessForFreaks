@@ -10,7 +10,8 @@ $query= "SELECT `id`,
                 `rovid_leiras`,
                 `reszletes_leiras`,
                 `kep`,
-                `video` FROM `sportok`";
+                `video` 
+           FROM `sportok`";
 
 // Connect to MySQL server
 $db = new Database();

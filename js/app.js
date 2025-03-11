@@ -389,6 +389,16 @@
     'user',
     function($scope, http, $state, user) {
 
+      // Get day of week
+      $scope.currentDayIndex = moment().day() - 1;
+      if ($scope.currentDayIndex < 0) {
+        $scope.currentDayIndex = 6;
+      }
+      $scope.selectedTab = $scope.currentDayIndex;
+
+      // Set rest day
+      $scope.restDays = [1, 3, 6];
+
       http.request("./php/workoutplan.php")
       .then(response => {
         $scope.data = response;
@@ -400,56 +410,65 @@
         $scope.gyakorlat = gyakorlat;
         $scope.$applyAsync();
       }
+
+      $scope.bovebben = (gyakorlat) => {
+        $scope.gyakorlat = gyakorlat;
+        $scope.$applyAsync();
+      }
+
+      $scope.changeDay = (index) => {
+        $scope.selectedTab = index;
+      }
     }
   ])
 	
 
-  var app = angular.module('randomNumberApp', []);
+  // var app = angular.module('randomNumberApp', []);
 
-            app.controller('RandomNumberController', function($scope) {
-            // Kezdeti számok (1-23)
-            var numbers = [];
-            for (var i = 1; i <= 23; i++) {
-                numbers.push(i);
-            }
+  //           app.controller('RandomNumberController', function($scope) {
+  //           // Kezdeti számok (1-23)
+  //           var numbers = [];
+  //           for (var i = 1; i <= 23; i++) {
+  //               numbers.push(i);
+  //           }
 
-            // Véletlenszerű keverés
-            Array.prototype.shuffle = function() {
-                var i = this.length, j, temp;
-                while (--i) {
-                    j = Math.floor(Math.random() * (i + 1));
-                    temp = this[i];
-                    this[i] = this[j];
-                    this[j] = temp;
-                }
-                return this;
-            };
+  //           // Véletlenszerű keverés
+  //           Array.prototype.shuffle = function() {
+  //               var i = this.length, j, temp;
+  //               while (--i) {
+  //                   j = Math.floor(Math.random() * (i + 1));
+  //                   temp = this[i];
+  //                   this[i] = this[j];
+  //                   this[j] = temp;
+  //               }
+  //               return this;
+  //           };
 
-            // Keverjük a számokat
-            function restartNumbers() {
-                numbers = [];
-                for (var i = 1; i <= 23; i++) {
-                    numbers.push(i);
-                }
-                numbers.shuffle();
-            }
+  //           // Keverjük a számokat
+  //           function restartNumbers() {
+  //               numbers = [];
+  //               for (var i = 1; i <= 23; i++) {
+  //                   numbers.push(i);
+  //               }
+  //               numbers.shuffle();
+  //           }
 
-            // A számokat keverjük meg
-            numbers.shuffle();
+  //           // A számokat keverjük meg
+  //           numbers.shuffle();
 
-            restartNumbers();
+  //           restartNumbers();
 
 
-            // Kihúz egy random számot, és eltávolítja a tömbből
-            $scope.getRandomNumber = function() {
-                if (numbers.length > 0) {
-                    $scope.randomNumber = numbers.pop();  // Levesszük az utolsó elemet
-                } 
-                else {
-                    restartNumbers();
-                    $scope.randomNumber = numbers.pop(); // Eltávolítjuk az új számot
-                }
-            };
-        });
+  //           // Kihúz egy random számot, és eltávolítja a tömbből
+  //           $scope.getRandomNumber = function() {
+  //               if (numbers.length > 0) {
+  //                   $scope.randomNumber = numbers.pop();  // Levesszük az utolsó elemet
+  //               } 
+  //               else {
+  //                   restartNumbers();
+  //                   $scope.randomNumber = numbers.pop(); // Eltávolítjuk az új számot
+  //               }
+  //           };
+  //       });
 
 })(window, angular);

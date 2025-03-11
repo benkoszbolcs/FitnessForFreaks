@@ -15,7 +15,20 @@ $query= "SELECT `gyakid`,
 $db = new Database();
 
 // Execute SQL command
-$result = $db->execute($query);
+$data = $db->execute($query);
+
+// Randomize
+shuffle($data);
+
+$restDays = [1, 3, 6];
+$data     = array_chunk($data, 6);
+$result   = [];
+$index    = 0;
+for($i = 0; $i < 6; $i++) {
+  if (!in_array($i, $restDays)) {
+    $result[$i] = $data[$index++];
+  }
+}
 
 // Close connection
 $db = null;
