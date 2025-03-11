@@ -266,32 +266,19 @@
     'util',
     'http',
     function($rootScope, $scope, $state, user, util, http) {
-
-      // Set local methods
+  
       let methods = {
-
-        // Initialize
         init: () => {
-
-          // Set focus
-					user.focus();
-
-          // Initialize tooltips
+          user.focus();
           $rootScope.tooltipsInit();
         }
       };
-
-      // Set scope methods
+  
       $scope.methods = {
-
-        // Login
         register: () => {
-
-          let data = util.objFilterByKeys($scope.model, 
-                      'showPassword;passwordConfirm', false);
+          let data = util.objFilterByKeys($scope.model, 'showPassword;passwordConfirm', false);
           data.szulEv = moment(data.szulEv).format('YYYY-MM-DD');
-
-          // Set request
+  
           http.request({
             url: "./php/register.php",
             data: data
@@ -299,11 +286,15 @@
           .then(userID => {
             user.set({
               felhid  : userID, 
-						  felhNev : data.felhNev,
-						  nem     : data.nem
+              felhNev : data.felhNev,
+              nem     : data.nem
             });
-            
+  
+
             util.localStorage('set', 'email', $scope.model.email);
+  
+            // Alert hozzáadása sikeres regisztráció esetén
+  
             $state.go('home');
           })
           .catch(e => {
@@ -313,8 +304,7 @@
           });
         }
       };
-
-      // Initialize
+  
       methods.init();
     }
   ])
@@ -347,24 +337,6 @@
         return;
       }
 
-      $scope.header = {
-        id: "azon.",
-        type: "típus",
-        name: "név",
-        born: "született",
-        gender: "neme",
-        country: "ország",
-        phone: "telefon",
-        city: "település",
-        postcode: "irányítószám",
-        address: "cím",
-        email: "email",
-        year: "év",
-        profession: "szakma",
-        class: "osztály",
-        valid: "érvényes"
-      };
-      $scope.headerLength = Object.keys($scope.header).length;
 
       // Set request
       http.request("./php/users.php")
