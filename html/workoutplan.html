@@ -49,7 +49,7 @@
                          ng-repeat="x in data[selectedTab] track by $index"
                          ng-if="!restDay">
                          
-                        <div class="bg-dark shadow  rounded text-center py-5 px-3 click h-100">
+                        <div class="bg-dark shadow-lg rounded text-center py-5 px-3 click h-100">
                             <img ng-src="./media/image/{{x.gyakKep}}" 
                                  class="card-img-top rounded" 
                                  alt="...">
@@ -65,7 +65,7 @@
                     </div>
                     <h1 class="text-center display-1 mt-5 pt-5"
                         ng-if="restDay">
-                        Pihenőnap
+                        Pihenőnap!
                     </h1>
                 </div>
             </div>
