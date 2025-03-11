@@ -48,7 +48,8 @@
       .state('workoutplan', {
 				url: '/workoutplan',
         parent: 'root',
-				templateUrl: './html/workoutplan.html'
+				templateUrl: './html/workoutplan.html',
+        controller: 'workoutplanController'
 			})
       .state('meals', {
 				url: '/meals',
@@ -408,6 +409,75 @@
       }
     }
   ])
+
+  .controller('workoutplanController', [
+    '$scope',
+    'http',
+    '$state',
+    'user',
+    function($scope, http, $state, user) {
+
+      http.request("./php/workoutplan.php")
+      .then(response => {
+        $scope.data = response;
+        $scope.$applyAsync();
+      })
+      .catch(e => user.error(e));
+
+      $scope.bovebben = (gyakorlat) => {
+        $scope.gyakorlat = gyakorlat;
+        $scope.$applyAsync();
+      }
+    }
+  ])
 	
+
+  var app = angular.module('randomNumberApp', []);
+
+            app.controller('RandomNumberController', function($scope) {
+            // Kezdeti számok (1-23)
+            var numbers = [];
+            for (var i = 1; i <= 23; i++) {
+                numbers.push(i);
+            }
+
+            // Véletlenszerű keverés
+            Array.prototype.shuffle = function() {
+                var i = this.length, j, temp;
+                while (--i) {
+                    j = Math.floor(Math.random() * (i + 1));
+                    temp = this[i];
+                    this[i] = this[j];
+                    this[j] = temp;
+                }
+                return this;
+            };
+
+            // Keverjük a számokat
+            function restartNumbers() {
+                numbers = [];
+                for (var i = 1; i <= 23; i++) {
+                    numbers.push(i);
+                }
+                numbers.shuffle();
+            }
+
+            // A számokat keverjük meg
+            numbers.shuffle();
+
+            restartNumbers();
+
+
+            // Kihúz egy random számot, és eltávolítja a tömbből
+            $scope.getRandomNumber = function() {
+                if (numbers.length > 0) {
+                    $scope.randomNumber = numbers.pop();  // Levesszük az utolsó elemet
+                } 
+                else {
+                    restartNumbers();
+                    $scope.randomNumber = numbers.pop(); // Eltávolítjuk az új számot
+                }
+            };
+        });
 
 })(window, angular);
