@@ -48,7 +48,8 @@
       .state('workoutplan', {
 				url: '/workoutplan',
         parent: 'root',
-				templateUrl: './html/workoutplan.html'
+				templateUrl: './html/workoutplan.html',
+        controller: 'workoutplanController'
 			})
       .state('meals', {
 				url: '/meals',
@@ -266,32 +267,19 @@
     'util',
     'http',
     function($rootScope, $scope, $state, user, util, http) {
-
-      // Set local methods
+  
       let methods = {
-
-        // Initialize
         init: () => {
-
-          // Set focus
-					user.focus();
-
-          // Initialize tooltips
+          user.focus();
           $rootScope.tooltipsInit();
         }
       };
-
-      // Set scope methods
+  
       $scope.methods = {
-
-        // Login
         register: () => {
-
-          let data = util.objFilterByKeys($scope.model, 
-                      'showPassword;passwordConfirm', false);
+          let data = util.objFilterByKeys($scope.model, 'showPassword;passwordConfirm', false);
           data.szulEv = moment(data.szulEv).format('YYYY-MM-DD');
-
-          // Set request
+  
           http.request({
             url: "./php/register.php",
             data: data
@@ -299,11 +287,15 @@
           .then(userID => {
             user.set({
               felhid  : userID, 
-						  felhNev : data.felhNev,
-						  nem     : data.nem
+              felhNev : data.felhNev,
+              nem     : data.nem
             });
-            
+  
+
             util.localStorage('set', 'email', $scope.model.email);
+  
+            // Alert hozzáadása sikeres regisztráció esetén
+  
             $state.go('home');
           })
           .catch(e => {
@@ -313,8 +305,7 @@
           });
         }
       };
-
-      // Initialize
+  
       methods.init();
     }
   ])
@@ -347,24 +338,6 @@
         return;
       }
 
-      $scope.header = {
-        id: "azon.",
-        type: "típus",
-        name: "név",
-        born: "született",
-        gender: "neme",
-        country: "ország",
-        phone: "telefon",
-        city: "település",
-        postcode: "irányítószám",
-        address: "cím",
-        email: "email",
-        year: "év",
-        profession: "szakma",
-        class: "osztály",
-        valid: "érvényes"
-      };
-      $scope.headerLength = Object.keys($scope.header).length;
 
       // Set request
       http.request("./php/users.php")
@@ -408,6 +381,94 @@
       }
     }
   ])
+
+  .controller('workoutplanController', [
+    '$scope',
+    'http',
+    '$state',
+    'user',
+    function($scope, http, $state, user) {
+
+      // Get day of week
+      $scope.currentDayIndex = moment().day() - 1;
+      if ($scope.currentDayIndex < 0) {
+        $scope.currentDayIndex = 6;
+      }
+      $scope.selectedTab = $scope.currentDayIndex;
+
+      // Set rest day
+      $scope.restDays = [1, 3, 6];
+
+      http.request("./php/workoutplan.php")
+      .then(response => {
+        $scope.data = response;
+        $scope.$applyAsync();
+      })
+      .catch(e => user.error(e));
+
+      $scope.bovebben = (gyakorlat) => {
+        $scope.gyakorlat = gyakorlat;
+        $scope.$applyAsync();
+      }
+
+      $scope.bovebben = (gyakorlat) => {
+        $scope.gyakorlat = gyakorlat;
+        $scope.$applyAsync();
+      }
+
+      $scope.changeDay = (index) => {
+        $scope.selectedTab = index;
+      }
+    }
+  ])
 	
+
+  // var app = angular.module('randomNumberApp', []);
+
+  //           app.controller('RandomNumberController', function($scope) {
+  //           // Kezdeti számok (1-23)
+  //           var numbers = [];
+  //           for (var i = 1; i <= 23; i++) {
+  //               numbers.push(i);
+  //           }
+
+  //           // Véletlenszerű keverés
+  //           Array.prototype.shuffle = function() {
+  //               var i = this.length, j, temp;
+  //               while (--i) {
+  //                   j = Math.floor(Math.random() * (i + 1));
+  //                   temp = this[i];
+  //                   this[i] = this[j];
+  //                   this[j] = temp;
+  //               }
+  //               return this;
+  //           };
+
+  //           // Keverjük a számokat
+  //           function restartNumbers() {
+  //               numbers = [];
+  //               for (var i = 1; i <= 23; i++) {
+  //                   numbers.push(i);
+  //               }
+  //               numbers.shuffle();
+  //           }
+
+  //           // A számokat keverjük meg
+  //           numbers.shuffle();
+
+  //           restartNumbers();
+
+
+  //           // Kihúz egy random számot, és eltávolítja a tömbből
+  //           $scope.getRandomNumber = function() {
+  //               if (numbers.length > 0) {
+  //                   $scope.randomNumber = numbers.pop();  // Levesszük az utolsó elemet
+  //               } 
+  //               else {
+  //                   restartNumbers();
+  //                   $scope.randomNumber = numbers.pop(); // Eltávolítjuk az új számot
+  //               }
+  //           };
+  //       });
 
 })(window, angular);

@@ -7,52 +7,111 @@
             <h5 class="text-primary text-uppercase">Bárkinek, aki átmozgatná a testét!</h5>
             <h1 class="display-3 text-uppercase mb-0">Ingyenes edzésterv</h1>
         </div>
-        <div class="tab-class text-center">
+
+        <ul class="nav nav-tabs" 
+            role="tablist"
+            ng-init="daysOfWeek = ['Hétfő', 'Kedd', 'Szerda', 'Csütörtök', 'Péntek', 'Szombat', 'Vasárnap']">
+            <li class="nav-item" 
+                role="presentation"
+                ng-repeat="day in daysOfWeek track by $index">
+                <button class="nav-link"
+                        ng-class="{'active': $index == currentDayIndex}" 
+                        id="day_tab_{{$index}}" 
+                        data-bs-toggle="tab" 
+                        data-bs-target="#day-tab-pane_{{$index}}" 
+                        type="button" 
+                        role="tab" 
+                        aria-controls="home-tab-pane" aria-selected="true"
+                        ng-click="changeDay($index)">
+                    {{day}}
+                </button>
+            </li>
+        </ul>
+
+        <h5 class="my-4 text-primary text-uppercase click" 
+            data-bs-toggle="modal" 
+            data-bs-target="#bemelegites"
+            ng-if="!restDays.includes(selectedTab)">
+            <small><u> Fontos, hogy minden edzés előtt alaposan melegítsen be!</u></small>
+        </h5>
+
+        <div class="tab-content">
+            <div class="tab-pane fade"
+                 ng-repeat="day in daysOfWeek track by $index" 
+                 ng-class="{'show active': $index == currentDayIndex}"
+                 id="day-tab-pane_{{$index}}" 
+                 role="tabpanel" 
+                 aria-labelledby="day_tab_{{$index}}" 
+                 tabindex="{{$index}}"
+                 ng-init="restDay=restDays.includes($index)">
+                 <div class="row g-5 ">
+                    <div class="col-md-6 col-lg-4" 
+                         ng-repeat="x in data[selectedTab] track by $index"
+                         ng-if="!restDay">
+                         
+                        <div class="bg-dark shadow  rounded text-center py-5 px-3 click h-100">
+                            <img ng-src="./media/image/{{x.gyakKep}}" 
+                                 class="card-img-top rounded" 
+                                 alt="...">
+                            <h5 class="text-uppercase mt-5">{{x.gyakNev}}</h5>
+                            <a class="btn outline" 
+                                data-bs-target="#bovebb" 
+                                data-bs-toggle="modal"
+                                ng-click="bovebben(x)"
+                                ng-attr-id="{{ $index }}" >
+                                Bővebben
+                            </a>
+                        </div>
+                    </div>
+                    <h1 class="text-center display-1 mt-5 pt-5"
+                        ng-if="restDay">
+                        Pihenőnap
+                    </h1>
+                </div>
+            </div>
+          </div>
+        </div>
+
+
+
+        <!-- <div class="tab-class text-center">
             <ul class="nav nav-pills d-inline-flex justify-content-center bg-dark text-uppercase rounded-pill mb-5"
                 ng-init="daysOfWeek = ['Hétfő', 'Kedd', 'Szerda', 'Csütörtök', 'Péntek', 'Szombat', 'Vasárnap']">
-                <li class="nav-item" 
+                <li class="nav-item" role="presentation"
                     ng-repeat="d in daysOfWeek track by $index">
                     <a class="nav-link rounded-pill text-white" 
-                       ng-class="{'active': $index == 0}"
+                       ng-class="{'active': $index == currentDayIndex}"
                        data-bs-toggle="pill" 
                        href="#tab-{{$index+1}}">
                         {{d}}
                     </a>
                 </li>
-                <!-- <li class="nav-item">
-                    <a class="nav-link rounded-pill text-white" data-bs-toggle="pill" href="#tab-2">Kedd</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link rounded-pill text-white" data-bs-toggle="pill" href="#tab-3">Szerda</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link rounded-pill text-white" data-bs-toggle="pill" href="#tab-4">Csütörtök</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link rounded-pill text-white" data-bs-toggle="pill" href="#tab-5">Péntek</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link rounded-pill text-white" data-bs-toggle="pill" href="#tab-6">Szombat</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link rounded-pill text-white" data-bs-toggle="pill" href="#tab-7">Vasárnap</a>
-                </li> -->
             </ul>
-            <h5 class="my-4 text-primary text-uppercase click" data-bs-toggle="modal" data-bs-target="#bemelegites">
+            <h5 class="my-4 text-primary text-uppercase click" 
+                data-bs-toggle="modal" 
+                data-bs-target="#bemelegites">
                 <small><u> Fontos, hogy minden edzés előtt alaposan melegítsen be!</u></small>
             </h5>
             <div class="tab-content">
-                <div ng-id="tab-{{$index+1}}" class="tab-pane fade show p-0 active" data-bs-toggle="modal" data-bs-target="#edzes">
+
+                <div ng-id="tab-{{$index+1}}" class="tab-pane fade show p-0 active ">
                     <div class="row g-5 ">
-                        <div class="col-lg-3 col-md-4 col-sm-6" ng-repeat="x in [].constructor(8) track by $index">
-                            <div class="bg-white rounded text-center py-5 px-3 click h-100">
-                                <h5 class="text-uppercase text-primary">{{$index+1}}</h5>
-                                <p class="text-uppercase text-secondary mb-0">3x30mp</p>
+                        <div class="col-lg-4 col-md-6" ng-repeat="x in [].constructor(6) track by $index">
+                            <div class="bg-dark shadow  rounded text-center py-5 px-3 click h-100">
+                                <img ng-src="./media/image/{{data[$index].gyakKep}}" class="card-img-top rounded" alt="...">
+                                <h5 class="text-uppercase mt-5">{{data[$index].gyakNev}}</h5>
+                                <a class="btn outline" 
+                                    data-bs-target="#bovebb" 
+                                    data-bs-toggle="modal"
+                                    ng-click="bovebben(data[$index])"
+                                    ng-attr-id="{{ $index }}" >
+                                    Bővebben
+						        </a>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
                        
             <!-- Modals -->
             <div class="modal fade" id="bemelegites" tabindex="-1" role="dialog" aria-labelledby="bemelegites" aria-hidden="true">
@@ -80,18 +139,24 @@
                   </div>
                 </div>
             </div>
-            <div class="modal fade" id="edzes" tabindex="-1" role="dialog" aria-labelledby="edzes" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                  <div class="modal-content">
+
+
+            <div class="modal fade" style="background-color: #3c4c60;" id="bovebb" tabindex="-1" role="dialog" aria-labelledby="bovebb" aria-hidden="true">
+                <div class="modal-dialog modal-xl" role="document"  >
+                  <div class="modal-content" >
                     <div class="modal-header">
-                      <h4 class="modal-title" id="edzes">{{dadada}}</h4>
+                      <h4 class="modal-title">{{gyakorlat.gyakNev}}</h4>
                       
                     </div>
-                    <div class="modal-body text-start">
-                       
-                        <p>{{dada}}</p>
-                        
+                    <div class="modal-body d-flex justify-content-center align-items-center">
+                        <video autoplay muted loop
+                                     class="w-50 h-50" 
+                                     ng-src="./media/video/{{gyakorlat.gyakVideo}}" 
+                                     type="video/mp4">
+                        </video>
+                        <p class="m-5">{{gyakorlat.gyakLeiras}}</p>
                     </div>
+                    <p class="text-start ms-5 rounded text-white">3x12 ismétlés moderált súllyal</p>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-secondary outline " data-bs-dismiss="modal">Bezár</button>
                     </div>
