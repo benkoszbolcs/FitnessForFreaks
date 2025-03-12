@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2025. Már 06. 10:54
+-- Létrehozás ideje: 2025. Már 12. 11:46
 -- Kiszolgáló verziója: 10.4.28-MariaDB
 -- PHP verzió: 8.1.17
 
@@ -153,6 +153,36 @@ CREATE TABLE `kerdoiv` (
 -- --------------------------------------------------------
 
 --
+-- Tábla szerkezet ehhez a táblához `reggelik`
+--
+
+CREATE TABLE `reggelik` (
+  `id` int(11) NOT NULL,
+  `nev` varchar(100) DEFAULT NULL,
+  `kep` varchar(500) DEFAULT NULL,
+  `figyelemfelkeltes` text DEFAULT NULL,
+  `leiras` text DEFAULT NULL,
+  `hozzavalok` text DEFAULT NULL,
+  `elkeszites` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- A tábla adatainak kiíratása `reggelik`
+--
+
+INSERT INTO `reggelik` (`id`, `nev`, `kep`, `figyelemfelkeltes`, `leiras`, `hozzavalok`, `elkeszites`) VALUES
+(1, 'Málnás-Fehérjés Tejberizs', 'malnasFeherjesTejberizs.jpg', 'Ebben a málnás tejberizsben rengeteg a fehérje. Imádni fogod a krémes állagot valamint az édes vaníliás kása és a kissé savanykás málna ízkombinációját.', 'Mit készítsünk reggelire? Ha klasszikus zabkását szoktál enni, most próbálj meg változtatni, és a zabpelyhet rizzsel helyettesíteni. Bár az elkészítése kicsit több id?t vesz igénybe, garantáljuk, hogy az eredmény megéri. A krémes, vaníliás rizs fehérjében sem szenved hiányt. És ha még málnát is teszel rá, kész a tökéletes reggeli.', '• 300 ml víz\n• 150 ml zsírszegény tej\n• 60 g természetes jázmin rizs\n• 60 g fagyasztott málna\n• 60 g vaníliás fehérjepor\n• 30 ml Agavé szirup\n• vanília aroma ízlés szerint', 'Öblítsük le a jázmin rizst folyó vízben. Majd forraljunk fel 300 ml vizet egy lábasban, és adjuk hozzá a rizst, és közepes lángon f?zzük, amíg a rizs majdnem az összes vizet felszívja. Ez nagyjából 10-15 perc.'),
+(2, 'Lédús almás szelet fehérjével', 'almásSzelet.jpg', 'Ez a puha édes finomság minden desszertimádónak ízleni fog. A szaftos alma és a fehérjetészta keveréke szó szerint mennyország a szájban.', 'Ez a csodásan édes desszert az alma minden szerelmesét rabul ejti. Elkészítése egyszer?, az eredmény pedig téged is levesz a lábadról. A ropogós tészta, a reszelt alma és a tojásfehérjével kevert krémtúró együttesen az ízek tökéletes harmóniáját teremti meg. Ha olyan finomságot keresel, amelyet kávé mellé, nassolnivalóként vagy egészséges reggeli részeként is fogyaszthatsz, az almás morzsasüti a tökéletes választás számodra.', '• 220 g teljes ki?rlés? tönkölybúzaliszt\n• 70 g eritrit\n• 50 g ghí\n• 30 g vaníliás fehérjepor\n• 4-5 ev?kanál tej\n• 1 tojás\n• 1 teáskanál süt?por\n• 600 g alma\n• 30 g vaníliás fehérjepor\n• 2 teáskanál fahéj', 'Kezdjük a tészta el?készítésével. Egy nagyobb tálban keverjük össze az összes száraz hozzávalót, tehát a lisztet, a fehérjét, az eritritet és a süt?port. Adjuk hozzá az olvasztott és kih?lt ghít, a tojásokat és a tejet. Ezután kézzel dolgozzunk bel?le sima és nem ragadós tésztát. Ha túl ragacsos, szórjunk hozzá még egy kis lisztet. Ha szétmorzsolódik, adjunk hozzá még egy kis tejet. Tegyük a tésztát a h?t?be és kb. 15 percig pihentessük. Közben elkészíthetjük az almatölteléket.\n\nHámozzuk meg és reszeljük durvára az összes almát. Hagyjuk egy kicsit pihenni, majd nyomkodjuk ki a felesleges levet. Ezután adjuk hozzá a fehérjét és a fahéjat majd alaposan keverjük össze. Vegyük ki a tésztát a h?t?b?l, osszuk két részre, és nyújtsuk ki téglalap alakúra, a süt?forma méretére. A receptben 25×30 cm-es tepsit használtunk.\n\nBéleljük ki a forma alját süt?papírral, majd helyezzük bele az egyik téglalap alakú tésztát és nyomkodjuk is ki a szélére.\n\nOszlassuk el az el?készített almát egyenletesen a tésztán.\n\nEzután jöhet rá a tészta második fele, nyomkodjuk le a széleket is. Amikor mindent el?készítettünk, tegyük 180°C-ra el?melegített süt?be, és 35-40 perc alatt süssük aranybarnára. Sütés után hagyjuk kih?lni, ideális esetben másnap reggelig, majd tálaljuk.'),
+(3, 'Réteges almás sütemény', 'retegesAlmásSütemény.jpg', 'Ez a réteges almás sütemény olyan hihetetlen finom is, mint amilyennek látszik. A pihe-puha, nedves piskóta, a lédús alma, valamint a krémes túróréteg és a tejszínes krém keverékét mindenki imádni fogja. De vigyázat, mert gyorsan elt?nik az asztalról!', 'Mit?l lesz tökéletes egy sütemény? Egy puha, könnyed piskóta az alapja, amely már önmagában is csodálatos íz?. Erre kerül egy lédús almás réteg, majd egy túrós és tejszínes réteg, és máris kész a desszert, amely szinte elolvad a szádban. Nemcsak desszertként, hanem reggelire vagy uzsonnára is tökéletes.', '• 60 g sima liszt\n• 70 g barna cukor\n• 20 ml olívaolaj\n• 2 tojás\n• 1 ev?kanál langyos víz\n• 1 teáskanál süt?por\n• egy csipet só\n• 300 ml almalé\n• 200 g hámozott alma\n• 20 g vaníliás pudingpor\n• 150 ml habtejszín\n• 150 g zsírszegény túró\n• 20 g porcukor\n• 20 g étcsokoládé', 'Verjük fel a tojássárgáját barna cukorral amíg a keverék bes?r?södik és halványul. Adjuk hozzá a vizet és az olajat, és keverjük jól össze, hogy minden összeálljon. Szitáljuk át a sima lisztet, adjuk hozzá a süt?port, majd óvatosan keverjük bele a tojássárgájás keverékbe, hogy s?r? tésztát kapjunk. A tojásfehérjét egy csipetnyi sóval kemény habbá verjük, és keverjük óvatosan a tésztához, hogy megmaradjon a könny?sége. Tegyünk egy süt?formába (mi 20×20 cm-eset használtunk) süt?papírt, és óvatosan öntsük bele a tésztát. Tegyük be a 180°C-ra el?melegített süt?be és kb. 20 percig süssük.\n\nKözben kockázzuk fel a meghámozott almát, majd cukorral és 100 ml almalével kb. 10 perc alatt f?zzük puhára. Keverjük el a pudingport a maradék almalével, majd adjuk az almához, és f?zzük egy rövid ideig, amíg bes?r?södik. Ezt a keveréket oszlassuk el egyenletesen a kih?lt piskótalapon, és hagyjuk teljesen kih?lni.\n\nMár csak az utolsó réteget kell elkészíteni. Verjünk kemény habot a tejszínb?l és a porcukorból, majd óvatosan dolgozzuk bele a túrót. Ezt a krémes keveréket kell a kih?lt almás rétegre kenni. Tegyük h?t?be az egész süteményt legalább 2 órára. Reszeljünk étcsokoládét a tetejére közvetlenül tálalás el?tt. Vágj egy szeletet és élvezd!'),
+(4, 'Rebarbarás crumble torta', 'rebarbarasTorta.jpg', 'Ha szereted az édes finomságokat, akkor ezt a tortát imádni fogod. A nedves piskóta, a zsenge rebarbara és a ropogós morzsás feltét kombinációja egyszer?en verhetetlen.', 'Az eper-, banán- és almatortát a legtöbben ismerjük. De miért ne próbálnánk ki valami kevésbé hagyományosat, és cserélnénk a gyümölcsöt rebarbarára? Sütés közben a rebarbara gyönyör?en megpuhul, és minden édesszájú embert elvarázsol az ízével. Puha piskótával és ropogós morzsával a tetején párosítva igazán kiemelkedik a többi torta közül.', '• 120 g 12% zsírtartalmú tejföl\r\n    • 100 g sima liszt\r\n    • 110 g barna cukor\r\n    • 90 g teljes ki?rlés? tönkölybúzaliszt\r\n    • 60 ml félzsíros tej\r\n    • 30 ml olívaolaj\r\n    • 1 tojás\r\n    • 1 tk. süt?por\r\n    • egy csipet só\r\n    • 350 g rebarbara\r\n    • 30 g finomszem? zabpehely\r\n    • 30 g vaj (használhatsz helyette ghít is)\r\n    • ½ tk. fahéj', 'Kezdjük a morzsás feltét elkészítésével. Keverjük össze a barna cukrot (40 g), a tönkölylisztet (30 g), a zabot és a fahéjat. Adjuk hozzá a hideg vajat, és az ujjainkkal gyúrjuk bele a száraz hozzávalókba, hogy morzsalékos keveréket kapjunk.\r\n    \r\n    Ezután készítsük el a tortatésztát. Egy tálban keverjük össze a tejfölt az olajjal, a tojással és a tejjel. Fokozatosan keverjük bele a cukrot, az átszitált sima és tönkölybúzalisztet, a süt?port, és egy csipet sót. Öntsük a tésztát egy kerek tortaformába (a miénk 20 cm átmér?j? volt). Az apróra vágott rebarbarát egyenletesen eloszlatjuk a tésztán (néhány darabot kissé belenyomhatunk a tésztába). Szórjuk a morzsás feltétet egyenletesen a rebarbarára. \r\n    \r\n    Süssük 180°C-on körülbelül 30 percig. Szeletelés és tálalás el?tt hagyjuk kih?lni a süteményt.'),
+(5, 'Fehérjés gofri', 'feherjesGofri.jpg', 'A gofri kit?n? módja, hogy jól indítsd a reggelt. És ha egy jó adag fehérjét is adsz hozzá, bármelyik fitneszrajongót leny?gözheted vele. Már csak azt kell eldöntened, hogyan fogod díszíteni.', 'Szeretnéd feldobni a reggeleidet? Akkor ez a gofri a tökéletes recept számodra! Mi egy adag fehérjeport is adunk hozzá, így fitneszrajongók számára is remek választás, a banán pedig arról gondoskodik, hogy puha és habkönny? legyen. Ez a gyors és könny? recept téged is garantáltan rabul ejt!', '• 100 g (kb. 1 darab) érett banán\n• 30 g (1 adagolókanálnyi) vaníliás fehérjepor\n• 20 g zabpehely\n• 1 tojás\n• 1/2 tk. süt?por\n• repceolaj f?z?spray\n• görög joghurt\n• friss gyümölcs\n• kókuszszirup', 'Els? lépésként robotgépben ?röld meg a zabpelyhet. Azután a banánból és a tojásból készíts sima keveréket, és add hozzá a meg?rölt zabpehelyhez. Ezután mehet hozzá a fehérjepor és a süt?por is. Melegítsd fel a gofrisüt?t, és fújd be olajjal. Egyenletesen oszlasd el benne a tésztát, és készíts 4 gofrit. Addig süsd, amíg aranybarna és finom ropogós nem lesz.\n\nIsmételd meg ezt a lépést, amíg el nem fogy a tészta. Ha kész vagy, helyezed a gofrit egy tányérra, és jöhet a feltét ízlés szerint. Mi a klasszikus görög joghurtos, gyümölcsös, kókuszszirupos megoldást választottuk, de nem hibázhatsz ZERO önteteinkkel, vajainkkal és liofilizált gyümölcseinkkel sem.'),
+(6, 'Sós, fehérjés palacsinta spenóttal, lazaccal és tükörtojással töltve', 'extraPalacsinta.jpg', 'A spenóttal, lazaccal és tükörtojással töltött palacsinta tökéletes választás mindazoknak, akik szeretik a sós reggeliket. Megfelel? mennyiség? fehérjét biztosít, ami praktikus edzés el?tt vagy után.', 'Mi imádjuk a lekvárral, túróval vagy mogyoróvajjal töltött palacsintát. A palacsintát azonban akkor is élvezheted, ha nem rajongsz az édes finomságokért. Erre az esetre készítettünk egy spenóttal, lazaccal és tükörtojással töltött palacsinta receptet. Tele van fehérjével, finom az íze, így reggelire és ebédre is tökéletes.', '• 100 ml zsírszegény tej\n• 50 g gluténmentes zabliszt\n• 30 g ízesítés nélküli fehérjepor\n• 1 tojás\n• egy csipet szárított bazsalikom\n• egy csipet fekete bors\n• egy csipet só\n• f?z?olaj spray a serpeny? zsírozásához\n• 250 g bébispenót\n• 100 g füstölt lazac (lazac konzervet is használhatsz)\n• 2 tojás\n• 2 gerezd fokhagyma\n• egy csipet só\n• egy csipet fekete bors', 'Egy tálban keverjük össze a lisztet a fehérjeporral, sóval, fekete borssal és bazsalikommal. Ezután adjuk hozzá a tojást és a tejet a száraz hozzávalókhoz és keverjük össze alaposan.\n\nEzután készítsük el? a serpeny?t, fújjuk be egy kis olívaolaj f?z?spray-vel, és melegítsük, amíg forró nem lesz. Ezután süssük a tésztát mindkét oldalán aranybarnára (ismételjük meg, szóval két palacsintánk lesz az egész keverékb?l).\n\nHa elkészült a palacsinta, elkezdhetjük elkészíteni a tölteléket. Egy serpeny?ben alacsony h?fokon megpároljuk a bébispenótot. Amikor a spenót elkezdi kiadni a levét, adjuk hozzá a zúzott fokhagymát, és f?szerezzük egy csipet sóval és borssal. F?zzük még egy kis ideig, hogy az ízek összeérjenek.\n\nA tojásokat külön készítsük el egy serpeny?ben, tükörtojás stílusban (ízlés szerint sózzuk és borsozzuk). Ezután hozzáláthatunk a palacsinta töltéséhez. Terítsük szét a palacsintát, el?ször helyezzük rá a párolt spenótot, majd a lazacot, végül a tükörtojást.\n\nIsmételjük meg a folyamatot, hogy 2 adag készüljön el, és máris fogyaszthatjuk. Remekül illik hozzá egy adag saláta.'),
+(7, 'Fehérjés banántorta pohárban', 'poharBananTorta.jpg', 'Tippeket keresel nassolnivalókra vagy luxus reggelikre? Itt egy tökéletes édes finomság, amely az ízlel?bimbóidat is gyönyörködteti és az izmaidat táplálja. Ideális minden édesszájú számára.', 'Ma ennek a csodálatos édességnek a receptjét készítettük el neked. A pohárdesszert alapja banán íz? piskóta, amelyet tökéletesen kiegészít a vaníliakrémes töltelék. Ez a fehérjében gazdag kombináció elnyeri az ízlel?bimbóid tetszését és az izmaidat is gyönyörködtetni fogja. Javasoljuk, hogy a poharakat már egy nappal korábban készítsd el, majd egyszer?en vedd ki ?ket a h?t?szekrényb?l. Egy luxus reggeli vagy nassolnivaló, amely karnyújtásnyira lesz.', '• 110 g finom tönkölybúzaliszt\n• 50 g xilit (édesít?szer)\n• 50 g vaj\n• 80 g vaníliás ízesítés? fehérjepor\n• 6 g süt?por\n• 1 tojás\n• 1 banán\n• egy csipet só\n• olajspray a tepsi kikenéséhez\n• 500 ml alacsony zsírtartalmú tej\n• 40 g vaníliás puding', 'Tegyük a xilitet, a tojást és a megpuhult vajat egy tálba, és alaposan keverjük össze. Ezután adjuk hozzá az összes száraz hozzávalót, vagyis a fehérjeport, a süt?port, a lisztet és egy csipetnyi sót, majd keverjük jól össze. Pépesítsünk egy banánt sima pürévé, és óvatosan keverjük bele a tésztába. Készítsük el? a tepsit, fújjuk be olajjal, és öntsük bele a tésztát, egyenletesen eloszlatva. Tegyük a 180 °C-ra el?melegített süt?be 30-40 percre, és süssük meg. A piskótát egy fapálcikával megszurkálva vizsgáljuk meg. Ha száraznak t?nik, a tortaalap elkészült. Ha nedves, akkor süssük tovább. Ha a piskóta elkészült, vegyük ki a süt?b?l, majd fejjel lefelé fordítva fordítsuk ki a tepsib?l, és hagyjuk kih?lni.\n\nMost már elkészíthetjük a krémtölteléket. Forraljunk fel 400 ml tejet a t?zhelyen. A maradék 100 ml tejben keverjük el a pudingport, majd ezt a keveréket öntsük a forró tejbe. Fokozatosan adjuk hozzá a fehérjeport, és óvatosan keverjük össze, és f?zzük egy darabig. Figyeljünk oda, hogy a krémtöltelékben ne legyenek csomók.\n\nA megsült piskótalapot apró kockákra vágjuk.\n\nMost már elkezdhetjük a rétegek elkészítését. Készítsünk el? három poharat, és készítsünk rétegeket a piskótakockák és a krémtöltelék váltakozásával, amíg az összes hozzávaló el nem fogy. Ha kész, hagyjuk a poharakat legalább egy órán át a h?t?ben állni. Ezután tálalhatjuk és fogyaszthatjuk is.\n\nTippünk: Ha egy éjszakán át a h?t?szekrényben hagyjuk a poharakat, a krémtölteléknek lesz elég ideje, hogy beszívódjon a piskótába, és simábbá tegye azt. A tetejét Zero sziruppal, diófélékkel vagy liofilizált gyümölcsökkel szórhatjuk meg.'),
+(8, 'Spenótos tojásrántotta', 'spenototsRantotta.jpg', 'A tojás sokak, köztük a fitneszrajongók által kedvelt reggeli alapdarab. Ma megmutatunk egy egyszer? módszert, amellyel ezt az ízletes klasszikust egy teljesen új szintre emelheted.', 'Hogyan lehet feldobni a rántottát? Ma egy egyszer? csavarral, mindössze két további hozzávalóval luxus reggeli élménnyé varázsoltuk ezt a hétköznapi ételt. Esetünkben a spenótot és a parmezánt választottuk. Az eredmény igazán elragadó – gy?z?dj meg róla a saját szemeddel.', '• 3 tojás\n• 2 nagy marék bébispenót\n• 10 g parmezán\n• 1 ev?kanál olívaolaj\n• só ízlés szerint\n• ?rölt fekete bors ízlés szerint\n• friss zöldségek\n• kenyér', 'Melegítsük fel az olívaolajat egy serpeny?ben, és 2-3 percig pároljuk a bébispenótot. Ezután törjünk fel és verjük fel a tojást, majd adjuk a spenóthoz. F?zzük alacsony h?fokon, folyamatosan kevergetve, amíg a tojás be nem s?r?södik. Végül sózzuk és borsozzuk, szórjuk rá a reszelt parmezánt, és keverjük meg alaposan. Ha kész, az étel azonnal tálalható.');
+
+-- --------------------------------------------------------
+
+--
 -- Tábla szerkezet ehhez a táblához `sportok`
 --
 
@@ -174,6 +204,29 @@ INSERT INTO `sportok` (`id`, `megnevezes`, `rovid_leiras`, `reszletes_leiras`, `
 (2, 'Testépítés', 'A testépítés egy olyan sport, amely a test izomtömegének növelésére és formálására összpontosít. A sportolók súlyzós edzésekkel dolgoznak a különböző izomcsoportokon, miközben figyelnek a táplálkozásra és a pihenésre is, hogy elősegítsék az izmok regenerálódását és növekedését. A testépítés célja nemcsak az erő növelése, hanem a test esztétikai megjelenésének javítása is.', 'A testépítés egy olyan sport és életmód, amely az izomtömeg növelésére és az izomformák kiemelésére összpontosít. A testépítők különböző súlyzós edzésekkel dolgoznak, hogy fokozzák az izomfejlődést, miközben figyelmet fordítanak a megfelelő táplálkozásra, pihenésre és regenerációra. Az edzés során a célzott izmok erősítésére használt technikák közé tartoznak a sorozatok, ismétlések, valamint a különböző súlyzós gyakorlatok, mint például a fekvenyomás, guggolás, felhúzás, bicepsz- és tricepszgyakorlatok.\r\nA testépítés nem csupán a fizikai erő növelésére irányul, hanem az esztétikai célok elérésére is, mint például a test szimmetriájának és izomtónusának javítása. A sportolók az edzések mellett speciális diétát követnek, amely gazdag fehérjékben és más tápanyagokban, amelyek elősegítik az izomépítést és a regenerációt. A pihenés és a megfelelő alvás szintén kulcsfontosságú, mivel az izmok növekedése az edzés utáni regenerációs időszakban történik.', 'lat_pulldown.jpg', 'testepites.mp4'),
 (3, 'Erősember', 'Az erősember sport egy extrém erőnléti versenysport, amelyben a versenyzők különféle kihívásokkal mérik össze fizikai erejüket. A sportban a versenyzők olyan feladatokat hajtanak végre, amelyek az egész test erejét igénylik, például óriási súlyok emelése, hatalmas sziklák, fák vagy autók mozgatása, illetve különböző nehéz tárgyak, mint például homokzsákok vagy kerekek cipelése.', 'Az erősember sport egy extrém erőnléti versenysport, amelyben a versenyzők különféle kihívásokkal mérik össze fizikai erejüket. A sportban a versenyzők olyan feladatokat hajtanak végre, amelyek az egész test erejét igénylik, például óriási súlyok emelése, hatalmas sziklák, fák vagy autók mozgatása, illetve különböző nehéz tárgyak, mint például homokzsákok vagy kerekek cipelése.\r\nA versenyek során különböző próbákat alkalmaznak, például a kocsihúzás, farönk cipelés, golyók emelése vagy teherautó húzása. Az erősember sport a maximális erő kifejlesztésére és alkalmazására összpontosít, és a versenyzőknek rendkívüli fizikai felkészültségre, erőnlétre, valamint mentális kitartásra van szükségük a sikerhez.\r\nA sportág rendkívül népszerű a világ számos országában, és nagy figyelmet kap, mivel az erősember versenyekben bemutatott teljesítmények gyakran extrém és elképesztő méretűek, ami lenyűgözi a közönséget.', 'sa_shoulder_press2.jpg', 'strongman.mp4'),
 (4, 'Kézilabda', 'A kézilabda egy csapatsport, amelyben két csapat, mindegyik 7 játékossal, próbálja meg dobni a labdát az ellenfél kapujába. A mérkőzés célja, hogy több gólt szerezzenek, mint az ellenfél. A játékot egy szabályos méretű pályán játsszák, ahol a játékosok kézzel irányítják a labdát, és különböző passzokkal és lövésekkel próbálnak gólt szerezni. Olvass róla többet és próbáld ki te is!', 'A kézilabda egy dinamikus csapatsport, ahol két csapat (7 játékos mindkét oldalon) próbálja meg dobni a labdát az ellenfél kapujába. A játék célja, hogy több gólt szerezzenek, mint az ellenfél. A mérkőzés 2 félidőből áll, mindegyik 30 perces, és egy 20x40 méteres pályán zajlik.\r\n\r\nA játékosok kézzel irányítják a labdát, passzolnak és lövik a kaput. A támadók célja, hogy minél jobb helyzetekből szerezzenek gólt, míg a védekezők a támadók megakadályozására törekednek. A kapus speciális védőfelszerelést visel, és ő védi a kaput.\r\n\r\nA mérkőzés alatt szabálytalanságok esetén szabaddobásokat vagy hétméteres dobásokat ítélhetnek. A győztes az a csapat, amely több gólt szerez a mérkőzés végére, döntetlen esetén hosszabbítás következhet.', 'szabiDob.jpg', 'kezilabda.mp4');
+
+-- --------------------------------------------------------
+
+--
+-- Tábla szerkezet ehhez a táblához `tizoraik`
+--
+
+CREATE TABLE `tizoraik` (
+  `id` int(11) NOT NULL,
+  `nev` varchar(255) NOT NULL,
+  `kep` varchar(255) DEFAULT NULL,
+  `figyelemfelkeltes` text NOT NULL,
+  `leiras` text NOT NULL,
+  `hozzavalok` text NOT NULL,
+  `elkeszites` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- A tábla adatainak kiíratása `tizoraik`
+--
+
+INSERT INTO `tizoraik` (`id`, `nev`, `kep`, `figyelemfelkeltes`, `leiras`, `hozzavalok`, `elkeszites`) VALUES
+(1, 'Bulgursaláta pulykahússal', 'bulgurpulyka.jpg', 'Ha egy könnyen elkészíthet?, ízletes saláta receptet keresel, amelyben optimális arányban vannak makrotápanyagok is, akkor ezt az ízletes ételt ki kell próbálnod. Ebédre és vacsorára is tökéletes.', 'Egy salátának sosem kell unalmasnak lennie. És ez a recept remek példa is erre! Bulgur az alapja, amely nagyszer? szénhidrátforrás. De adtunk hozzá zöldségeket, pulykát és balkáni sajtot is. Így egy ízletes, az összes makrotápanyag tökéletes egyensúlyát biztosító ételt kapunk. Kiváló, táplálkozási szempontból kiegyensúlyozott ebéd vagy vacsora.', '• 250 g cseresznyeparadicsom\n• 155 g pulykamell saját levében\n• 100 g bulgur\n• 100 g fekete olajbogyó\n• 100 g balkáni sajt\n• 4 aszalt paradicsom\n• 1 uborka\n• friss bazsalikom ízlés szerint\n• só ízlés szerint\n• fehér joghurt\n• tejföl', 'Kezdjük a bulgurral. Öblítsük le és tegyük egy kis fazékba 300 ml vízben. Sózzuk meg, forraljuk fel, és f?zzük puhára kb. 15 perc alatt. Ne felejtsük el id?nként megkeverni, hogy ne ragadjon le az aljára. Közben el?készítjük a többi hozzávalót. Mossuk meg és vágjuk fel az uborkát és a paradicsomot. A cseresznyeparadicsomokat elég csak félbe vágni, az uborkát pedig apró kockákra. Ezután vágjuk az olajbogyót is félbe, a napon aszalt paradicsomot és a Balkáni sajtot pedig szintén apróra.\r\nTegyük az el?készített hozzávalókat egy tálba, és adjuk hozzá a f?tt és lesz?rt bulgurt. Sz?rjük le a vizet a pulykahúsról is. Ezután szeleteljük fel, és adjuk hozzá a tálban lév? többi hozzávalóhoz az apróra vágott bazsalikommal együtt. Keverjünk össze mindent, majd ízlés szerint sózzuk, és tálaljuk.\r\nTippünk: Ha a könnyedebb ételeket kedveled, a salátát f?szeres joghurttal, tejföllel vagy light majonéz öntettel is tálalhatod.');
 
 --
 -- Indexek a kiírt táblákhoz
@@ -218,9 +271,21 @@ ALTER TABLE `kerdoiv`
   ADD PRIMARY KEY (`kerdoivid`);
 
 --
+-- A tábla indexei `reggelik`
+--
+ALTER TABLE `reggelik`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- A tábla indexei `sportok`
 --
 ALTER TABLE `sportok`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- A tábla indexei `tizoraik`
+--
+ALTER TABLE `tizoraik`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -264,10 +329,22 @@ ALTER TABLE `kerdoiv`
   MODIFY `kerdoivid` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT a táblához `reggelik`
+--
+ALTER TABLE `reggelik`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
 -- AUTO_INCREMENT a táblához `sportok`
 --
 ALTER TABLE `sportok`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT a táblához `tizoraik`
+--
+ALTER TABLE `tizoraik`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
