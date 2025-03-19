@@ -64,56 +64,71 @@
                 </li>
             </ul>
             
-            <div style="background-color: #3c4c60;" class="card mb-3"  ng-repeat="x in [].constructor(8) track by $index">
+            
+            <div style="background-color: #3c4c60;" class="card mb-3"  ng-repeat="x in data track by $index">
                 <div ng-id="tab-{{$index+1}}" class="row tab-pane fade show p-0 active" data-bs-toggle="modal" data-bs-target="#etel">
                   <div class="col-md-4">
-                    <img ng-src="./media/image/etelek/reggelik/almásSzelet.jpg" class="img-fluid rounded-start" alt="...">
+                    <img ng-src="./media/image/etelek/reggelik/{{x.kep}}" class="img-fluid" alt="...">
                   </div>
                   <div class="col-md-8">
-                    <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
+                    <div class="card-body text-center">
+                      <h4 class="card-title mb-5">{{x.nev}}</h4>
                       <p class="card-text">
-                        This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.
-                        This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.
-                        This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.
-                        This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.
-                        This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.
-                        This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.
-                        This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.
-                        
+                        {{x.figyelemfelkeltes}}
                       <p>
-                      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                      <h1 class="card-text text-down mt-5"><b><u>Bővebben</u></b></h1>
                     </div>
                   </div>
                 </div>
             </div>
                        
-            <!-- Modals -->
-            <div class="modal fade" style="background-color: #3c4c60;" id="etel" tabindex="-1" role="dialog" aria-labelledby="etel" aria-hidden="true">
-                <div class="modal-dialog modal-xl" role="document"  >
+            <!-- Meals Modals -->
+            <div class="modal fade" 
+                 ng-repeat="x in data track by $index" 
+                 style="background-color: #3c4c60;" 
+                 id="etel" 
+                 role="dialog" 
+                 aria-labelledby="etel" 
+                 aria-hidden="true">
+                <div class="modal-dialog modal-xl" 
+                     role="document">
                   <div class="modal-content" >
                     <div class="modal-header">
-                      <h4 class="modal-title" id="etel">{{dadada}}</h4>
-                      
+                      <h2 class="modal-title" 
+                          id="etel">
+                            {{x.nev}}
+                      </h2>
                     </div>
                     <div class="modal-body text-start">
-                       
-                        <p>LEIRAS: Mit készítsünk reggelire? Ha klasszikus zabkását szokál enni, most próbálj meg változtatni, és a zabpelyhet rizzsel helyettesíteni. Bár az elkészítése kicsit több időt vesz igénybe, garantáljuk, hogy az eredmény megéri. A krémes, vaníliás rizs fehérjében sem szenved hiányt. És ha még málnát is teszel rá, kész a tökéletes reggeli.
-                          HOZZÁVALÓK
-                          •	300 ml víz
-                          •	150 ml zsírszegény tej
-                          •	60 g természetes jázmin rizs
-                          •	60 g fagyasztott málna
-                          •	60 g vaníliás fehérjepor
-                          •	30 ml Agavé szirup
-                          •	vanília aroma ízlés szerint
-                          Elkészítés:
-                          Öblítsük le a jázmin rizst folyó vízben, hogy leszűrjük a felesleges keményítőt. Majd forraljunk fel 300 ml vizet egy lábasban, és adjuk hozzá a rizst, és közepes lángon főzzük, amíg a rizs majdnem az összes vizet felszívja. Ez nagyjából 10-15 perc.
-                          </p>
+                        <p>
+                          <b>
+                            {{x.leiras}}
+                          </b>
+                        </p>
+
+                        <h4 class="modal-title">
+                          Hozzávalók:
+                        </h4>
+                        <ul>
+                          <li>
+                            {{x.hozzavalok}}
+                          </li> 
+                        </ul>
+
+                        <h4 class="modal-title">
+                          Elkészítése:
+                        </h2>
+                        <p>
+                          {{x.elkeszites}}
+                        </p>
                         
                     </div>
                     <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary outline " data-bs-dismiss="modal">Bezár</button>
+                      <button type="button" 
+                              class="btn btn-secondary outline" 
+                              data-bs-dismiss="modal">
+                              Bezár
+                      </button>
                     </div>
                   </div>
                 </div>

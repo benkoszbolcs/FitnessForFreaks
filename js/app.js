@@ -55,7 +55,7 @@
 				url: '/meals',
         parent: 'root',
 				templateUrl: './html/meals.html',
-				//controller: 'mealController'
+				controller: 'mealController'
 			})
       .state('aboutus', {
 				url: '/aboutus',
@@ -419,6 +419,18 @@
       $scope.changeDay = (index) => {
         $scope.selectedTab = index;
       }
+    }
+  ])
+  .controller('mealController', [
+    '$scope',
+    'http',
+    function($scope, http) {
+      http.request("./php/breakfast.php")
+      .then(response => {
+        $scope.data = response;
+        $scope.$applyAsync();
+      })
+      .catch(e => user.error(e));
     }
   ])
 	
