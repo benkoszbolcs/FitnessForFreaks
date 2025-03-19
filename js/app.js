@@ -425,6 +425,8 @@
     '$scope',
     'http',
     function($scope, http) {
+      // let myarray = $scope.hozzavalok;
+      // myarray.Split('•');
       http.request("./php/breakfast.php")
       .then(response => {
         $scope.data = response;

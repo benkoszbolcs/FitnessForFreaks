@@ -36,6 +36,7 @@
                 <hr>
               </details>
         </div>
+        <!-- Tabulator -->
         <div class="tab-class text-center">
             <ul class="nav nav-pills d-inline-flex justify-content-center bg-dark text-uppercase rounded-pill mb-5">
                 <li class="nav-item">
@@ -65,10 +66,10 @@
             </ul>
             
             
-            <div style="background-color: #3c4c60;" class="card mb-3"  ng-repeat="x in data track by $index">
+            <div style="background-color: #3c4c60; height: auto;" class="card mb-3"  ng-repeat="x in data track by $index">
                 <div ng-id="tab-{{$index+1}}" class="row tab-pane fade show p-0 active" data-bs-toggle="modal" data-bs-target="#etel">
-                  <div class="col-md-4">
-                    <img ng-src="./media/image/etelek/reggelik/{{x.kep}}" class="img-fluid" alt="...">
+                  <div class="col-md-4 text-start">
+                    <img ng-src="./media/image/etelek/reggelik/{{x.kep}}" class="img-fluid img-start" alt="...">
                   </div>
                   <div class="col-md-8">
                     <div class="card-body text-center">

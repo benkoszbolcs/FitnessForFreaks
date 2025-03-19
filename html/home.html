@@ -56,16 +56,19 @@
 						</p>
 					</div>
 				</div>
-				<div class="row justify-content-center">
-					<div class="col-12 col-sm-11 col-md-6 col-xxl-3 mb-4 "
-							 ng-repeat="x in states">
-						<div class="card text-light card-has-bg click-col">
+				<div class="row justify-content-center" >
+					<div class="col-12 col-sm-11 col-md-6 col-xxl-3 mb-4"
+						 ng-repeat="x in states">
+						<div class="card text-light card-has-bg click-col" 
+						     style="min-height: 450px;">
 							<img class="card-img" 
-									 ng-src="{{x.headerImg}}"
-									 alt="img">
+								 ng-src="{{x.headerImg}}"
+								 alt="img">
 							<div class="card-img-overlay d-flex flex-column">
 								<div class="card-body">
-									<small class="card-meta mb-2">{{x.titleSmall}}</small>
+									<small class="card-meta mb-2">
+										{{x.titleSmall}}
+									</small>
 									<h4 class="card-title mt-2 ">
 										{{x.title}}
 									</h4>
@@ -90,7 +93,7 @@
 								</div>
 							</div>
 						</div>
+					</div>
 				</div>
 			</div>
-	</div>
 </div>
