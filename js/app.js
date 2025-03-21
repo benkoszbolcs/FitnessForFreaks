@@ -433,6 +433,15 @@
         $scope.$applyAsync();
       })
       .catch(e => user.error(e));
+
+      $scope.bovebben = (etel) => {
+        $scope.etel = etel;
+        $scope.$applyAsync();
+      }
+      // $scope.mySplit = function(string, nb) {
+      //   let array = string.split('•');
+      //   return array[nb];
+      // }
     }
   ])
 	

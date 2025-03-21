@@ -67,7 +67,7 @@
             
             
             <div style="background-color: #3c4c60; height: auto;" class="card mb-3"  ng-repeat="x in data track by $index">
-                <div ng-id="tab-{{$index+1}}" class="row tab-pane fade show p-0 active" data-bs-toggle="modal" data-bs-target="#etel">
+                <div ng-id="tab-{{$index+1}}" class="row tab-pane fade show p-0 active">
                   <div class="col-md-4 text-start">
                     <img ng-src="./media/image/etelek/reggelik/{{x.kep}}" class="img-fluid img-start" alt="...">
                   </div>
@@ -77,7 +77,15 @@
                       <p class="card-text">
                         {{x.figyelemfelkeltes}}
                       <p>
-                      <h1 class="card-text text-down mt-5"><b><u>Bővebben</u></b></h1>
+                      <h1 class="card-text text-down mt-5">
+                        <a class="btn"
+                           style="font-size:xx-large;" 
+                           data-bs-toggle="modal" 
+                           data-bs-target="#etel"
+                           ng-click="bovebben(x)">
+                          <b><u>Bővebben</u></b>
+                        </a>
+                      </h1>
                     </div>
                   </div>
                 </div>
@@ -97,13 +105,13 @@
                     <div class="modal-header">
                       <h2 class="modal-title" 
                           id="etel">
-                            {{x.nev}}
+                            {{etel.nev}}
                       </h2>
                     </div>
                     <div class="modal-body text-start">
                         <p>
                           <b>
-                            {{x.leiras}}
+                            {{etel.leiras}}
                           </b>
                         </p>
 
@@ -112,7 +120,8 @@
                         </h4>
                         <ul>
                           <li>
-                            {{x.hozzavalok}}
+                            {{etel.hozzavalok}}
+                            <!-- {{mySplit(string,0)}} -->
                           </li> 
                         </ul>
 
@@ -120,9 +129,13 @@
                           Elkészítése:
                         </h2>
                         <p>
-                          {{x.elkeszites}}
+                          {{etel.elkeszites}}
                         </p>
-                        
+                      
+                        <div>
+                          <img ng-src="./media/image/etelek/reggelik/{{etel.kep}}" alt="">
+                        </div>
+                      
                     </div>
                     <div class="modal-footer">
                       <button type="button" 
