@@ -425,19 +425,30 @@
     '$scope',
     'http',
     function($scope, http) {
-      // let myarray = $scope.hozzavalok;
-      // myarray.Split('•');
-      http.request("./php/breakfast.php")
+      http.request("./php/reggelik.php")
       .then(response => {
         $scope.data = response;
         $scope.$applyAsync();
       })
       .catch(e => user.error(e));
 
-      $scope.bovebben = (etel) => {
-        $scope.etel = etel;
+      $scope.bovebben = (reggelik) => {
+        $scope.reggelik = reggelik;
         $scope.$applyAsync();
       }
+
+      // http.request("./php/tizoraik.php")
+      // .then(response => {
+      //   $scope.data = response;
+      //   $scope.$applyAsync();
+      // })
+      // .catch(e => user.error(e));
+
+      // $scope.bovebben = (tizoraik) => {
+      //   $scope.tizoraik = tizoraik;
+      //   $scope.$applyAsync();
+      // }
+
       // $scope.mySplit = function(string, nb) {
       //   let array = string.split('•');
       //   return array[nb];
