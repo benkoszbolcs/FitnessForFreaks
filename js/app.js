@@ -55,7 +55,7 @@
 				url: '/meals',
         parent: 'root',
 				templateUrl: './html/meals.html',
-				controller: 'mealController'
+				
 			})
       .state('aboutus', {
 				url: '/aboutus',
@@ -421,7 +421,7 @@
       }
     }
   ])
-  .controller('mealController', [
+  .controller('reggeliController', [
     '$scope',
     'http',
     function($scope, http) {
@@ -437,17 +437,28 @@
         $scope.$applyAsync();
       }
 
-      // http.request("./php/tizoraik.php")
-      // .then(response => {
-      //   $scope.data = response;
-      //   $scope.$applyAsync();
-      // })
-      // .catch(e => user.error(e));
-
-      // $scope.bovebben = (tizoraik) => {
-      //   $scope.tizoraik = tizoraik;
-      //   $scope.$applyAsync();
+      // $scope.mySplit = function(string, nb) {
+      //   let array = string.split('•');
+      //   return array[nb];
       // }
+    }
+  ])
+
+  .controller('tizoraiController', [
+    '$scope',
+    'http',
+    function($scope, http) {
+      http.request("./php/tizoraik.php")
+      .then(response => {
+        $scope.data = response;
+        $scope.$applyAsync();
+      })
+      .catch(e => user.error(e));
+
+      $scope.bovebben = (tizoraik) => {
+        $scope.tizoraik = tizoraik;
+        $scope.$applyAsync();
+      }
 
       // $scope.mySplit = function(string, nb) {
       //   let array = string.split('•');

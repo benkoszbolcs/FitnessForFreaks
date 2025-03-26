@@ -66,10 +66,94 @@
             </ul>
             
             <!-- Reggelik -->
-            <div style="background-color: #3c4c60; height: auto;" class="card mb-3"  ng-repeat="x in data track by $index">
-                <div ng-id="tab-{{$index+1}}" class="row tab-pane fade show p-0 active">
+            <div ng-controller="reggeliController">
+              <div style="background-color: #3c4c60;" class="card mb-3"  ng-repeat="x in data track by $index">
+                  <div ng-id="tab-1" class="row tab-pane fade show p-0 active">
+                    <div class="col-md-4 text-start">
+                      <img ng-src="./media/image/etelek/reggelik/{{x.kep}}" class="img-fluid img-start" alt="...">
+                    </div>
+                    <div class="col-md-8">
+                      <div class="card-body text-center">
+                        <h4 class="card-title mb-5">{{x.nev}}</h4>
+                        <p class="card-text">
+                          {{x.figyelemfelkeltes}}
+                        <p>  
+                        <h1 class="card-text text-down mt-5">
+                          <a class="btn"
+                            style="font-size:xx-large;" 
+                            data-bs-toggle="modal" 
+                            data-bs-target="#reggelik"
+                            ng-click="bovebben(x)">
+                            <b><u>Bővebben</u></b>
+                          </a>
+                        </h1>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+                        
+              <!-- Reggelik Modal -->
+              <div class="modal fade" 
+                  ng-repeat="x in reggelik track by $index" 
+                  style="background-color: #3c4c60;" 
+                  id="reggelik" 
+                  role="dialog" 
+                  aria-labelledby="reggelik" 
+                  aria-hidden="true">
+                  <div class="modal-dialog modal-xl" 
+                      role="document">
+                    <div class="modal-content" >
+                      <div class="modal-header">
+                        <h2 class="modal-title" 
+                            id="reggelik">
+                              {{reggelik.nev}}
+                        </h2>
+                      </div>
+                      <div class="my-3 ms-3 text-start">
+                        <img class="rounded" ng-src="./media/image/etelek/reggelik/{{reggelik.kep}}" alt="">
+                      </div>
+                      <div class="modal-body text-start">
+                          <p>
+                            <b>
+                              {{reggelik.leiras}}
+                            </b>
+                          </p>
+
+                          <h4 class="modal-title">
+                            Hozzávalók:
+                          </h4>
+                          <ul>
+                            <li>
+                              {{reggelik.hozzavalok}}
+                              <!-- {{mySplit(string,0)}} -->
+                            </li> 
+                          </ul>
+
+                          <h4 class="modal-title">
+                            Elkészítése:
+                          </h2>
+                          <p>
+                            {{reggelik.elkeszites}}
+                          </p>
+                        
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" 
+                                class="btn btn-secondary outline" 
+                                data-bs-dismiss="modal">
+                                Bezár
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+            </div>
+            <!-- Tízóraik -->
+            <div ng-controller="tizoraiController">
+              <div style="background-color: #3c4c60; height: auto;" class="card mb-3"  ng-repeat="x in data track by $index">
+                <div ng-id="tab-2" class="row tab-pane fade show p-0 active">
                   <div class="col-md-4 text-start">
-                    <img ng-src="./media/image/etelek/reggelik/{{x.kep}}" class="img-fluid img-start" alt="...">
+                    <img ng-src="./media/image/etelek/tízórai/{{x.kep}}" class="img-fluid img-start" alt="...">
                   </div>
                   <div class="col-md-8">
                     <div class="card-body text-center">
@@ -79,10 +163,10 @@
                       <p> 
                       <h1 class="card-text text-down mt-5">
                         <a class="btn"
-                           style="font-size:xx-large;" 
-                           data-bs-toggle="modal" 
-                           data-bs-target="#reggelik"
-                           ng-click="bovebben(x)">
+                          style="font-size:xx-large;" 
+                          data-bs-toggle="modal" 
+                          data-bs-target="#tizoraik"
+                          ng-click="bovebben(x)">
                           <b><u>Bővebben</u></b>
                         </a>
                       </h1>
@@ -90,31 +174,31 @@
                   </div>
                 </div>
             </div>
-                       
-            <!-- Reggelik Modal -->
+                      
+            <!-- Tízóraik Modal -->
             <div class="modal fade" 
-                 ng-repeat="x in reggelik track by $index" 
-                 style="background-color: #3c4c60;" 
-                 id="reggelik" 
-                 role="dialog" 
-                 aria-labelledby="reggelik" 
-                 aria-hidden="true">
+                ng-repeat="x in tizoraik track by $index" 
+                style="background-color: #3c4c60;" 
+                id="tizoraik" 
+                role="dialog" 
+                aria-labelledby="tizoraik" 
+                aria-hidden="true">
                 <div class="modal-dialog modal-xl" 
-                     role="document">
+                    role="document">
                   <div class="modal-content" >
                     <div class="modal-header">
                       <h2 class="modal-title" 
-                          id="reggelik">
-                            {{reggelik.nev}}
+                          id="tizoraik">
+                            {{tizoraik.nev}}
                       </h2>
                     </div>
                     <div class="my-3 ms-3 text-start">
-                      <img class="rounded" ng-src="./media/image/etelek/reggelik/{{reggelik.kep}}" alt="">
+                      <img class="rounded" ng-src="./media/image/reggelikek/tízórai/{{tizoraik.kep}}" alt="">
                     </div>
                     <div class="modal-body text-start">
                         <p>
                           <b>
-                            {{reggelik.leiras}}
+                            {{tizoraik.leiras}}
                           </b>
                         </p>
 
@@ -123,8 +207,7 @@
                         </h4>
                         <ul>
                           <li>
-                            {{reggelik.hozzavalok}}
-                            <!-- {{mySplit(string,0)}} -->
+                            {{tizoraik.hozzavalok}}
                           </li> 
                         </ul>
 
@@ -132,7 +215,7 @@
                           Elkészítése:
                         </h2>
                         <p>
-                          {{reggelik.elkeszites}}
+                          {{tizoraik.elkeszites}}
                         </p>
                       
                     </div>
@@ -146,88 +229,8 @@
                   </div>
                 </div>
             </div>
+          </div>  
 
-            <!-- Tízóraik -->
-            <!-- <div style="background-color: #3c4c60; height: auto;" class="card mb-3"  ng-repeat="x in tizoraik track by $index">
-              <div ng-id="tab-{{$index+1}}" class="row tab-pane fade show p-0 active">
-                <div class="col-md-4 text-start">
-                  <img ng-src="./media/image/etelek/reggelik/{{tizoraik.kep}}" class="img-fluid img-start" alt="...">
-                </div>
-                <div class="col-md-8">
-                  <div class="card-body text-center">
-                    <h4 class="card-title mb-5">{{tizoraik.nev}}</h4>
-                    <p class="card-text">
-                      {{tizoraik.figyelemfelkeltes}}
-                    <p> 
-                    <h1 class="card-text text-down mt-5">
-                      <a class="btn"
-                         style="font-size:xx-large;" 
-                         data-bs-toggle="modal" 
-                         data-bs-target="#reggelik"
-                         ng-click="bovebben(x)">
-                        <b><u>Bővebben</u></b>
-                      </a>
-                    </h1>
-                  </div>
-                </div>
-              </div>
-          </div> -->
-                     
-          <!-- Tízóraik Modal -->
-          <!-- <div class="modal fade" 
-               ng-repeat="x in data track by $index" 
-               style="background-color: #3c4c60;" 
-               id="reggelik" 
-               role="dialog" 
-               aria-labelledby="reggelik" 
-               aria-hidden="true">
-              <div class="modal-dialog modal-xl" 
-                   role="document">
-                <div class="modal-content" >
-                  <div class="modal-header">
-                    <h2 class="modal-title" 
-                        id="reggelik">
-                          {{reggelik.nev}}
-                    </h2>
-                  </div>
-                  <div class="my-3 ms-3 text-start">
-                    <img class="rounded" ng-src="./media/image/reggelikek/reggelik/{{reggelik.kep}}" alt="">
-                  </div>
-                  <div class="modal-body text-start">
-                      <p>
-                        <b>
-                          {{reggelik.leiras}}
-                        </b>
-                      </p>
-
-                      <h4 class="modal-title">
-                        Hozzávalók:
-                      </h4>
-                      <ul>
-                        <li>
-                          {{reggelik.hozzavalok}}
-                        </li> 
-                      </ul>
-
-                      <h4 class="modal-title">
-                        Elkészítése:
-                      </h2>
-                      <p>
-                        {{reggelik.elkeszites}}
-                      </p>
-                    
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" 
-                            class="btn btn-secondary outline" 
-                            data-bs-dismiss="modal">
-                            Bezár
-                    </button>
-                  </div>
-                </div>
-              </div>
-          </div> -->
-            
         </div>
     </div>
 </div>

@@ -6,24 +6,24 @@ require_once("../../common/php/environment.php");
 
 // Set SQL command
 $query= "SELECT `id`, 
-								`type`, 
-								`first_name`, 
-								`last_name`, 
-								`middle_name`, 
-								`born`, 
-								`gender`, 
-								`country`, 
-								`country_code`, 
-								`phone`, 
-								`city`, 
-								`postcode`, 
-								`address`, 
-								`email`, 
-								`year`, 
-								`profession`, 
-								`class`, 
-								`valid` 
-					 FROM `users`;";
+				`type`, 
+				`first_name`, 
+				`last_name`, 
+				`middle_name`, 
+				`born`, 
+				`gender`, 
+				`country`, 
+				`country_code`, 
+				`phone`, 
+				`city`, 
+				`postcode`, 
+				`address`, 
+				`email`, 
+				`year`, 
+				`profession`, 
+				`class`, 
+				`valid` 
+		   FROM `users`;";
 
 // Connect to MySQL server
 $db = new Database();
