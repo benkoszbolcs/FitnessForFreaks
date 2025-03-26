@@ -54,7 +54,7 @@
       .state('meals', {
 				url: '/meals',
         parent: 'root',
-				templateUrl: './html/meals.html',
+				templateUrl: './html/meals.html'
 				
 			})
       .state('aboutus', {

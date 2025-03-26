@@ -68,7 +68,7 @@
             <!-- Reggelik -->
             <div ng-controller="reggeliController">
               <div style="background-color: #3c4c60;" class="card mb-3"  ng-repeat="x in data track by $index">
-                  <div ng-id="tab-1" class="row tab-pane fade show p-0 active">
+                  <div ng-id="tab-{{$index+1}}" class="row tab-pane fade show p-0 active">
                     <div class="col-md-4 text-start">
                       <img ng-src="./media/image/etelek/reggelik/{{x.kep}}" class="img-fluid img-start" alt="...">
                     </div>
@@ -150,8 +150,8 @@
             </div>
             <!-- Tízóraik -->
             <div ng-controller="tizoraiController">
-              <div style="background-color: #3c4c60; height: auto;" class="card mb-3"  ng-repeat="x in data track by $index">
-                <div ng-id="tab-2" class="row tab-pane fade show p-0 active">
+              <div style="background-color: #3c4c60; height: auto;" class="card mb-3"  ng-repeat="x in data track by $reggelik">
+                <div ng-id="tab-{{$index+1}}" class="row tab-pane fade show p-0 active">
                   <div class="col-md-4 text-start">
                     <img ng-src="./media/image/etelek/tízórai/{{x.kep}}" class="img-fluid img-start" alt="...">
                   </div>
