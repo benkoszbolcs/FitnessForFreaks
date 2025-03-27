@@ -6,7 +6,7 @@
 	angular.module('app', [
 		'ui.router',
     'app.common',
-		'app.form',
+    'app.form',
     'app.user'
 	])
 
@@ -466,7 +466,28 @@
       // }
     }
   ])
-	
+	.controller('ebedController', [
+    '$scope',
+    'http',
+    function($scope, http) {
+      http.request("./php/ebedek.php")
+      .then(response => {
+        $scope.data = response;
+        $scope.$applyAsync();
+      })
+      .catch(e => user.error(e));
+
+      $scope.bovebben = (ebedek) => {
+        $scope.ebedek = ebedek;
+        $scope.$applyAsync();
+      }
+
+      // $scope.mySplit = function(string, nb) {
+      //   let array = string.split('•');
+      //   return array[nb];
+      // }
+    }
+  ])
 
   // var app = angular.module('randomNumberApp', []);
 

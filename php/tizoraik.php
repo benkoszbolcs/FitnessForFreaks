@@ -5,6 +5,9 @@ declare(strict_types=1);
 // Include environment
 require_once("../../common/php/environment.php");
 
+// Connect to MySQL server
+$db = new Database();
+
 // Set SQL command
 $query= "SELECT `id`, 
                 `nev`, 
@@ -14,9 +17,6 @@ $query= "SELECT `id`,
                 `hozzavalok`, 
                 `elkeszites` 
          FROM   `tizoraik`;";
-
-// Connect to MySQL server
-$db = new Database();
 
 // Execute SQL command
 $result = $db->execute($query);

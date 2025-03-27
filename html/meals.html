@@ -150,7 +150,7 @@
             </div>
             <!-- Tízóraik -->
             <div ng-controller="tizoraiController">
-              <div style="background-color: #3c4c60; height: auto;" class="card mb-3"  ng-repeat="x in data track by $reggelik">
+              <div style="background-color: #3c4c60; height: auto;" class="card mb-3"  ng-repeat="x in data track by $index">
                 <div ng-id="tab-{{$index+1}}" class="row tab-pane fade show p-0 active">
                   <div class="col-md-4 text-start">
                     <img ng-src="./media/image/etelek/tízórai/{{x.kep}}" class="img-fluid img-start" alt="...">
@@ -193,7 +193,7 @@
                       </h2>
                     </div>
                     <div class="my-3 ms-3 text-start">
-                      <img class="rounded" ng-src="./media/image/reggelikek/tízórai/{{tizoraik.kep}}" alt="">
+                      <img class="rounded" ng-src="./media/image/etelek/tízórai/{{tizoraik.kep}}" alt="">
                     </div>
                     <div class="modal-body text-start">
                         <p>
@@ -228,6 +228,89 @@
                     </div>
                   </div>
                 </div>
+            </div>
+          </div>  
+
+          <!-- Ebédek -->
+          <div ng-controller="ebedController">
+            <div style="background-color: #3c4c60; height: auto;" class="card mb-3"  ng-repeat="x in data track by $index">
+              <div ng-id="tab-{{$index+1}}" class="row tab-pane fade show p-0 active">
+                <div class="col-md-4 text-start">
+                  <img ng-src="./media/image/etelek/ebéd/{{x.kep}}" class="img-fluid img-start" alt="...">
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body text-center">
+                    <h4 class="card-title mb-5">{{x.nev}}</h4>
+                    <p class="card-text">
+                      {{x.figyelemfelkeltes}}
+                    <p> 
+                    <h1 class="card-text text-down mt-5">
+                      <a class="btn"
+                        style="font-size:xx-large;" 
+                        data-bs-toggle="modal" 
+                        data-bs-target="#ebedek"
+                        ng-click="bovebben(x)">
+                        <b><u>Bővebben</u></b>
+                      </a>
+                    </h1>
+                  </div>
+                </div>
+              </div>
+            </div>
+                    
+          <!-- Ebédek Modal -->
+            <div class="modal fade" 
+                 ng-repeat="x in ebedek track by $index" 
+                 style="background-color: #3c4c60;" 
+                 id="ebedek" 
+                 role="dialog" 
+                 aria-labelledby="ebedek" 
+                 aria-hidden="true">
+              <div class="modal-dialog modal-xl" 
+                   role="document">
+                <div class="modal-content" >
+                  <div class="modal-header">
+                    <h2 class="modal-title" 
+                        id="ebedek">
+                          {{ebedek.nev}}
+                    </h2>
+                  </div>
+                  <div class="my-3 ms-3 text-start">
+                    <img class="rounded" ng-src="./media/image/etelek/ebéd/{{ebedek.kep}}" alt="">
+                  </div>
+                  <div class="modal-body text-start">
+                      <p>
+                        <b>
+                          {{ebedek.leiras}}
+                        </b>
+                      </p>
+
+                      <h4 class="modal-title">
+                        Hozzávalók:
+                      </h4>
+                      <ul>
+                        <li>
+                          {{ebedek.hozzavalok}}
+                        </li> 
+                      </ul>
+
+                      <h4 class="modal-title">
+                        Elkészítése:
+                      </h2>
+                      <p>
+                        {{ebedek.elkeszites}}
+                      </p>
+                    
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" 
+                            class="btn btn-secondary outline" 
+                            data-bs-dismiss="modal">
+                            Bezár
+                    </button>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>  
 

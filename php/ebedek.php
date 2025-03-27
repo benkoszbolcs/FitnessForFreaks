@@ -16,7 +16,7 @@ $query= "SELECT `id`,
                 `leiras`,
                 `hozzavalok`,
                 `elkeszites`
-          FROM  `reggelik`;";
+          FROM  `ebed`;";
 
 // Execute SQL command
 $result = $db->execute($query);
