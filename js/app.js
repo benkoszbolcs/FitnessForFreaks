@@ -421,6 +421,7 @@
       }
     }
   ])
+
   .controller('reggeliController', [
     '$scope',
     'http',
@@ -459,11 +460,6 @@
         $scope.tizoraik = tizoraik;
         $scope.$applyAsync();
       }
-
-      // $scope.mySplit = function(string, nb) {
-      //   let array = string.split('•');
-      //   return array[nb];
-      // }
     }
   ])
 	.controller('ebedController', [
@@ -481,11 +477,25 @@
         $scope.ebedek = ebedek;
         $scope.$applyAsync();
       }
+    }
+  ])
 
-      // $scope.mySplit = function(string, nb) {
-      //   let array = string.split('•');
-      //   return array[nb];
-      // }
+  .controller('uzsonnaController', [
+    '$scope',
+    'http',
+    function($scope, http) {
+      http.request("./php/uzsonna.php")
+      .then(response => {
+        $scope.data = response;
+        $scope.$applyAsync();
+      })
+      .catch(e => user.error(e));
+
+      $scope.bovebben = (uzsonnak) => {
+        $scope.uzsonnak = uzsonnak;
+        $scope.$applyAsync();
+      }
+
     }
   ])
 

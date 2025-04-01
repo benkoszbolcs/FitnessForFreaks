@@ -70,7 +70,7 @@
               <div style="background-color: #3c4c60;" class="card mb-3"  ng-repeat="x in data track by $index">
                   <div ng-id="tab-{{$index+1}}" class="row tab-pane fade show p-0 active">
                     <div class="col-md-4 text-start">
-                      <img ng-src="./media/image/etelek/reggelik/{{x.kep}}" class="img-fluid img-start" alt="...">
+                      <img ng-src="./media/image/etelek/reggelik/{{x.kep}}" style="width:100%;height:100%;" class="img-fluid img-start" alt="...">
                     </div>
                     <div class="col-md-8">
                       <div class="card-body text-center">
@@ -109,8 +109,8 @@
                               {{reggelik.nev}}
                         </h2>
                       </div>
-                      <div class="my-3 ms-3 text-start">
-                        <img class="rounded" ng-src="./media/image/etelek/reggelik/{{reggelik.kep}}" alt="">
+                      <div class="my-3 ms-3 text-start col-md-12">
+                        <img class="rounded img-fluid" ng-src="./media/image/etelek/reggelik/{{reggelik.kep}}" alt="">
                       </div>
                       <div class="modal-body text-start">
                           <p>
@@ -153,7 +153,7 @@
               <div style="background-color: #3c4c60; height: auto;" class="card mb-3"  ng-repeat="x in data track by $index">
                 <div ng-id="tab-{{$index+1}}" class="row tab-pane fade show p-0 active">
                   <div class="col-md-4 text-start">
-                    <img ng-src="./media/image/etelek/tízórai/{{x.kep}}" class="img-fluid img-start" alt="...">
+                    <img ng-src="./media/image/etelek/tízórai/{{x.kep}}" style="width:100%;height:100%;" class="img-fluid img-start" alt="...">
                   </div>
                   <div class="col-md-8">
                     <div class="card-body text-center">
@@ -236,7 +236,7 @@
             <div style="background-color: #3c4c60; height: auto;" class="card mb-3"  ng-repeat="x in data track by $index">
               <div ng-id="tab-{{$index+1}}" class="row tab-pane fade show p-0 active">
                 <div class="col-md-4 text-start">
-                  <img ng-src="./media/image/etelek/ebéd/{{x.kep}}" class="img-fluid img-start" alt="...">
+                  <img ng-src="./media/image/etelek/ebéd/{{x.kep}}" style="width:100%;height:100%;" class="img-fluid img-start" alt="...">
                 </div>
                 <div class="col-md-8">
                   <div class="card-body text-center">
@@ -313,7 +313,90 @@
               </div>
             </div>
           </div>  
-
         </div>
+        <!-- Uzsonna -->
+        <div ng-controller="uzsonnaController">
+          <div style="background-color: #3c4c60; height: auto;" class="card mb-3"  ng-repeat="x in data track by $index">
+            <div ng-id="tab-{{$index+1}}" class="row tab-pane fade show p-0 active">
+              <div class="col-md-4 text-start">
+                <img ng-src="./media/image/etelek/uzsonna/{{x.kep}}" style="width:100%;height:100%;" class="img-fluid img-start" alt="...">
+              </div>
+              <div class="col-md-8">
+                <div class="card-body text-center">
+                  <h4 class="card-title mb-5">{{x.nev}}</h4>
+                  <p class="card-text">
+                    {{x.figyelemfelkeltes}}
+                  <p> 
+                  <h1 class="card-text text-down mt-5">
+                    <a class="btn"
+                      style="font-size:xx-large;" 
+                      data-bs-toggle="modal" 
+                      data-bs-target="#uzsonna"
+                      ng-click="bovebben(x)">
+                      <b><u>Bővebben</u></b>
+                    </a>
+                  </h1>
+                </div>
+              </div>
+            </div>
+          </div>
+                  
+        <!-- Uzsonna Modal -->
+          <div class="modal fade" 
+               ng-repeat="x in uzsonnak track by $index" 
+               style="background-color: #3c4c60;" 
+               id="uzsonna" 
+               role="dialog" 
+               aria-labelledby="uzsonna" 
+               aria-hidden="true">
+            <div class="modal-dialog modal-xl" 
+                 role="document">
+              <div class="modal-content" >
+                <div class="modal-header">
+                  <h2 class="modal-title" 
+                      id="uzsonna">
+                        {{uzsonnak.nev}}
+                  </h2>
+                </div>
+                <div class="my-3 ms-3 text-start">
+                  <img class="rounded" ng-src="./media/image/etelek/uzsonna/{{uzsonnak.kep}}" alt="">
+                </div>
+                <div class="modal-body text-start">
+                    <p>
+                      <b>
+                        {{uzsonnak.leiras}}
+                      </b>
+                    </p>
+
+                    <h4 class="modal-title">
+                      Hozzávalók:
+                    </h4>
+                    <ul>
+                      <li>
+                        {{uzsonnak.hozzavalok}}
+                      </li> 
+                    </ul>
+
+                    <h4 class="modal-title">
+                      Elkészítése:
+                    </h2>
+                    <p>
+                      {{uzsonnak.elkeszites}}
+                    </p>
+                  
+                </div>
+                <div class="modal-footer">
+                  <button type="button" 
+                          class="btn btn-secondary outline" 
+                          data-bs-dismiss="modal">
+                          Bezár
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>  
+
+      </div>
     </div>
 </div>
