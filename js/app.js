@@ -405,6 +405,7 @@
         $scope.data = response;
         $scope.$applyAsync();
       })
+      
       .catch(e => user.error(e));
 
       $scope.bovebben = (gyakorlat) => {
@@ -412,8 +413,16 @@
         $scope.$applyAsync();
       }
 
-      $scope.bovebben = (gyakorlat) => {
-        $scope.gyakorlat = gyakorlat;
+      http.request("./php/workoutplanData.php")
+      .then(response => {
+        $scope.data2 = response;
+        $scope.$applyAsync();
+      })
+      
+      .catch(e => user.error(e));
+      
+      $scope.bovebben = (gyakorlat2) => {
+        $scope.gyakorlat2 = gyakorlat2;
         $scope.$applyAsync();
       }
 
