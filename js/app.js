@@ -54,7 +54,8 @@
       .state('meals', {
 				url: '/meals',
         parent: 'root',
-				templateUrl: './html/meals.html'
+				templateUrl: './html/meals.html',
+        controller: 'mealsController'
 				
 			})
       .state('aboutus', {
@@ -422,7 +423,7 @@
     }
   ])
 
-  .controller('reggeliController', [
+  .controller('mealsController', [
     '$scope',
     'http',
     function($scope, http) {
@@ -438,37 +439,21 @@
         $scope.$applyAsync();
       }
 
-      // $scope.mySplit = function(string, nb) {
-      //   let array = string.split('•');
-      //   return array[nb];
-      // }
-    }
-  ])
-
-  .controller('tizoraiController', [
-    '$scope',
-    'http',
-    function($scope, http) {
       http.request("./php/tizoraik.php")
       .then(response => {
-        $scope.data = response;
+        $scope.data2 = response;
         $scope.$applyAsync();
       })
       .catch(e => user.error(e));
 
       $scope.bovebben = (tizoraik) => {
-        $scope.tizoraik = tizoraik;
+        $scope.reggelik = tizoraik;
         $scope.$applyAsync();
       }
-    }
-  ])
-	.controller('ebedController', [
-    '$scope',
-    'http',
-    function($scope, http) {
+
       http.request("./php/ebedek.php")
       .then(response => {
-        $scope.data = response;
+        $scope.data3 = response;
         $scope.$applyAsync();
       })
       .catch(e => user.error(e));
@@ -477,27 +462,38 @@
         $scope.ebedek = ebedek;
         $scope.$applyAsync();
       }
-    }
-  ])
 
-  .controller('uzsonnaController', [
-    '$scope',
-    'http',
-    function($scope, http) {
       http.request("./php/uzsonna.php")
       .then(response => {
-        $scope.data = response;
+        $scope.data4 = response;
         $scope.$applyAsync();
       })
-      .catch(e => user.error(e));
 
       $scope.bovebben = (uzsonnak) => {
         $scope.uzsonnak = uzsonnak;
         $scope.$applyAsync();
       }
 
+      http.request("./php/vacsora.php")
+      .then(response => {
+        $scope.data5 = response;
+        $scope.$applyAsync();
+      })
+      .catch(e => user.error(e));
+
+      $scope.bovebben = (vacsorak) => {
+        $scope.vacsorak = vacsorak;
+        $scope.$applyAsync();
+      }
+
+      // $scope.mySplit = function(string, nb) {
+      //   let array = string.split('•');
+      //   return array[nb];
+      // }
     }
   ])
+
+  
 
   // var app = angular.module('randomNumberApp', []);
 
