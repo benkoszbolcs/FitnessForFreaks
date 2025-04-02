@@ -456,7 +456,7 @@
       .catch(e => user.error(e));
 
       $scope.bovebben = (tizoraik) => {
-        $scope.reggelik = tizoraik;
+        $scope.tizoraik = tizoraik;
         $scope.$applyAsync();
       }
 
