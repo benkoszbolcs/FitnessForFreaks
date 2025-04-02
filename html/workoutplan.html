@@ -120,10 +120,15 @@
                             </a>
                         </div>
                     </div>
-                    <h1 class="text-center display-1 mt-5 pt-5"
-                        ng-if="restDay">
+                    <div ng-if="restDay">
+                        <h1 class="text-center display-1 mt-5 pt-5">
                         Pihenőnap!
                     </h1>
+                    <video autoplay muted loop id="myVideo">
+                        <source ng-src="./media/video/pihenonap.mp4" type="video/mp4">
+                    </video>
+                    </div>
+                    
                 </div>
             </div>
           </div>
