@@ -65,12 +65,12 @@
                 </li>
             </ul>
             
-            <!-- Reggelik -->
+            <!-- Meals -->
             
             <div style="background-color: #3c4c60;" class="card mb-3"  ng-repeat="x in data track by $index">
                 <div ng-id="tab-{{$index+1}}" class="row tab-pane fade show p-0 active">
                   <div class="col-md-4 text-start">
-                    <img ng-src="./media/image/etelek/reggelik/{{x.kep}}" style="width:100%;height:100%;" class="img-fluid img-start" alt="...">
+                    <img ng-src="./media/image/etelek/{{x.kep}}" style="width:100%;height:100%;" class="img-fluid img-start" alt="...">
                   </div>
                   <div class="col-md-8">
                     <div class="card-body text-center">
@@ -92,9 +92,9 @@
                 </div>
             </div>
                       
-            <!-- Reggelik Modal -->
+            <!-- Meals Modal -->
             <div class="modal fade" 
-                ng-repeat="x in reggelik track by $index" 
+                ng-repeat="x in meal track by $index" 
                 style="background-color: #3c4c60;" 
                 id="reggelik" 
                 role="dialog" 
@@ -106,16 +106,16 @@
                     <div class="modal-header">
                       <h2 class="modal-title" 
                           id="reggelik">
-                            {{reggelik.nev}}
+                            {{meal.nev}}
                       </h2>
                     </div>
                     <div class="my-3 ms-3 text-start col-md-12">
-                      <img class="rounded img-fluid" ng-src="./media/image/etelek/reggelik/{{reggelik.kep}}" alt="">
+                      <img class="rounded img-fluid" ng-src="./media/image/etelek/{{meal.kep}}" alt="">
                     </div>
                     <div class="modal-body text-start">
                         <p>
                           <b>
-                            {{reggelik.leiras}}
+                            {{meal.leiras}}
                           </b>
                         </p>
 
@@ -124,7 +124,7 @@
                         </h4>
                         <ul>
                           <li>
-                            {{reggelik.hozzavalok}}
+                            {{meal.hozzavalok}}
                             <!-- {{mySplit(string,0)}} -->
                           </li> 
                         </ul>
@@ -133,7 +133,7 @@
                           Elkészítése:
                         </h2>
                         <p>
-                          {{reggelik.elkeszites}}
+                          {{meal.elkeszites}}
                         </p>
                       
                     </div>
@@ -147,329 +147,6 @@
                   </div>
                 </div>
             </div>
-            
-            <!-- Tízóraik -->
-            <div style="background-color: #3c4c60; height: auto;" class="card mb-3"  ng-repeat="x in data2 track by $index">
-              <div ng-id="tab-{{$index+1}}" class="row tab-pane fade show p-0 active">
-                <div class="col-md-4 text-start">
-                  <img ng-src="./media/image/etelek/tízórai/{{x.kep}}" style="width:100%;height:100%;" class="img-fluid img-start" alt="...">
-                </div>
-                <div class="col-md-8">
-                  <div class="card-body text-center">
-                    <h4 class="card-title mb-5">{{x.nev}}</h4>
-                    <p class="card-text">
-                      {{x.figyelemfelkeltes}}
-                    <p> 
-                    <h1 class="card-text text-down mt-5">
-                      <a class="btn"
-                        style="font-size:xx-large;" 
-                        data-bs-toggle="modal" 
-                        data-bs-target="#tizoraik"
-                        ng-click="bovebben(x)">
-                        <b><u>Bővebben</u></b>
-                      </a>
-                    </h1>
-                  </div>
-                </div>
-              </div>
-            </div>
-                      
-            <!-- Tízóraik Modal -->
-            <div class="modal fade" 
-                ng-repeat="x in tizoraik track by $index" 
-                style="background-color: #3c4c60;" 
-                id="tizoraik" 
-                role="dialog" 
-                aria-labelledby="tizoraik" 
-                aria-hidden="true">
-                <div class="modal-dialog modal-xl" 
-                    role="document">
-                  <div class="modal-content" >
-                    <div class="modal-header">
-                      <h2 class="modal-title" 
-                          id="tizoraik">
-                            {{tizoraik.nev}}
-                      </h2>
-                    </div>
-                    <div class="my-3 ms-3 text-start">
-                      <img class="rounded" ng-src="./media/image/etelek/tízórai/{{tizoraik.kep}}" alt="">
-                    </div>
-                    <div class="modal-body text-start">
-                        <p>
-                          <b>
-                            {{tizoraik.leiras}}
-                          </b>
-                        </p>
-
-                        <h4 class="modal-title">
-                          Hozzávalók:
-                        </h4>
-                        <ul>
-                          <li>
-                            {{tizoraik.hozzavalok}}
-                          </li> 
-                        </ul>
-
-                        <h4 class="modal-title">
-                          Elkészítése:
-                        </h2>
-                        <p>
-                          {{tizoraik.elkeszites}}
-                        </p>
-                      
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" 
-                              class="btn btn-secondary outline" 
-                              data-bs-dismiss="modal">
-                              Bezár
-                      </button>
-                    </div>
-                  </div>
-                </div>
-            </div>
-
-          <!-- Ebédek -->
-          <div style="background-color: #3c4c60; height: auto;" class="card mb-3"  ng-repeat="x in data3 track by $index">
-            <div ng-id="tab-{{$index+1}}" class="row tab-pane fade show p-0 active">
-              <div class="col-md-4 text-start">
-                <img ng-src="./media/image/etelek/ebéd/{{x.kep}}" style="width:100%;height:100%;" class="img-fluid img-start" alt="...">
-              </div>
-              <div class="col-md-8">
-                <div class="card-body text-center">
-                  <h4 class="card-title mb-5">{{x.nev}}</h4>
-                  <p class="card-text">
-                    {{x.figyelemfelkeltes}}
-                  <p> 
-                  <h1 class="card-text text-down mt-5">
-                    <a class="btn"
-                      style="font-size:xx-large;" 
-                      data-bs-toggle="modal" 
-                      data-bs-target="#ebedek"
-                      ng-click="bovebben(x)">
-                      <b><u>Bővebben</u></b>
-                    </a>
-                  </h1>
-                </div>
-              </div>
-            </div>
-          </div>
-                  
-          <!-- Ebédek Modal -->
-          <div class="modal fade" 
-                ng-repeat="x in ebedek track by $index" 
-                style="background-color: #3c4c60;" 
-                id="ebedek" 
-                role="dialog" 
-                aria-labelledby="ebedek" 
-                aria-hidden="true">
-            <div class="modal-dialog modal-xl" 
-                  role="document">
-              <div class="modal-content" >
-                <div class="modal-header">
-                  <h2 class="modal-title" 
-                      id="ebedek">
-                        {{ebedek.nev}}
-                  </h2>
-                </div>
-                <div class="my-3 ms-3 text-start">
-                  <img class="rounded" ng-src="./media/image/etelek/ebéd/{{ebedek.kep}}" alt="">
-                </div>
-                <div class="modal-body text-start">
-                    <p>
-                      <b>
-                        {{ebedek.leiras}}
-                      </b>
-                    </p>
-
-                    <h4 class="modal-title">
-                      Hozzávalók:
-                    </h4>
-                    <ul>
-                      <li>
-                        {{ebedek.hozzavalok}}
-                      </li> 
-                    </ul>
-
-                    <h4 class="modal-title">
-                      Elkészítése:
-                    </h2>
-                    <p>
-                      {{ebedek.elkeszites}}
-                    </p>
-                  
-                </div>
-                <div class="modal-footer">
-                  <button type="button" 
-                          class="btn btn-secondary outline" 
-                          data-bs-dismiss="modal">
-                          Bezár
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>  
-        <!-- Uzsonna -->
-        <div style="background-color: #3c4c60; height: auto;" class="card mb-3"  ng-repeat="x in data4 track by $index">
-          <div ng-id="tab-{{$index+1}}" class="row tab-pane fade show p-0 active">
-            <div class="col-md-4 text-start">
-              <img ng-src="./media/image/etelek/uzsonna/{{x.kep}}" style="width:100%;height:100%;" class="img-fluid img-start" alt="...">
-            </div>
-            <div class="col-md-8">
-              <div class="card-body text-center">
-                <h4 class="card-title mb-5">{{x.nev}}</h4>
-                <p class="card-text">
-                  {{x.figyelemfelkeltes}}
-                <p> 
-                <h1 class="card-text text-down mt-5">
-                  <a class="btn"
-                    style="font-size:xx-large;" 
-                    data-bs-toggle="modal" 
-                    data-bs-target="#uzsonna"
-                    ng-click="bovebben(x)">
-                    <b><u>Bővebben</u></b>
-                  </a>
-                </h1>
-              </div>
-            </div>
-          </div>
-        </div>
-                  
-        <!-- Uzsonna Modal -->
-        <div class="modal fade" 
-            ng-repeat="x in uzsonnak track by $index" 
-            style="background-color: #3c4c60;" 
-            id="uzsonna" 
-            role="dialog" 
-            aria-labelledby="uzsonna" 
-            aria-hidden="true">
-          <div class="modal-dialog modal-xl" 
-              role="document">
-            <div class="modal-content" >
-              <div class="modal-header">
-                <h2 class="modal-title" 
-                    id="uzsonna">
-                      {{uzsonnak.nev}}
-                </h2>
-              </div>
-              <div class="my-3 ms-3 text-start">
-                <img class="rounded" ng-src="./media/image/etelek/uzsonna/{{uzsonnak.kep}}" alt="">
-              </div>
-              <div class="modal-body text-start">
-                  <p>
-                    <b>
-                      {{uzsonnak.leiras}}
-                    </b>
-                  </p>
-
-                  <h4 class="modal-title">
-                    Hozzávalók:
-                  </h4>
-                  <ul>
-                    <li>
-                      {{uzsonnak.hozzavalok}}
-                    </li> 
-                  </ul>
-
-                  <h4 class="modal-title">
-                    Elkészítése:
-                  </h2>
-                  <p>
-                    {{uzsonnak.elkeszites}}
-                  </p>
-                
-              </div>
-              <div class="modal-footer">
-                <button type="button" 
-                        class="btn btn-secondary outline" 
-                        data-bs-dismiss="modal">
-                        Bezár
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>        
-        <!-- Vacsora -->
-        <div style="background-color: #3c4c60; height: auto;" class="card mb-3"  ng-repeat="x in data5 track by $index">
-          <div ng-id="tab-{{$index+1}}" class="row tab-pane fade show p-0 active">
-            <div class="col-md-4 text-start">
-              <img ng-src="./media/image/etelek/vacsora/{{x.kep}}" style="width:100%;height:100%;" class="img-fluid img-start" alt="...">
-            </div>
-            <div class="col-md-8">
-              <div class="card-body text-center">
-                <h4 class="card-title mb-5">{{x.nev}}</h4>
-                <p class="card-text">
-                  {{x.figyelemfelkeltes}}
-                <p> 
-                <h1 class="card-text text-down mt-5">
-                  <a class="btn"
-                    style="font-size:xx-large;" 
-                    data-bs-toggle="modal" 
-                    data-bs-target="#vacsora"
-                    ng-click="bovebben(x)">
-                    <b><u>Bővebben</u></b>
-                  </a>
-                </h1>
-              </div>
-            </div>
-          </div>
-        </div>
-                
-      <!-- Vacsora Modal -->
-        <div class="modal fade" 
-              ng-repeat="x in vacsorak track by $index" 
-              style="background-color: #3c4c60;" 
-              id="vacsora" 
-              role="dialog" 
-              aria-labelledby="vacsora" 
-              aria-hidden="true">
-          <div class="modal-dialog modal-xl" 
-                role="document">
-            <div class="modal-content" >
-              <div class="modal-header">
-                <h2 class="modal-title" 
-                    id="vacsora">
-                      {{vacsorak.nev}}
-                </h2>
-              </div>
-              <div class="my-3 ms-3 text-start">
-                <img class="rounded" ng-src="./media/image/etelek/vacsora/{{vacsorak.kep}}" alt="">
-              </div>
-              <div class="modal-body text-start">
-                  <p>
-                    <b>
-                      {{vacsorak.leiras}}
-                    </b>
-                  </p>
-
-                  <h4 class="modal-title">
-                    Hozzávalók:
-                  </h4>
-                  <ul>
-                    <li>
-                      {{vacsorak.hozzavalok}}
-                    </li> 
-                  </ul>
-
-                  <h4 class="modal-title">
-                    Elkészítése:
-                  </h2>
-                  <p>
-                    {{vacsorak.elkeszites}}
-                  </p>
-                
-              </div>
-              <div class="modal-footer">
-                <button type="button" 
-                        class="btn btn-secondary outline" 
-                        data-bs-dismiss="modal">
-                        Bezár
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
        
 
       </div>

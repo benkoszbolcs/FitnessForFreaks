@@ -436,64 +436,18 @@
     '$scope',
     'http',
     function($scope, http) {
-      http.request("./php/reggelik.php")
+      http.request("./php/meals.php")
       .then(response => {
         $scope.data = response;
         $scope.$applyAsync();
       })
       .catch(e => user.error(e));
 
-      $scope.bovebben = (reggelik) => {
-        $scope.reggelik = reggelik;
+      $scope.bovebben = (meal) => {
+        $scope.meal = meal;
         $scope.$applyAsync();
       }
 
-      http.request("./php/tizoraik.php")
-      .then(response => {
-        $scope.data2 = response;
-        $scope.$applyAsync();
-      })
-      .catch(e => user.error(e));
-
-      $scope.bovebben = (tizoraik) => {
-        $scope.tizoraik = tizoraik;
-        $scope.$applyAsync();
-      }
-
-      http.request("./php/ebedek.php")
-      .then(response => {
-        $scope.data3 = response;
-        $scope.$applyAsync();
-      })
-      .catch(e => user.error(e));
-
-      $scope.bovebben = (ebedek) => {
-        $scope.ebedek = ebedek;
-        $scope.$applyAsync();
-      }
-
-      http.request("./php/uzsonna.php")
-      .then(response => {
-        $scope.data4 = response;
-        $scope.$applyAsync();
-      })
-
-      $scope.bovebben = (uzsonnak) => {
-        $scope.uzsonnak = uzsonnak;
-        $scope.$applyAsync();
-      }
-
-      http.request("./php/vacsora.php")
-      .then(response => {
-        $scope.data5 = response;
-        $scope.$applyAsync();
-      })
-      .catch(e => user.error(e));
-
-      $scope.bovebben = (vacsorak) => {
-        $scope.vacsorak = vacsorak;
-        $scope.$applyAsync();
-      }
 
       // $scope.mySplit = function(string, nb) {
       //   let array = string.split('•');
