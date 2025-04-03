@@ -436,6 +436,8 @@
     '$scope',
     'http',
     function($scope, http) {
+
+      $scope.mealsType = "Reggelik";
       http.request("./php/meals.php")
       .then(response => {
         $scope.data = response;
