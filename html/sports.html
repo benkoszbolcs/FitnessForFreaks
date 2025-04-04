@@ -5,8 +5,10 @@
 	<div class="row justify-content-center">
 		<div class="col-12 col-sm-11 col-md-6 col-xxl-3 mb-4 " 
 				 ng-repeat="x in data track by $index">
-				<div class="card justify-content-center text-center w-auto" style="width: 18rem;">
-					<img ng-src="./media/image/{{data[$index].kep}}" class="card-img-top" alt="...">
+				<div class="card justify-content-center text-center w-auto" 
+					style="width: 18rem;">
+					<img ng-src="./media/image/{{data[$index].kep}}" 
+						class="card-img-top">
 					<div class="card-body">
 					  <h5 class="card-title">{{x.megnevezes}}</h5>
 					  <p class="card-text">{{x.rovid_leiras}}</p>
@@ -23,8 +25,14 @@
 	</div>
 
 	<!-- Modals -->
-	<div class="modal fade" style="background-color: #3c4c60;" id="bovebb" tabindex="-1" role="dialog" aria-labelledby="bovebb" aria-hidden="true">
-		<div class="modal-dialog modal-xl" role="document"  >
+	<div class="modal fade" style="background-color: #3c4c60;" 
+			id="bovebb" 
+			tabindex="-1" 
+			role="dialog" 
+			aria-labelledby="bovebb" 
+			aria-hidden="true">
+		<div class="modal-dialog modal-xl" 
+			role="document"  >
 		  <div class="modal-content" >
 			<div class="modal-header">
 			  <h4 class="modal-title">{{sport.megnevezes}}</h4>
@@ -39,11 +47,16 @@
 				<p class="m-5">{{sport.reszletes_leiras}}</p>
 			</div>
 			<div class="text-center">
-				<button type="button" class="btn btn-lg btn-outline-success border border-success mb-3 " data-bs-dismiss="modal"><i class="fa-solid fa-cart-plus"></i> Megvásárolom</button>
+				<button type="button" 
+						class="btn btn-lg btn-outline-success border border-success mb-3 " 
+						data-bs-dismiss="modal">
+				<i class="fa-solid fa-cart-plus"></i> Megvásárolom</button>
 			</div>
 			
 			<div class="modal-footer">
-			  <button type="button" class="btn btn-secondary outline " data-bs-dismiss="modal">Bezár</button>
+			  <button type="button" 
+			  		class="btn btn-secondary outline " 
+			  		data-bs-dismiss="modal">Bezár</button>
 			</div>
 		  </div>
 		</div>

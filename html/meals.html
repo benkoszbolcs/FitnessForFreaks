@@ -70,9 +70,12 @@
             <div style="background-color: #3c4c60;" class="card mb-3"  
                  ng-repeat="x in data track by $index"
                  ng-if="x.tipus === mealsType">
-                <div ng-id="tab-{{$index+1}}" class="row tab-pane fade show p-0 active">
+                <div ng-id="tab-{{$index+1}}" 
+                    class="row tab-pane fade show p-0 active">
                   <div class="col-md-4 text-start">
-                    <img ng-src="./media/image/etelek/{{x.kep}}" style="width:100%;height:100%;" class="img-fluid img-start" alt="...">
+                    <img ng-src="./media/image/etelek/{{x.kep}}" 
+                        style="width:100%;height:100%;" 
+                        class="img-fluid img-start">
                   </div>
                   <div class="col-md-8">
                     <div class="card-body text-center">
@@ -112,7 +115,9 @@
                       </h2>
                     </div>
                     <div class="my-3 ms-3 text-start col-md-12">
-                      <img class="rounded img-fluid" ng-src="./media/image/etelek/{{meal.kep}}" alt="">
+                      <img class="rounded img-fluid" 
+                          ng-src="./media/image/etelek/{{meal.kep}}" 
+                          alt="">
                     </div>
                     <div class="modal-body text-start">
                         <p>
