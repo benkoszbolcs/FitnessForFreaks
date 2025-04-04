@@ -455,10 +455,8 @@
         $scope.$applyAsync();
       };
 
-
-
       // $scope.mySplit = function(string, nb) {
-      //   let array = string.split('•');
+      //   let array = string.mySplit('-');
       //   return array[nb];
       // }
     }
