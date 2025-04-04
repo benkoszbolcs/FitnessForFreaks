@@ -450,6 +450,12 @@
         $scope.$applyAsync();
       }
 
+      $scope.mealChoice = (mealsType) => {
+        $scope.mealsType = mealsType;
+        $scope.$applyAsync();
+      };
+
+
 
       // $scope.mySplit = function(string, nb) {
       //   let array = string.split('•');
