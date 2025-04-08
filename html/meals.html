@@ -36,6 +36,7 @@
                 <hr>
               </details>
         </div>
+
         <!-- Tabulator -->
         <div class="tab-class text-center">
             <ul class="nav nav-pills d-inline-flex justify-content-center bg-dark text-uppercase rounded-pill mb-5">
@@ -106,14 +107,21 @@
             </div>
                       
             <!-- Meals Modal -->
-            <div class="modal fade" 
+            <!-- <div class="modal fade" 
                 ng-repeat="x in meal track by $index" 
                 style="background-color: #3c4c60;" 
                 id="meals" 
-                role="dialog" 
+                role="dialog"
+                data-bs-backdrop="static" 
                 aria-labelledby="meals" 
-                aria-hidden="true">
-                <div class="modal-dialog modal-xl" 
+                aria-hidden="true"> -->
+            <div id="meals" 
+	               class="modal fade" 
+	               ng-bs-hide-modal
+	               tabindex="-1"
+	               aria-hidden="true" 
+	               data-bs-theme="dark">
+                <div class="modal-dialog modal-xl modal-dialog-scrollable" 
                     role="document">
                   <div class="modal-content" >
                     <div class="modal-header">
@@ -138,9 +146,8 @@
                           Hozzávalók:
                         </h4>
                         <ul>
-                          <li>
-                            {{meal.hozzavalok}}
-                            <!-- {{mySplit(string,0)}} -->
+                          <li ng-repeat="x in meal.hozzavalok track by $index">
+                            {{x}}
                           </li> 
                         </ul>
 

@@ -446,7 +446,12 @@
       .catch(e => user.error(e));
 
       $scope.bovebben = (meal) => {
+        meal.hozzavalok = meal.hozzavalok.split("\n");
+        meal.hozzavalok.forEach((item, i) => {
+          meal.hozzavalok[i] = item.substr(2);
+        });
         $scope.meal = meal;
+
         $scope.$applyAsync();
       }
 
