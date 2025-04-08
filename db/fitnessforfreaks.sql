@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2025. Ápr 04. 12:53
+-- Létrehozás ideje: 2025. Ápr 08. 08:36
 -- Kiszolgáló verziója: 10.4.28-MariaDB
 -- PHP verzió: 8.1.17
 
@@ -42,7 +42,8 @@ CREATE TABLE `felhasznalo` (
 
 INSERT INTO `felhasznalo` (`felhid`, `felhNev`, `email`, `jelszo`, `nem`, `szulEv`) VALUES
 (1, 'Benkő Szabolcs', 'benko.szabolcs-2020@keri.mako.hu', '1234Aa', 'M', '2006-02-16'),
-(2, 'BakaiBalazs', 'bakai.balazs-2020@keri.mako.hu', '1234Aa', 'M', '2005-10-26');
+(2, 'BakaiBalazs', 'bakai.balazs-2020@keri.mako.hu', '1234Aa', 'M', '2005-10-26'),
+(3, 'Lakatos Elemér', 'lakatos.elemer@gmail.com', '1234Aa', 'M', '2003-06-12');
 
 -- --------------------------------------------------------
 
@@ -63,7 +64,8 @@ CREATE TABLE `forum` (
 
 INSERT INTO `forum` (`forumid`, `forumido`, `felhid`, `tapasztalat`) VALUES
 (1, '2025-02-21 11:58:08', 1, 'bakfitty'),
-(2, '2025-02-21 11:58:26', 1, 'asdadkű');
+(2, '2025-02-21 11:58:26', 1, 'asdadkű'),
+(3, '2025-04-08 08:35:35', 3, 'Nagyon jól halad az oldal, sokat segített, köszönöm! Csak így tovább');
 
 -- --------------------------------------------------------
 
@@ -242,6 +244,12 @@ INSERT INTO `sportok` (`id`, `megnevezes`, `rovid_leiras`, `reszletes_leiras`, `
 --
 
 --
+-- A tábla indexei `felhasznalo`
+--
+ALTER TABLE `felhasznalo`
+  ADD PRIMARY KEY (`felhid`);
+
+--
 -- A tábla indexei `forum`
 --
 ALTER TABLE `forum`
@@ -271,10 +279,16 @@ ALTER TABLE `meals`
 --
 
 --
+-- AUTO_INCREMENT a táblához `felhasznalo`
+--
+ALTER TABLE `felhasznalo`
+  MODIFY `felhid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
 -- AUTO_INCREMENT a táblához `forum`
 --
 ALTER TABLE `forum`
-  MODIFY `forumid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `forumid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT a táblához `gyakorlat`
