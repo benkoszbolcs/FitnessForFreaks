@@ -110,47 +110,32 @@
 			<!-- Navbar content RIGHT -->
 			<ul class="navbar-nav ms-auto">
 
-				<!-- Shopping cart -->
-				<li class="nav-item mx-1"
-						ng-if="$root.user.felhid">
-					<a class="nav-link" 
-						 ui-sref="cart" 
-						 ui-sref-active="active"
-						 data-bs-toggle="collapse" 
-						 data-bs-target=".navbar-collapse.show">
-						<i class="fa-solid fa-cart-shopping me-1"></i>
-						<span class="text-capitalize text-small-caps">
-							kosár
-						</span>
-					</a>
-				</li>
-
 				<!-- User -->
 				<li class="nav-item dropdown"
 						data-bs-auto-close="true">
-          <a class="nav-link dropdown-toggle" 
-		  	href="#" 
-			role="button" 
-			data-bs-toggle="dropdown" 
-			aria-expanded="false">
-						<i class="fa-solid fa-user me-1"></i>
-						<span class="text-capitalize text-small-caps">
-							felhasználó
-						</span>
-          </a>
-          <ul class="dropdown-menu dropdown-menu-end fs-5">
+					<a class="nav-link dropdown-toggle" 
+						href="#" 
+						role="button" 
+						data-bs-toggle="dropdown" 
+						aria-expanded="false">
+									<i class="fa-solid fa-user me-1"></i>
+									<span class="text-capitalize text-small-caps">
+										felhasználó
+									</span>
+					</a>
+					<ul class="dropdown-menu dropdown-menu-end fs-5">
 
 						<!-- User name -->
-            <li class="nav-item">
-							<span class="dropdown-item-text text-capitalize text-small-caps text-nowrap"
-								 	ng-if="$root.user.felhid">
-								<span>{{$root.user.felhNev}}</span>
-							</span>
-						</li>
+						<li class="nav-item">
+										<span class="dropdown-item-text text-capitalize text-small-caps text-nowrap"
+												ng-if="$root.user.felhid">
+											<span>{{$root.user.felhNev}}</span>
+										</span>
+									</li>
 
 						<!-- Login -->
-            <li class="nav-item"
-								ng-if="!$root.user.felhid">
+						<li class="nav-item"
+							ng-if="!$root.user.felhid">
 							<a class="dropdown-item" 
 								 ui-sref="login"
 								 ui-sref-active="active">
@@ -162,11 +147,11 @@
 						</li>
 
 						<!-- Register -->
-            <li class="nav-item"
-								ng-if="!$root.user.felhid">
+						<li class="nav-item"
+							ng-if="!$root.user.felhid">
 							<a class="dropdown-item" 
-								 ui-sref="register"
-								 ui-sref-active="active">
+									ui-sref="register"
+									ui-sref-active="active">
 								<i class="fa-solid fa-id-card me-1"></i>
 								<span class="text-capitalize text-small-caps">
 									regisztráció
@@ -176,10 +161,10 @@
 
 						<!-- Profile -->
 						<li class="nav-item"
-							  ng-if="$root.user.felhid">
+								ng-if="$root.user.felhid">
 							<a class="dropdown-item" 
-								 ui-sref="profile"
-								 ui-sref-active="active">
+									ui-sref="profile"
+									ui-sref-active="active">
 								<i class="fa-regular fa-address-card me-1"></i>
 								<span class="text-capitalize text-small-caps">
 									profil
@@ -189,10 +174,10 @@
 
 						<!-- Users -->
 						<li class="nav-item"
-							  ng-if="$root.user.type==='A'">
+								ng-if="$root.user.type==='A'">
 							<a class="dropdown-item" 
-								 ui-sref="users"
-								 ui-sref-active="active">
+									ui-sref="users"
+									ui-sref-active="active">
 								<i class="fa-solid fa-users me-1"></i>
 								<span class="text-capitalize text-small-caps">
 									felhasználók
@@ -209,15 +194,15 @@
 						<li class="nav-item"
 								ng-if="$root.user.felhid">
 							<a class="dropdown-item cursor-pointer"
-								 ng-click="$root.logout()">
+									ng-click="$root.logout()">
 								<i class="fa-solid fa-right-from-bracket me-1"></i>
 								<span class="text-capitalize text-small-caps">
 									kijelenkezés
 								</span>
 							</a>
 						</li>
-          </ul>
-        </li>
+					</ul>
+				</li>
 			</ul>
 		</div>
 	</div>

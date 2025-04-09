@@ -448,7 +448,7 @@
       $scope.bovebben = (meal) => {
         meal.hozzavalok = meal.hozzavalok.split("\n");
         meal.hozzavalok.forEach((item, i) => {
-          meal.hozzavalok[i] = item.substr(2);
+          meal.hozzavalok[i] = item.substr(1);
         });
         $scope.meal = meal;
 
@@ -460,11 +460,6 @@
         $scope.$applyAsync();
       };
 
-      
-      // $scope.mySplit = function(string, nb) {
-      //   let array = string.mySplit('-');
-      //   return array[nb];
-      // }
     }
   ])
 
