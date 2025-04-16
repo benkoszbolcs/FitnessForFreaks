@@ -196,9 +196,13 @@
             methods.getMessages();
             $scope.message = null;
           }
+          // $scope.alert = function(arg){
+          //   if ($rootScope.user.felhid == null){
+          //     alert(arg);
+          //   }
+          // }
         }).catch(e=>console.log(e));
       }
-
 
       methods.getMessages();
     }
