@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2025. Ápr 08. 08:36
--- Kiszolgáló verziója: 10.4.28-MariaDB
--- PHP verzió: 8.1.17
+-- Létrehozás ideje: 2025. Máj 14. 13:56
+-- Kiszolgáló verziója: 10.4.24-MariaDB
+-- PHP verzió: 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -34,7 +34,7 @@ CREATE TABLE `felhasznalo` (
   `jelszo` varchar(100) NOT NULL,
   `nem` char(1) NOT NULL,
   `szulEv` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- A tábla adatainak kiíratása `felhasznalo`
@@ -56,7 +56,7 @@ CREATE TABLE `forum` (
   `forumido` datetime NOT NULL,
   `felhid` int(11) NOT NULL,
   `tapasztalat` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- A tábla adatainak kiíratása `forum`
@@ -79,7 +79,7 @@ CREATE TABLE `gyakorlat` (
   `gyakVideo` varchar(100) NOT NULL,
   `gyakKep` varchar(100) NOT NULL,
   `gyakLeiras` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- A tábla adatainak kiíratása `gyakorlat`
@@ -113,34 +113,19 @@ INSERT INTO `gyakorlat` (`gyakid`, `gyakNev`, `gyakVideo`, `gyakKep`, `gyakLeira
 -- --------------------------------------------------------
 
 --
--- Tábla szerkezet ehhez a táblához `kerdoiv`
---
-
-CREATE TABLE `kerdoiv` (
-  `kerdoivid` int(11) NOT NULL,
-  `kerdes1` varchar(50) NOT NULL,
-  `kerdes2` varchar(50) NOT NULL,
-  `kerdes3` varchar(50) NOT NULL,
-  `kerdes4` varchar(50) NOT NULL,
-  `kerdes5` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
-
--- --------------------------------------------------------
-
---
 -- Tábla szerkezet ehhez a táblához `meals`
 --
 
 CREATE TABLE `meals` (
   `id` int(11) NOT NULL,
-  `nev` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `kep` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `figyelemfelkeltes` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `leiras` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `hozzavalok` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `elkeszites` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `tipus` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+  `nev` varchar(255) CHARACTER SET utf8mb4 NOT NULL,
+  `kep` varchar(255) CHARACTER SET utf8mb4 NOT NULL,
+  `figyelemfelkeltes` text CHARACTER SET utf8mb4 NOT NULL,
+  `leiras` text CHARACTER SET utf8mb4 NOT NULL,
+  `hozzavalok` text CHARACTER SET utf8mb4 NOT NULL,
+  `elkeszites` text CHARACTER SET utf8mb4 NOT NULL,
+  `tipus` varchar(10) CHARACTER SET utf8mb4 NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- A tábla adatainak kiíratása `meals`
@@ -227,7 +212,7 @@ CREATE TABLE `sportok` (
   `reszletes_leiras` varchar(3000) NOT NULL,
   `kep` varchar(50) NOT NULL,
   `video` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- A tábla adatainak kiíratása `sportok`
@@ -263,12 +248,6 @@ ALTER TABLE `gyakorlat`
   ADD PRIMARY KEY (`gyakid`);
 
 --
--- A tábla indexei `kerdoiv`
---
-ALTER TABLE `kerdoiv`
-  ADD PRIMARY KEY (`kerdoivid`);
-
---
 -- A tábla indexei `meals`
 --
 ALTER TABLE `meals`
@@ -295,12 +274,6 @@ ALTER TABLE `forum`
 --
 ALTER TABLE `gyakorlat`
   MODIFY `gyakid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
-
---
--- AUTO_INCREMENT a táblához `kerdoiv`
---
-ALTER TABLE `kerdoiv`
-  MODIFY `kerdoivid` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT a táblához `meals`
