@@ -23,7 +23,8 @@
             templateUrl: './html/root.html'
           },
           'header@root': {
-            templateUrl: './html/header.html'
+            templateUrl: './html/header.html',
+            controller: 'headerController'
           },
           'footer@root': {
             templateUrl: './html/footer.html'
@@ -466,5 +467,78 @@
 
     }
   ])
+
+  // Header conroller
+    .controller('headerController', [
+      '$rootScope',
+      '$scope',
+      '$state',
+      '$interval',
+      function ($rootScope, $scope, $state, $interval) {
+
+        // Set properties for state slideshow
+        let stateSlideshow = {
+          promise: null,
+          states: [],
+          index: 0,
+          intervalMs: 10000,
+        };
+
+        // Set local methods
+        let methods = {
+
+          // Get available states for slideshow
+          prepareSlideshowStates: () => {
+            let states = $state.get().filter(s =>
+              s && s.name && !s.abstract && s.url && 
+              s.url.indexOf(':') === -1 && s.name !== 'root'
+            );
+            stateSlideshow.states = states.map((state) => {
+              return {name: state.name, params: null}
+            });
+            let cur = $state.current && $state.current.name;
+            stateSlideshow.index = Math.max(0, stateSlideshow.states.findIndex(
+                                    (i) => i.name === cur));
+          },
+
+          // Start state slideshow
+          startStateSlideshow: (intervalMs = 10000, statesList) =>{
+            if (stateSlideshow.promise) return;
+            stateSlideshow.intervalMs = intervalMs;
+            if (Array.isArray(statesList) && statesList.length)
+                    stateSlideshow.states = statesList;
+            else    methods.prepareSlideshowStates();
+            if (!stateSlideshow.states.length) return;
+            $scope.slideshowPlaying = true;
+            stateSlideshow.promise = $interval(() => {
+              let len = stateSlideshow.states.length;
+              let nextIndex = (stateSlideshow.index + 1) % len;
+              stateSlideshow.index = nextIndex;
+              $state.go(stateSlideshow.states[stateSlideshow.index].name); 
+            }, stateSlideshow.intervalMs);
+          },
+
+          // Stop state slideshow
+          stopStateSlideshow: () =>{
+            if (stateSlideshow.promise) {
+              $interval.cancel(stateSlideshow.promise);
+              stateSlideshow.promise = null;
+            }
+            $scope.slideshowPlaying = false;
+          }
+        };
+
+
+        // Initialize slideshow playing
+        $scope.slideshowPlaying = false;
+
+        // Toggle slideshow (start/stop)
+        $scope.toggleStateSlideshow = function (intervalMs) {
+          if (stateSlideshow.promise)
+                methods.stopStateSlideshow();
+          else  methods.startStateSlideshow(intervalMs);
+        };
+      }
+    ])
 
 })(window, angular);
